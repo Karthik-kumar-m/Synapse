@@ -1,9 +1,0 @@
-product_id,product_name,review_id,date,rating,text,firmware_version,component_focus,is_sarcastic
-earbuds-pro,Wireless Earbuds Pro,REV001,2026-08-20,5,"Excellent product quality, sound is crystal clear and bass is perfect.",v1.5,audio_quality,False
-earbuds-pro,Wireless Earbuds Pro,REV002,2026-08-20,1,"Completely bricked after firmware update v1.4, DO NOT UPDATE!",v1.4,firmware,False
-earbuds-pro,Wireless Earbuds Pro,REV003,2026-08-21,2,"Battery drains so fast, lasts only 2 hours, amazing right?",v1.5,battery,True
-earbuds-pro,Wireless Earbuds Pro,REV004,2026-08-21,4,"Good noise cancellation, minor connectivity issues but overall solid.",v1.5,connectivity,False
-earbuds-lite,Earbuds Lite,REV005,2026-08-22,3,"Average product for the price, does what it promises.",v1.2,microphone,False
-earbuds-lite,Earbuds Lite,REV006,2026-08-22,5,"Surprisingly good for a budget model, excellent build quality!",v1.2,build_quality,False
-earbuds-pro,Wireless Earbuds Pro,REV007,2026-08-23,2,"The case stopped charging after 3 months, very disappointed.",v1.5,charging_case,False
-earbuds-lite,Earbuds Lite,REV008,2026-08-23,4,"Great value for money, comfortable fit, works as advertised.",v1.2,comfort,False

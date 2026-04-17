@@ -55,6 +55,11 @@ Synapse ingests customer reviews from multiple sources, normalizes noisy/Hinglis
 
 ### Layer 2 — Aspect-Based Sentiment Analysis (`backend/logic/analytics.py`)
 
+Synapse now supports a local-LLM extraction mode powered by Ollama:
+- LLM reads 1-3 reviews per call and returns strict JSON feature/sentiment insights.
+- Backend enforces structured parsing and falls back to deterministic local ABSA on failure.
+- Default model policy: `qwen2.5:7b` with fallback to `qwen2.5:3b`.
+
 10 aspects tracked: **Battery Life**, **Speed**, **Packaging**, **Camera**, **Display**, **Build Quality**, **Price/Value**, **Customer Support**, **Delivery**, **Software/UI**
 
 Each aspect insight includes:
@@ -86,7 +91,6 @@ Synapse/
 │   ├── main.py               # FastAPI app + lifespan DB init
 │   ├── config.py             # pydantic-settings (DATABASE_URL, CORS, …)
 │   ├── database.py           # Async SQLAlchemy engine + get_db
-│   ├── Dockerfile
 │   ├── requirements.txt
 │   ├── models/
 │   │   ├── review.py         # Review + AspectInsight ORM models
@@ -102,8 +106,6 @@ Synapse/
 │       ├── ingestion.py      # POST /api/ingest/{csv,json,manual,realtime-feed}
 │       └── dashboard.py      # GET  /api/dashboard/{summary,reviews,alerts,…}
 ├── frontend/
-│   ├── Dockerfile
-│   ├── nginx.conf
 │   ├── package.json
 │   └── src/
 │       ├── App.jsx            # Sidebar layout + routes
@@ -119,44 +121,82 @@ Synapse/
 │           ├── LoadingSpinner.jsx
 │           └── Toast.jsx
 ├── scripts/
-│   └── seed_data.py          # 200 synthetic reviews w/ packaging spike
-└── docker-compose.yml
+│   ├── seed_data.py          # 200 synthetic reviews w/ packaging spike
+│   ├── run_backend.ps1       # Start backend locally on port 8000
+│   ├── run_frontend.ps1      # Start frontend locally on port 3000
+│   └── check_ollama.ps1      # Quick Ollama connectivity probe
 ```
 
 ---
 
 ## Quick Start
 
-### Option A — Docker Compose (recommended)
+### Local Development (Frontend + Backend Separate)
 
-```bash
-docker compose up --build
-```
+Prerequisites:
+- Python 3.12+
+- Node.js LTS
+- PostgreSQL 16+
+- Ollama (for local LLM extraction)
 
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/docs
+**Backend (Terminal commands)**
 
-### Option B — Local development
-
-**Backend**
+macOS/Linux:
 ```bash
 cd backend
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 python -m textblob.download_corpora
-
-# set env vars
 export DATABASE_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/synapse
-
-uvicorn main:app --reload --port 8000
+python -m uvicorn main:app --reload --port 8000
 ```
 
-**Frontend**
+Windows CMD:
+```bat
+cd backend
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m textblob.download_corpora
+set DATABASE_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/synapse
+.venv\Scripts\python.exe -m uvicorn main:app --reload --port 8000
+```
+
+**Ollama (required for local extraction mode)**
+```bash
+# Install Ollama from https://ollama.com/download
+ollama run qwen2.5:7b
+
+# Optional lower-latency fallback model
+ollama run qwen2.5:3b
+```
+
+Quick probe (optional):
+```bash
+curl http://localhost:8000/api/ingest/ollama-health
+```
+
+**Frontend (Terminal commands)**
+
+macOS/Linux/Windows CMD:
 ```bash
 cd frontend
 npm install
-npm start          # http://localhost:3000
+npm start
 ```
+
+If `npm` is blocked in PowerShell, run this instead:
+```bat
+"C:\Program Files\nodejs\npm.cmd" start
+```
+
+### Service URLs
+
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+- Backend health: http://localhost:8000/health
+- Ollama health via backend: http://localhost:8000/api/ingest/ollama-health
 
 ### Seed the database
 
@@ -180,6 +220,8 @@ This inserts **200 reviews** across 3 products, with the last 50 iPhone 15 Pro r
 | `POST` | `/api/ingest/json` | Upload JSON array of review objects |
 | `POST` | `/api/ingest/manual` | Single review (JSON body) |
 | `POST` | `/api/ingest/realtime-feed` | Batch of up to 50 reviews (simulated stream) |
+| `GET` | `/api/ingest/ollama-health` | Verify local Ollama connectivity and strict JSON mode |
+| `POST` | `/api/dashboard/precompute` | Precompute and persist aggregate dashboards |
 | `GET` | `/api/dashboard/summary` | KPI summary (totals, sentiment, alerts) |
 | `GET` | `/api/dashboard/reviews` | Paginated review list with filters |
 | `GET` | `/api/dashboard/alerts` | Active anomaly alerts |
@@ -198,6 +240,46 @@ Interactive docs at **http://localhost:8000/docs**
 | `SECRET_KEY` | auto-generated | App secret |
 | `DEBUG` | `true` | Debug mode |
 | `ALLOWED_ORIGINS` | `["*"]` | CORS allow-list |
+| `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama host URL |
+| `OLLAMA_MODEL_PRIMARY` | `qwen2.5:7b` | Primary extraction model |
+| `OLLAMA_MODEL_FALLBACK` | `qwen2.5:3b` | Fallback extraction model |
+| `OLLAMA_TIMEOUT_SECONDS` | `30.0` | Timeout per Ollama request |
+| `OLLAMA_RETRY_COUNT` | `1` | Retries before fallback model |
+| `OLLAMA_ENABLE_EXTRACTION` | `true` | Enable local LLM extraction path |
+| `OLLAMA_STRICT_JSON` | `true` | Request strict JSON output from Ollama |
+| `OLLAMA_BATCH_SIZE` | `3` | Max reviews per extraction call |
+
+---
+
+## Demo Runbook (Fast + Reliable)
+
+1. Precompute the night before demo:
+```bash
+curl -X POST "http://localhost:8000/api/dashboard/precompute?background=false"
+```
+2. Open dashboard and verify fast load from persisted aggregates.
+3. During demo, submit one manual Hinglish review (for example: `box toota hua tha`).
+4. Wait 2-3 seconds for local Ollama extraction.
+5. Click Dashboard "Refresh now" to show updated metrics.
+
+The dashboard now reads persisted aggregate tables for low-latency response and avoids heavy query-time recalculation.
+
+---
+
+## AI Model Integration Notes
+
+The AI path is intentionally constrained so local models stay reliable:
+
+1. LLM scope:
+   feature + sentiment extraction only (small batches of 1-3 reviews).
+2. Non-LLM scope:
+   all counts, percentages, anomaly math, and aggregate reporting are Python/SQL.
+3. Strict JSON mode:
+   Ollama calls are sent with `format: "json"` and schema validation in backend.
+4. Fallback behavior:
+   primary model `qwen2.5:7b` -> fallback `qwen2.5:3b` -> deterministic local ABSA fallback on failure.
+5. Demo optimization:
+   precompute via `/api/dashboard/precompute` and present from persisted aggregates.
 
 ---
 
@@ -209,7 +291,7 @@ Interactive docs at **http://localhost:8000/docs**
 | NLP | TextBlob, langdetect, scikit-learn (TF-IDF), emoji |
 | Database | PostgreSQL 15, asyncpg |
 | Frontend | React 18, Recharts, React Router 6, Axios |
-| Container | Docker, nginx |
+| Local LLM | Ollama + Qwen 2.5 |
 
 ---
 

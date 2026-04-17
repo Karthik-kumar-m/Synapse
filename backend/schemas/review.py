@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class ReviewCreate(BaseModel):
@@ -54,3 +54,27 @@ class BulkUploadResponse(BaseModel):
     duplicates_quarantined: int
     bots_quarantined: int
     insights_generated: int
+
+
+class LLMInsight(BaseModel):
+    feature: str = Field(..., min_length=1)
+    sentiment: Literal["Positive", "Negative", "Neutral", "Ambiguous"]
+
+
+class LLMReviewInsights(BaseModel):
+    review_index: int = Field(..., ge=0)
+    insights: List[LLMInsight] = Field(default_factory=list)
+
+
+class LLMExtractionResponse(BaseModel):
+    reviews: List[LLMReviewInsights] = Field(default_factory=list)
+
+    @field_validator("reviews")
+    @classmethod
+    def dedupe_review_indices(cls, value: List[LLMReviewInsights]) -> List[LLMReviewInsights]:
+        seen = set()
+        for item in value:
+            if item.review_index in seen:
+                raise ValueError("Duplicate review_index detected in LLM response")
+            seen.add(item.review_index)
+        return value

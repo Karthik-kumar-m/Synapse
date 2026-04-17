@@ -8,19 +8,78 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List
 
 import pandas as pd
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, UploadFile, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from database import get_db
-from logic.analytics import run_absa
-from logic.preprocessing import DeduplicationEngine, compute_text_hash, is_bot_review, normalize_review
+from config import settings
+from logic.analytics import run_absa_batch_ollama
+from logic.aggregates import recompute_aggregates_background
+from logic.ollama_client import generate_json
+from logic.preprocessing import compute_similarity, is_bot_review, normalize_review
 from models.review import AspectInsight, Review
 from schemas.review import BulkUploadResponse, ReviewCreate, ReviewResponse
 
 router = APIRouter(prefix="/api/ingest", tags=["Ingestion"])
 
 _REQUIRED_CSV_COLUMNS = {"product_id", "product_name", "text"}
+
+
+def _chunked(items: List[dict], size: int) -> List[List[dict]]:
+    chunk_size = max(size, 1)
+    return [items[idx:idx + chunk_size] for idx in range(0, len(items), chunk_size)]
+
+
+async def _check_duplicate_in_db(
+    db: AsyncSession,
+    cleaned_text: str,
+    product_id: str,
+) -> dict:
+    exact_match = await db.execute(
+        select(Review.id)
+        .where(
+            Review.product_id == product_id,
+            Review.cleaned_text == cleaned_text,
+        )
+        .limit(1)
+    )
+    if exact_match.scalar_one_or_none() is not None:
+        return {
+            "is_duplicate": True,
+            "similarity_score": 1.0,
+            "reason": "exact_text_match",
+        }
+
+    candidates_result = await db.execute(
+        select(Review.cleaned_text)
+        .where(
+            Review.product_id == product_id,
+            Review.cleaned_text.is_not(None),
+            Review.cleaned_text != cleaned_text,
+        )
+        .order_by(Review.created_at.desc())
+        .limit(settings.DEDUPE_CANDIDATE_LIMIT)
+    )
+    candidates = [row[0] for row in candidates_result.fetchall() if row[0]]
+
+    best_similarity = 0.0
+    for candidate in candidates:
+        similarity = compute_similarity(cleaned_text, candidate)
+        if similarity > best_similarity:
+            best_similarity = similarity
+        if best_similarity >= settings.DEDUPE_SIMILARITY_THRESHOLD:
+            return {
+                "is_duplicate": True,
+                "similarity_score": round(best_similarity, 4),
+                "reason": "cosine_similarity_above_threshold",
+            }
+
+    return {
+        "is_duplicate": False,
+        "similarity_score": round(best_similarity, 4),
+        "reason": "unique",
+    }
 
 
 def _parse_created_at(row: Dict[str, Any]) -> datetime | None:
@@ -109,11 +168,12 @@ async def _process_reviews_bulk(
     source: str,
     db: AsyncSession,
 ) -> BulkUploadResponse:
-    dedup_engine = DeduplicationEngine()
     total_processed = 0
     duplicates_quarantined = 0
     bots_quarantined = 0
     insights_generated = 0
+
+    pending_for_analysis: List[dict] = []
 
     for row in rows:
         raw_text = str(row.get("text", row.get("raw_text", ""))).strip()
@@ -127,7 +187,11 @@ async def _process_reviews_bulk(
         cleaned = norm["cleaned_text"]
 
         bot_flag = is_bot_review(raw_text)
-        dedup_result = dedup_engine.check_and_add(cleaned)
+        dedup_result = await _check_duplicate_in_db(
+            db=db,
+            cleaned_text=cleaned,
+            product_id=product_id,
+        )
         created_at = _parse_created_at(row)
 
         # Extract optional enriched fields from CSV
@@ -165,6 +229,7 @@ async def _process_reviews_bulk(
             component_focus=component_focus,
         )
         db.add(review)
+        await db.flush()
 
         if dedup_result["is_duplicate"]:
             duplicates_quarantined += 1
@@ -172,12 +237,25 @@ async def _process_reviews_bulk(
             bots_quarantined += 1
 
         if not bot_flag and not dedup_result["is_duplicate"]:
-            absa_result = run_absa(cleaned, raw_text)
-            for insight in _build_aspect_insights(review.id, absa_result):
-                db.add(insight)
-            insights_generated += absa_result["aspects_found"]
+            pending_for_analysis.append(
+                {
+                    "review": review,
+                    "cleaned": cleaned,
+                    "raw": raw_text,
+                }
+            )
 
         total_processed += 1
+
+    for chunk in _chunked(pending_for_analysis, settings.OLLAMA_BATCH_SIZE):
+        cleaned_batch = [item["cleaned"] for item in chunk]
+        raw_batch = [item["raw"] for item in chunk]
+
+        absa_results = await run_absa_batch_ollama(cleaned_batch, raw_batch)
+        for item, absa_result in zip(chunk, absa_results):
+            for insight in _build_aspect_insights(item["review"].id, absa_result):
+                db.add(insight)
+            insights_generated += absa_result["aspects_found"]
 
     await db.flush()
     return BulkUploadResponse(
@@ -199,6 +277,7 @@ async def _process_reviews_bulk(
     status_code=status.HTTP_200_OK,
 )
 async def ingest_csv(
+    background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     db: AsyncSession = Depends(get_db),
 ) -> BulkUploadResponse:
@@ -226,7 +305,9 @@ async def ingest_csv(
 
     df.columns = df.columns.str.lower()
     rows = df.to_dict(orient="records")
-    return await _process_reviews_bulk(rows, source="csv", db=db)
+    result = await _process_reviews_bulk(rows, source="csv", db=db)
+    background_tasks.add_task(recompute_aggregates_background)
+    return result
 
 
 @router.post(
@@ -237,6 +318,7 @@ async def ingest_csv(
 )
 async def ingest_json(
     reviews: List[Dict[str, Any]],
+    background_tasks: BackgroundTasks,
     db: AsyncSession = Depends(get_db),
 ) -> BulkUploadResponse:
     if not reviews:
@@ -244,7 +326,9 @@ async def ingest_json(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Request body must be a non-empty list of review objects.",
         )
-    return await _process_reviews_bulk(reviews, source="json", db=db)
+    result = await _process_reviews_bulk(reviews, source="json", db=db)
+    background_tasks.add_task(recompute_aggregates_background)
+    return result
 
 
 @router.post(
@@ -255,6 +339,7 @@ async def ingest_json(
 )
 async def ingest_manual(
     review_in: ReviewCreate,
+    background_tasks: BackgroundTasks,
     db: AsyncSession = Depends(get_db),
 ) -> ReviewResponse:
     norm = normalize_review(review_in.raw_text)
@@ -262,12 +347,12 @@ async def ingest_manual(
 
     bot_flag = is_bot_review(review_in.raw_text)
 
-    # DB-backed exact deduplication via SHA-256 hash
-    text_hash = compute_text_hash(cleaned)
-    existing = await db.execute(
-        select(Review).where(Review.cleaned_text == cleaned).limit(1)
+    dedup_result = await _check_duplicate_in_db(
+        db=db,
+        cleaned_text=cleaned,
+        product_id=review_in.product_id,
     )
-    is_dup = existing.scalar_one_or_none() is not None
+    is_dup = dedup_result["is_duplicate"]
 
     review = Review(
         id=uuid.uuid4(),
@@ -286,13 +371,15 @@ async def ingest_manual(
 
     aspects_response = []
     if not bot_flag and not is_dup:
-        absa_result = run_absa(cleaned, review_in.raw_text)
+        absa_result = (await run_absa_batch_ollama([cleaned], [review_in.raw_text]))[0]
         for insight in _build_aspect_insights(review.id, absa_result):
             db.add(insight)
             aspects_response.append(insight)
 
     await db.flush()
     await db.refresh(review)
+
+    background_tasks.add_task(recompute_aggregates_background, review.product_id)
 
     return ReviewResponse(
         id=review.id,
@@ -330,6 +417,7 @@ async def ingest_manual(
 )
 async def ingest_realtime_feed(
     reviews: List[Dict[str, Any]],
+    background_tasks: BackgroundTasks,
     db: AsyncSession = Depends(get_db),
 ) -> dict:
     if len(reviews) > 50:
@@ -341,5 +429,33 @@ async def ingest_realtime_feed(
     job_id = str(uuid.uuid4())
 
     await _process_reviews_bulk(reviews, source="api", db=db)
+    background_tasks.add_task(recompute_aggregates_background)
 
     return {"job_id": job_id, "status": "queued", "reviews_received": len(reviews)}
+
+
+@router.get(
+    "/ollama-health",
+    summary="Check Ollama connectivity and JSON generation",
+    status_code=status.HTTP_200_OK,
+)
+async def ollama_health_check() -> dict:
+    prompt = (
+        "Return strict JSON with this shape: "
+        '{"ok": true, "model": "name", "note": "short"}'
+    )
+
+    try:
+        result = await generate_json(prompt)
+        return {
+            "status": "ok",
+            "ollama_base_url": settings.OLLAMA_BASE_URL,
+            "primary_model": settings.OLLAMA_MODEL_PRIMARY,
+            "fallback_model": settings.OLLAMA_MODEL_FALLBACK,
+            "response": result,
+        }
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=f"Ollama check failed: {exc}",
+        ) from exc

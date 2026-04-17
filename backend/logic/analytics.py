@@ -7,6 +7,10 @@ from typing import Dict, List, Optional, Tuple
 
 from textblob import TextBlob
 
+from config import settings
+from logic.ollama_client import generate_json
+from schemas.review import LLMExtractionResponse
+
 # ---------------------------------------------------------------------------
 # Aspect keyword taxonomy
 # ---------------------------------------------------------------------------
@@ -200,3 +204,112 @@ def run_absa(cleaned_text: str, original_text: str) -> dict:
         "flagged_for_human_review": flagged_for_human_review,
         "aspects_found": len(aspects),
     }
+
+
+_SENTIMENT_TO_SCORE = {
+    "positive": 0.7,
+    "negative": -0.7,
+    "neutral": 0.0,
+    "ambiguous": 0.0,
+}
+
+_SENTIMENT_TO_CONFIDENCE = {
+    "positive": 0.8,
+    "negative": 0.8,
+    "neutral": 0.7,
+    "ambiguous": 0.5,
+}
+
+
+def _format_batch_prompt(reviews_list: List[str]) -> str:
+    lines = []
+    for idx, text in enumerate(reviews_list):
+        lines.append(f"[{idx}] {text}")
+    rendered = "\n".join(lines)
+
+    return (
+        "You are extracting compact sentiment insights from customer reviews.\n"
+        "Input reviews are indexed. For each review, return zero or more feature-level insights.\n"
+        "Allowed sentiment values: Positive, Negative, Neutral, Ambiguous.\n"
+        "Return strictly valid JSON only with this exact schema:\n"
+        "{\"reviews\":[{\"review_index\":0,\"insights\":[{\"feature\":\"battery\",\"sentiment\":\"Negative\"}]}]}\n"
+        "Do not add markdown, comments, or extra keys.\n"
+        "Reviews:\n"
+        f"{rendered}"
+    )
+
+
+def _normalize_llm_item(feature: str, sentiment: str) -> dict:
+    sentiment_l = sentiment.strip().lower()
+    if sentiment_l not in _SENTIMENT_TO_SCORE:
+        sentiment_l = "ambiguous"
+
+    return {
+        "aspect": feature.strip() or "General",
+        "sentiment": sentiment_l,
+        "score": _SENTIMENT_TO_SCORE[sentiment_l],
+        "confidence": _SENTIMENT_TO_CONFIDENCE[sentiment_l],
+        "matched_keywords": [],
+    }
+
+
+async def run_absa_batch_ollama(
+    cleaned_reviews: List[str],
+    original_reviews: List[str],
+) -> List[dict]:
+    """Run extraction for a small batch of reviews via Ollama with strict JSON parsing."""
+    if len(cleaned_reviews) != len(original_reviews):
+        raise ValueError("cleaned_reviews and original_reviews must have the same length")
+
+    if not cleaned_reviews:
+        return []
+
+    if not settings.OLLAMA_ENABLE_EXTRACTION:
+        return [run_absa(cleaned, original) for cleaned, original in zip(cleaned_reviews, original_reviews)]
+
+    prompt = _format_batch_prompt(original_reviews)
+    deterministic_results = [
+        run_absa(cleaned, original)
+        for cleaned, original in zip(cleaned_reviews, original_reviews)
+    ]
+
+    try:
+        parsed = await generate_json(prompt)
+        strict = LLMExtractionResponse.model_validate(parsed)
+
+        mapped: Dict[int, List[dict]] = {idx: [] for idx in range(len(cleaned_reviews))}
+        for review_block in strict.reviews:
+            if review_block.review_index < 0 or review_block.review_index >= len(cleaned_reviews):
+                continue
+            for insight in review_block.insights:
+                mapped[review_block.review_index].append(
+                    _normalize_llm_item(insight.feature, insight.sentiment)
+                )
+
+        results: List[dict] = []
+        for idx in range(len(cleaned_reviews)):
+            llm_aspects = mapped[idx]
+            deterministic = deterministic_results[idx]
+
+            # If the model returns nothing, keep deterministic ABSA output.
+            aspects = llm_aspects if llm_aspects else deterministic["aspects"]
+            has_ambiguous = any(a["sentiment"] == "ambiguous" for a in llm_aspects)
+
+            flagged_for_human_review = (
+                deterministic["flagged_for_human_review"]
+                or has_ambiguous
+            )
+
+            results.append(
+                {
+                    "aspects": aspects,
+                    "is_sarcastic": deterministic["is_sarcastic"],
+                    "sarcasm_confidence": deterministic["sarcasm_confidence"],
+                    "flagged_for_human_review": flagged_for_human_review,
+                    "aspects_found": len(aspects),
+                }
+            )
+        return results
+    except Exception:
+        # Fall back to deterministic local ABSA if Ollama fails.
+        return [run_absa(cleaned, original) for cleaned, original in zip(cleaned_reviews, original_reviews)]

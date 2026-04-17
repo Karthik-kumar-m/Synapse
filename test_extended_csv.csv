@@ -1,6 +1,0 @@
-product_id,product_name,review_id,date,rating,text,firmware_version,component_focus,is_sarcastic
-earbuds-pro,Wireless Earbuds Pro,REV001,2026-08-20,5,"Excellent product quality. Left bud performs perfectly with great noise cancellation.",v1.5,left_bud,False
-earbuds-pro,Wireless Earbuds Pro,REV002,2026-08-20,1,"DO NOT UPDATE FIRMWARE. Left bud completely bricked after v1.4 update this morning.",v1.4,left_bud,False
-earbuds-pro,Wireless Earbuds Pro,REV003,2026-08-20,2,"Mediocre battery life. Gets hot during extended use. Right earbud disconnects randomly.",v1.5,battery,True
-earbuds-pro,Wireless Earbuds Pro,REV004,2026-08-20,4,"Great call quality. Decent noise cancellation. A few minor UI glitches but overall solid.",v1.5,microphone,False
-earbuds-pro,Wireless Earbuds Pro,REV005,2026-08-20,3,"Average. Works fine for casual listening but the touch controls are too sensitive.",v1.5,touch_control,False

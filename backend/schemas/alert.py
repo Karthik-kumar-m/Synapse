@@ -28,3 +28,29 @@ class DashboardSummary(BaseModel):
     active_alerts: int
     bot_rate: float
     sarcasm_rate: float
+    updated_at: Optional[datetime] = None
+
+
+class ProductSummary(BaseModel):
+    product_id: str
+    product_name: str
+    total_reviews: int
+    avg_sentiment_score: float
+    bot_reviews: int
+    duplicate_reviews: int
+    active_alerts: int
+
+
+class PrecomputeResponse(BaseModel):
+    status: str
+    mode: str
+    product_id: Optional[str] = None
+
+
+class ProductAIInsights(BaseModel):
+    product_id: str
+    generated_by: str
+    summary: str
+    likely_root_causes: List[str]
+    immediate_actions: List[str]
+    confidence: float
