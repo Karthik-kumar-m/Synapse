@@ -1,0 +1,92 @@
+[
+  {
+    "product_id": "SHM100",
+    "product_name": "SparkleShine Shampoo",
+    "raw_text": "Hair feels soft and smells fresh after use.",
+    "source": "manual"
+  },
+  {
+    "product_id": "SHM100",
+    "product_name": "SparkleShine Shampoo",
+    "raw_text": "Hair feels soft and smells fresh after use.",
+    "source": "manual"
+  },
+  {
+    "product_id": "SHM100",
+    "product_name": "SparkleShine Shampoo",
+    "raw_text": "Buy now limited offer click here http://spam.example/shampoo",
+    "source": "manual"
+  },
+  {
+    "product_id": "MXS210",
+    "product_name": "MaxClean Detergent",
+    "raw_text": "Stains come off well even in hard water.",
+    "source": "manual"
+  },
+  {
+    "product_id": "MXS210",
+    "product_name": "MaxClean Detergent",
+    "raw_text": "Packet is torn when delivered but the powder works.",
+    "source": "manual"
+  },
+  {
+    "product_id": "MXS210",
+    "product_name": "MaxClean Detergent",
+    "raw_text": "Amazing value if you enjoy paying more for less wash power.",
+    "source": "manual"
+  },
+  {
+    "product_id": "CRS330",
+    "product_name": "CrispBite Biscuits",
+    "raw_text": "Crunchy, fresh, and perfect with tea.",
+    "source": "manual"
+  },
+  {
+    "product_id": "CRS330",
+    "product_name": "CrispBite Biscuits",
+    "raw_text": "Crumbs everywhere because the pack arrived crushed.",
+    "source": "manual"
+  },
+  {
+    "product_id": "CRS330",
+    "product_name": "CrispBite Biscuits",
+    "raw_text": "Free discount coupon inside http://promo.example/biscuit",
+    "source": "manual"
+  },
+  {
+    "product_id": "FRN440",
+    "product_name": "FreshSip Coffee",
+    "raw_text": "Aromatic and smooth, good morning coffee.",
+    "source": "manual"
+  },
+  {
+    "product_id": "FRN440",
+    "product_name": "FreshSip Coffee",
+    "raw_text": "Aromatic and smooth, good morning coffee.",
+    "source": "manual"
+  },
+  {
+    "product_id": "FRN440",
+    "product_name": "FreshSip Coffee",
+    "raw_text": "Wonderful if you like a dented box and stale aroma.",
+    "source": "manual"
+  },
+  {
+    "product_id": "TRL550",
+    "product_name": "ToothSure Toothpaste",
+    "raw_text": "Fresh mint taste and no bad breath after brushing.",
+    "source": "manual"
+  },
+  {
+    "product_id": "TRL550",
+    "product_name": "ToothSure Toothpaste",
+    "raw_text": "Tube cap cracked and paste leaked in the drawer.",
+    "source": "manual"
+  },
+  {
+    "product_id": "TRL550",
+    "product_name": "ToothSure Toothpaste",
+    "raw_text": "Fantastic paste if your goal is leaking tubes.",
+    "source": "manual"
+  }
+]

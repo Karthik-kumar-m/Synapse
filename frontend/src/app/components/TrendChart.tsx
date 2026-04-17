@@ -35,7 +35,8 @@ export function TrendChart({ selectedProductId = '' }: { selectedProductId?: str
     const load = async () => {
       try {
         const [reviews, anomalyReport] = await Promise.all([
-          fetchReviews({ product_id: selectedProductId, page: 1, page_size: 200 }),
+          // Backend enforces page_size <= 100
+          fetchReviews({ product_id: selectedProductId, page: 1, page_size: 100 }),
           fetchAnomalyReport(selectedProductId).catch(() => null),
         ]);
 

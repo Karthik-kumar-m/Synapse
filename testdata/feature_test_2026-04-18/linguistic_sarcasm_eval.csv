@@ -1,0 +1,31 @@
+sample_id,product_id,product_name,category,text,created_at,source,component_focus,expected_language,expected_sentiment,expected_sarcasm,notes
+LS001,P1001,UltraPhone X,Consumer Electronics,Battery life is excellent and charging is very fast,2026-04-18T08:00:00Z,csv,Battery Life,en,positive,false,baseline positive english
+LS002,P1001,UltraPhone X,Consumer Electronics,Display is dim outdoors and touch response is slow,2026-04-18T08:05:00Z,csv,Display,en,negative,false,baseline negative english
+LS003,P1001,UltraPhone X,Consumer Electronics,Camera is okay but not amazing for this price,2026-04-18T08:10:00Z,csv,Camera,en,neutral,false,mild mixed english
+LS004,P1001,UltraPhone X,Consumer Electronics,yeah right this battery is amazing it died in two hours,2026-04-18T08:15:00Z,csv,Battery Life,en,negative,true,explicit sarcasm pattern
+LS005,P1001,UltraPhone X,Consumer Electronics,oh sure the phone is perfect it keeps freezing daily,2026-04-18T08:20:00Z,csv,Speed,en,negative,true,explicit sarcasm pattern
+LS006,P1001,UltraPhone X,Consumer Electronics,totally not disappointed the camera blur is fantastic,2026-04-18T08:25:00Z,csv,Camera,en,negative,true,explicit sarcasm pattern
+LS007,P1001,UltraPhone X,Consumer Electronics,great job this update made the app broken again,2026-04-18T08:30:00Z,csv,Software/UI,en,negative,true,explicit sarcasm pattern
+LS008,P1001,UltraPhone X,Consumer Electronics,love how the charger does not work after one week,2026-04-18T08:35:00Z,csv,Battery Life,en,negative,true,explicit sarcasm pattern
+LS009,P1001,UltraPhone X,Consumer Electronics,thanks for nothing support team closed the ticket without fixing,2026-04-18T08:40:00Z,csv,Customer Support,en,negative,true,explicit sarcasm pattern
+LS010,P1001,UltraPhone X,Consumer Electronics,wow terrible packaging and the box arrived crushed,2026-04-18T08:45:00Z,csv,Packaging,en,negative,true,explicit sarcasm pattern
+LS011,P1001,UltraPhone X,Consumer Electronics,absolutely love this premium phone worst battery ever,2026-04-18T08:50:00Z,csv,Battery Life,en,negative,true,explicit sarcasm pattern
+LS012,P1001,UltraPhone X,Consumer Electronics,so glad this device is broken after one update,2026-04-18T08:55:00Z,csv,Software/UI,en,negative,true,explicit sarcasm pattern
+LS013,P1001,UltraPhone X,Consumer Electronics,what a great experience not the screen has dead pixels,2026-04-18T09:00:00Z,csv,Display,en,negative,true,explicit sarcasm pattern
+LS014,P1001,UltraPhone X,Consumer Electronics,really impressed this launch is a joke and very poor value,2026-04-18T09:05:00Z,csv,Price/Value,en,negative,true,explicit sarcasm pattern
+LS015,P1001,UltraPhone X,Consumer Electronics,accha phone hai battery mast hai aur camera bhi acha hai,2026-04-18T09:10:00Z,csv,Battery Life,en,positive,false,hinglish transliterated
+LS016,P1001,UltraPhone X,Consumer Electronics,bakwaas update hai phone slow ho gaya aur battery drain ho rahi hai,2026-04-18T09:15:00Z,csv,Software/UI,en,negative,false,hinglish transliterated
+LS017,P1001,UltraPhone X,Consumer Electronics,price bahut zyada hai lekin performance theek hai,2026-04-18T09:20:00Z,csv,Price/Value,en,neutral,false,hinglish mixed
+LS018,P1001,UltraPhone X,Consumer Electronics,यह फोन बहुत अच्छा है और बैटरी बढ़िया है,2026-04-18T09:25:00Z,csv,Battery Life,hi,positive,false,hindi script positive
+LS019,P1001,UltraPhone X,Consumer Electronics,यह अपडेट खराब है और ऐप बहुत धीमा है,2026-04-18T09:30:00Z,csv,Software/UI,hi,negative,false,hindi script negative
+LS020,P1001,UltraPhone X,Consumer Electronics,पैकेजिंग ठीक है लेकिन कीमत महंगा लग रही है,2026-04-18T09:35:00Z,csv,Price/Value,hi,negative,false,hindi script mixed negative tilt
+LS021,P2001,CoolFridge Pro,Home Appliances,இந்த சேவை நல்லது மற்றும் தயாரிப்பு வேகம் நன்றாக உள்ளது,2026-04-18T09:40:00Z,csv,Customer Support,ta,positive,false,tamil script positive
+LS022,P2001,CoolFridge Pro,Home Appliances,இந்த தயாரிப்பு மோசம் மற்றும் மிகவும் மெதுவாக உள்ளது,2026-04-18T09:45:00Z,csv,Speed,ta,negative,false,tamil script negative
+LS023,P2001,CoolFridge Pro,Home Appliances,விலை சரி ஆனால் செயல்திறன் சராசரி,2026-04-18T09:50:00Z,csv,Price/Value,ta,neutral,false,tamil script neutral
+LS024,P3001,Synapse CRM Cloud,Software Services,ಈ ಸೇವೆ ಚೆನ್ನಾಗಿದೆ ಮತ್ತು ವೇಗ ಉತ್ತಮವಾಗಿದೆ,2026-04-18T09:55:00Z,csv,Speed,kn,positive,false,kannada script positive
+LS025,P3001,Synapse CRM Cloud,Software Services,ಈ ಅಪ್ಡೇಟ್ ಕೆಟ್ಟಿದೆ ಮತ್ತು ಆಪ್ ನಿಧಾನವಾಗಿದೆ,2026-04-18T10:00:00Z,csv,Software/UI,kn,negative,false,kannada script negative
+LS026,P3001,Synapse CRM Cloud,Software Services,ಬೆಲೆ ಸರಿಯಿದೆ ಆದರೆ ಕಾರ್ಯಕ್ಷಮತೆ ಸರಾಸರಿ,2026-04-18T10:05:00Z,csv,Price/Value,kn,neutral,false,kannada script neutral
+LS027,P3001,Synapse CRM Cloud,Software Services,UI is smooth 😊 and performance feels great,2026-04-18T10:10:00Z,csv,Software/UI,en,positive,false,emoji positive boost
+LS028,P3001,Synapse CRM Cloud,Software Services,Support is useless 👎 and response is terrible,2026-04-18T10:15:00Z,csv,Customer Support,en,negative,false,emoji negative boost
+LS029,P3001,Synapse CRM Cloud,Software Services,yeah right support was amazing they ignored every ticket,2026-04-18T10:20:00Z,csv,Customer Support,en,negative,true,sarcasm on support
+LS030,P3001,Synapse CRM Cloud,Software Services,oh wow awful billing flow and what a wonderful surprise not,2026-04-18T10:25:00Z,csv,Price/Value,en,negative,true,sarcasm multi pattern

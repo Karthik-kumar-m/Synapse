@@ -1,0 +1,76 @@
+product_id,product_name,review_id,date,source,rating,text,firmware_version,component_focus,is_sarcastic
+SHM100,SparkleShine Shampoo,SSH-0001,2026-04-01,csv,5,Lathers well and leaves hair soft with a pleasant fragrance,batch-14,fragrance,false
+SHM100,SparkleShine Shampoo,SSH-0002,2026-04-01,csv,4,Good value for daily use and easy to rinse,batch-14,price_value,false
+SHM100,SparkleShine Shampoo,SSH-0003,2026-04-02,csv,2,Cap leaked inside the bag and soaked the box,batch-14,packaging,false
+SHM100,SparkleShine Shampoo,SSH-0004,2026-04-02,csv,2,Hair feels dry after wash and needs too much product,batch-14,formula,false
+SHM100,SparkleShine Shampoo,SSH-0005,2026-04-03,csv,1,Buy now limited offer click here http://promo.example/shampoo,batch-14,other,false
+SHM100,SparkleShine Shampoo,SSH-0006,2026-04-03,csv,5,Fragrance stays fresh for most of the day,batch-15,fragrance,false
+SHM100,SparkleShine Shampoo,SSH-0007,2026-04-04,csv,1,Wow amazing how it turns hair into straw after one use,batch-15,formula,true
+SHM100,SparkleShine Shampoo,SSH-0008,2026-04-04,csv,3,Good for dandruff control but the bottle is small,batch-15,pack_size,false
+SHM100,SparkleShine Shampoo,SSH-0009,2026-04-05,csv,4,Hair looks cleaner and softer after the recent reformulation,batch-15,formula,false
+SHM100,SparkleShine Shampoo,SSH-0010,2026-04-05,csv,2,Repeated cap leakage makes it messy in travel bags,batch-15,packaging,false
+SHM100,SparkleShine Shampoo,SSH-0011,2026-04-06,csv,4,Scalp feels fresh and no itchiness after a week,batch-15,formula,false
+SHM100,SparkleShine Shampoo,SSH-0012,2026-04-06,csv,2,Price is high for the quantity compared to local brands,batch-15,price_value,false
+SHM100,SparkleShine Shampoo,SSH-0013,2026-04-07,csv,5,Accha smell hai and family likes the fragrance,batch-15,fragrance,false
+SHM100,SparkleShine Shampoo,SSH-0014,2026-04-07,csv,1,Fantastic shampoo if you enjoy hair fall in the shower,batch-14,formula,true
+SHM100,SparkleShine Shampoo,SSH-0015,2026-04-08,csv,4,Delivery arrived on time and outer carton was intact,batch-15,delivery,false
+MXS210,MaxClean Detergent,MXC-0001,2026-04-01,csv,5,Removes stains from school uniforms very well,batch-21,stain_removal,false
+MXS210,MaxClean Detergent,MXC-0002,2026-04-01,csv,4,Fresh smell and good foam in both hand and machine wash,batch-21,fragrance,false
+MXS210,MaxClean Detergent,MXC-0003,2026-04-02,csv,2,Packet tore during delivery and powder spilled out,batch-21,packaging,false
+MXS210,MaxClean Detergent,MXC-0004,2026-04-02,csv,2,Does not remove tea stains completely,batch-21,stain_removal,false
+MXS210,MaxClean Detergent,MXC-0005,2026-04-03,csv,1,Special offer just click now http://spam.example/detergent,batch-21,other,false
+MXS210,MaxClean Detergent,MXC-0006,2026-04-03,csv,5,Clothes come out bright and clean even in hard water,batch-22,stain_removal,false
+MXS210,MaxClean Detergent,MXC-0007,2026-04-04,csv,1,Brilliant if you enjoy paying more for less wash power,batch-22,price_value,true
+MXS210,MaxClean Detergent,MXC-0008,2026-04-04,csv,3,Works okay but the pouch seal is hard to open,batch-22,packaging,false
+MXS210,MaxClean Detergent,MXC-0009,2026-04-05,csv,4,Good cleaning and the fragrance is not too strong,batch-22,fragrance,false
+MXS210,MaxClean Detergent,MXC-0010,2026-04-05,csv,2,Clumps in water and leaves residue on dark clothes,batch-22,formula,false
+MXS210,MaxClean Detergent,MXC-0011,2026-04-06,csv,4,Big family pack offers better value than the small pack,batch-22,pack_size,false
+MXS210,MaxClean Detergent,MXC-0012,2026-04-06,csv,2,Delivery box was crushed and powder dust leaked,batch-22,delivery,false
+MXS210,MaxClean Detergent,MXC-0013,2026-04-07,csv,5,Works great on lunch stains and oils,batch-22,stain_removal,false
+MXS210,MaxClean Detergent,MXC-0014,2026-04-07,csv,1,Amazing detergent if your goal is to keep stains forever,batch-21,stain_removal,true
+MXS210,MaxClean Detergent,MXC-0015,2026-04-08,csv,4,Packaging was sealed properly and bag came intact,batch-22,packaging,false
+CRS330,CrispBite Biscuits,CRB-0001,2026-04-01,csv,5,Crunchy and fresh with a nice buttery taste,batch-05,taste,false
+CRS330,CrispBite Biscuits,CRB-0002,2026-04-01,csv,4,Tea-time snack feels light and not too sweet,batch-05,taste,false
+CRS330,CrispBite Biscuits,CRB-0003,2026-04-02,csv,2,Packets arrived broken and biscuits were crushed,batch-05,packaging,false
+CRS330,CrispBite Biscuits,CRB-0004,2026-04-02,csv,2,Stale smell from the pack and not crunchy,batch-05,freshness,false
+CRS330,CrispBite Biscuits,CRB-0005,2026-04-03,csv,1,Buy now limited offer click here http://promo.example/biscuits,batch-05,other,false
+CRS330,CrispBite Biscuits,CRB-0006,2026-04-03,csv,5,Perfect with chai and stays crisp after opening,batch-06,freshness,false
+CRS330,CrispBite Biscuits,CRB-0007,2026-04-04,csv,1,Wow amazing freshness if you like crumbs and dust,batch-06,freshness,true
+CRS330,CrispBite Biscuits,CRB-0008,2026-04-04,csv,3,Good taste but smaller pack size than expected,batch-06,pack_size,false
+CRS330,CrispBite Biscuits,CRB-0009,2026-04-05,csv,4,Value is okay for the family pack,batch-06,price_value,false
+CRS330,CrispBite Biscuits,CRB-0010,2026-04-05,csv,2,Some packets had broken edges inside the box,batch-06,packaging,false
+CRS330,CrispBite Biscuits,CRB-0011,2026-04-06,csv,4,Fresh aroma and buttery flavor are nice,batch-06,taste,false
+CRS330,CrispBite Biscuits,CRB-0012,2026-04-06,csv,2,Delivery delay meant biscuits reached me stale,batch-06,delivery,false
+CRS330,CrispBite Biscuits,CRB-0013,2026-04-07,csv,5,Family loved the taste and the pack was intact,batch-06,taste,false
+CRS330,CrispBite Biscuits,CRB-0014,2026-04-07,csv,1,Fantastic biscuits if your definition of crunchy is cardboard,batch-05,taste,true
+CRS330,CrispBite Biscuits,CRB-0015,2026-04-08,csv,4,Outer carton was fine and biscuits were fresh,batch-06,packaging,false
+FRN440,FreshSip Coffee,FRS-0001,2026-04-01,csv,5,Strong aroma and balanced taste in the morning,batch-09,taste,false
+FRN440,FreshSip Coffee,FRS-0002,2026-04-01,csv,4,Good value compared with cafe sachets,batch-09,price_value,false
+FRN440,FreshSip Coffee,FRS-0003,2026-04-02,csv,2,Sachet seal was weak and powder spilled in transit,batch-09,packaging,false
+FRN440,FreshSip Coffee,FRS-0004,2026-04-02,csv,2,Too bitter and not smooth enough for daily drink,batch-09,taste,false
+FRN440,FreshSip Coffee,FRS-0005,2026-04-03,csv,1,Click here for a free coffee promo http://deal.example/coffee,batch-09,other,false
+FRN440,FreshSip Coffee,FRS-0006,2026-04-03,csv,5,Rich flavor and the aroma fills the kitchen,batch-10,taste,false
+FRN440,FreshSip Coffee,FRS-0007,2026-04-04,csv,1,Brilliant coffee if you enjoy paying premium for sadness,batch-10,price_value,true
+FRN440,FreshSip Coffee,FRS-0008,2026-04-04,csv,3,Good sachet size but the box looked dented,batch-10,packaging,false
+FRN440,FreshSip Coffee,FRS-0009,2026-04-05,csv,4,Mixes well with milk and tastes consistent,batch-10,taste,false
+FRN440,FreshSip Coffee,FRS-0010,2026-04-05,csv,2,Flavor is inconsistent between packets,batch-10,taste,false
+FRN440,FreshSip Coffee,FRS-0011,2026-04-06,csv,4,Good morning drink and easy to prepare,batch-10,preparation,false
+FRN440,FreshSip Coffee,FRS-0012,2026-04-06,csv,2,Delivery delay meant the package arrived dusty,batch-10,delivery,false
+FRN440,FreshSip Coffee,FRS-0013,2026-04-07,csv,5,Accha coffee hai and guests liked the aroma,batch-10,taste,false
+FRN440,FreshSip Coffee,FRS-0014,2026-04-07,csv,1,Fantastic coffee if burnt beans are your thing,batch-09,taste,true
+FRN440,FreshSip Coffee,FRS-0015,2026-04-08,csv,4,Outer carton and inner sachets were intact,batch-10,packaging,false
+TRL550,ToothSure Toothpaste,TRS-0001,2026-04-01,csv,5,Fresh mint taste and clean feeling after brushing,batch-02,freshness,false
+TRL550,ToothSure Toothpaste,TRS-0002,2026-04-01,csv,4,Tube closes properly and is easy to use,batch-02,packaging,false
+TRL550,ToothSure Toothpaste,TRS-0003,2026-04-02,csv,2,Cap cracked on arrival and paste leaked slightly,batch-02,packaging,false
+TRL550,ToothSure Toothpaste,TRS-0004,2026-04-02,csv,2,Too much foam and the mint taste is harsh,batch-02,freshness,false
+TRL550,ToothSure Toothpaste,TRS-0005,2026-04-03,csv,1,Buy now limited offer click here http://promo.example/toothpaste,batch-02,other,false
+TRL550,ToothSure Toothpaste,TRS-0006,2026-04-03,csv,5,Teeth feel clean and breath stays fresh for hours,batch-03,freshness,false
+TRL550,ToothSure Toothpaste,TRS-0007,2026-04-04,csv,1,Wow amazing paste if you like a broken cap and sticky sink,batch-02,packaging,true
+TRL550,ToothSure Toothpaste,TRS-0008,2026-04-04,csv,3,Good cleaning but the pack size is small,batch-03,pack_size,false
+TRL550,ToothSure Toothpaste,TRS-0009,2026-04-05,csv,4,Strong cleaning power and pleasant flavor,batch-03,freshness,false
+TRL550,ToothSure Toothpaste,TRS-0010,2026-04-05,csv,2,Price is high for such a tiny tube,batch-03,price_value,false
+TRL550,ToothSure Toothpaste,TRS-0011,2026-04-06,csv,4,Travel pack is handy and seals well,batch-03,packaging,false
+TRL550,ToothSure Toothpaste,TRS-0012,2026-04-06,csv,2,Delivery box was dented and cap had shifted,batch-03,delivery,false
+TRL550,ToothSure Toothpaste,TRS-0013,2026-04-07,csv,5,Family likes the mint freshness and clean finish,batch-03,freshness,false
+TRL550,ToothSure Toothpaste,TRS-0014,2026-04-07,csv,1,Fantastic toothpaste if your goal is leaking tubes,batch-02,packaging,true
+TRL550,ToothSure Toothpaste,TRS-0015,2026-04-08,csv,4,Outer box and tube arrived intact,batch-03,packaging,false

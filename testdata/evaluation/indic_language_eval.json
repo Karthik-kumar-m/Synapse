@@ -1,0 +1,74 @@
+[
+  {
+    "id": "eval-001",
+    "language": "en",
+    "text": "Battery backup is excellent and charging is fast.",
+    "expected_sentiment": "positive"
+  },
+  {
+    "id": "eval-002",
+    "language": "hi",
+    "text": "यह फोन बहुत अच्छा है और बैटरी बढ़िया है।",
+    "expected_sentiment": "positive"
+  },
+  {
+    "id": "eval-003",
+    "language": "hi",
+    "text": "सेवा खराब है और ऐप बहुत धीमा है।",
+    "expected_sentiment": "negative"
+  },
+  {
+    "id": "eval-004",
+    "language": "ta",
+    "text": "இந்த சேவை நல்லது மற்றும் பயன்பாடு வேகம் நல்லது.",
+    "expected_sentiment": "positive"
+  },
+  {
+    "id": "eval-005",
+    "language": "ta",
+    "text": "இந்த தயாரிப்பு மோசம் மற்றும் மிகவும் மெதுவாக உள்ளது.",
+    "expected_sentiment": "negative"
+  },
+  {
+    "id": "eval-006",
+    "language": "kn",
+    "text": "ಈ ಉತ್ಪನ್ನ ಒಳ್ಳೆಯದು ಮತ್ತು ಸೇವೆ ಚೆನ್ನಾಗಿದೆ.",
+    "expected_sentiment": "positive"
+  },
+  {
+    "id": "eval-007",
+    "language": "kn",
+    "text": "ಸೇವೆ ಕೆಟ್ಟಿದೆ ಮತ್ತು ಆಪ್ ನಿಧಾನವಾಗಿದೆ.",
+    "expected_sentiment": "negative"
+  },
+  {
+    "id": "eval-008",
+    "language": "en",
+    "text": "Support is okay, but delivery was late.",
+    "expected_sentiment": "neutral"
+  },
+  {
+    "id": "eval-009",
+    "language": "hi",
+    "text": "पैकेजिंग ठीक है लेकिन कीमत महंगा है।",
+    "expected_sentiment": "negative"
+  },
+  {
+    "id": "eval-010",
+    "language": "ta",
+    "text": "விலை சரி, ஆனால் செயல்திறன் சராசரி.",
+    "expected_sentiment": "neutral"
+  },
+  {
+    "id": "eval-011",
+    "language": "kn",
+    "text": "ಬೆಲೆ ಸರಿಯಿದೆ ಆದರೆ ಕಾರ್ಯಕ್ಷಮತೆ ಸರಾಸರಿ.",
+    "expected_sentiment": "neutral"
+  },
+  {
+    "id": "eval-012",
+    "language": "en",
+    "text": "The latest update fixed most bugs, still minor lag.",
+    "expected_sentiment": "neutral"
+  }
+]

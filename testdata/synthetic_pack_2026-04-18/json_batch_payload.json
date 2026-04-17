@@ -1,0 +1,190 @@
+{
+  "batch_metadata": {
+    "batch_id": "fmcg-json-batch-2026-04-18-a",
+    "campaign": "final-testing",
+    "region": "IN",
+    "ingest_channel": "retail_partner_export"
+  },
+  "reviews": [
+    {
+      "product_id": "SHM100",
+      "product_name": "SparkleShine Shampoo",
+      "raw_text": "Lathers well and leaves hair soft with a pleasant fragrance.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "SSH-J-0001",
+      "rating": 5,
+      "firmware_version": "batch-14",
+      "component_focus": "fragrance",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "SHM100",
+      "product_name": "SparkleShine Shampoo",
+      "raw_text": "Cap leaked inside the bag and soaked the box.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "SSH-J-0002",
+      "rating": 2,
+      "firmware_version": "batch-14",
+      "component_focus": "packaging",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "SHM100",
+      "product_name": "SparkleShine Shampoo",
+      "raw_text": "Wow amazing how it turns hair into straw after one use.",
+      "date": "2026-04-10",
+      "source": "json",
+      "review_id": "SSH-J-0003",
+      "rating": 1,
+      "firmware_version": "batch-14",
+      "component_focus": "formula",
+      "is_sarcastic": true
+    },
+    {
+      "product_id": "MXS210",
+      "product_name": "MaxClean Detergent",
+      "raw_text": "Removes stains from school uniforms very well.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "MXC-J-0001",
+      "rating": 5,
+      "firmware_version": "batch-21",
+      "component_focus": "stain_removal",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "MXS210",
+      "product_name": "MaxClean Detergent",
+      "raw_text": "Packet tore during delivery and powder spilled out.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "MXC-J-0002",
+      "rating": 2,
+      "firmware_version": "batch-21",
+      "component_focus": "packaging",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "MXS210",
+      "product_name": "MaxClean Detergent",
+      "raw_text": "Brilliant if you enjoy paying more for less wash power.",
+      "date": "2026-04-10",
+      "source": "json",
+      "review_id": "MXC-J-0003",
+      "rating": 1,
+      "firmware_version": "batch-21",
+      "component_focus": "price_value",
+      "is_sarcastic": true
+    },
+    {
+      "product_id": "CRS330",
+      "product_name": "CrispBite Biscuits",
+      "raw_text": "Crunchy and fresh with a nice buttery taste.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "CRB-J-0001",
+      "rating": 5,
+      "firmware_version": "batch-05",
+      "component_focus": "taste",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "CRS330",
+      "product_name": "CrispBite Biscuits",
+      "raw_text": "Packets arrived broken and biscuits were crushed.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "CRB-J-0002",
+      "rating": 2,
+      "firmware_version": "batch-05",
+      "component_focus": "packaging",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "CRS330",
+      "product_name": "CrispBite Biscuits",
+      "raw_text": "Wow amazing freshness if you like crumbs and dust.",
+      "date": "2026-04-10",
+      "source": "json",
+      "review_id": "CRB-J-0003",
+      "rating": 1,
+      "firmware_version": "batch-05",
+      "component_focus": "freshness",
+      "is_sarcastic": true
+    },
+    {
+      "product_id": "FRN440",
+      "product_name": "FreshSip Coffee",
+      "raw_text": "Strong aroma and balanced taste in the morning.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "FRS-J-0001",
+      "rating": 5,
+      "firmware_version": "batch-09",
+      "component_focus": "taste",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "FRN440",
+      "product_name": "FreshSip Coffee",
+      "raw_text": "Sachet seal was weak and powder spilled in transit.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "FRS-J-0002",
+      "rating": 2,
+      "firmware_version": "batch-09",
+      "component_focus": "packaging",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "FRN440",
+      "product_name": "FreshSip Coffee",
+      "raw_text": "Brilliant coffee if you enjoy paying premium for sadness.",
+      "date": "2026-04-10",
+      "source": "json",
+      "review_id": "FRS-J-0003",
+      "rating": 1,
+      "firmware_version": "batch-09",
+      "component_focus": "price_value",
+      "is_sarcastic": true
+    },
+    {
+      "product_id": "TRL550",
+      "product_name": "ToothSure Toothpaste",
+      "raw_text": "Fresh mint taste and clean feeling after brushing.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "TRS-J-0001",
+      "rating": 5,
+      "firmware_version": "batch-02",
+      "component_focus": "freshness",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "TRL550",
+      "product_name": "ToothSure Toothpaste",
+      "raw_text": "Cap cracked on arrival and paste leaked slightly.",
+      "date": "2026-04-09",
+      "source": "json",
+      "review_id": "TRS-J-0002",
+      "rating": 2,
+      "firmware_version": "batch-02",
+      "component_focus": "packaging",
+      "is_sarcastic": false
+    },
+    {
+      "product_id": "TRL550",
+      "product_name": "ToothSure Toothpaste",
+      "raw_text": "Fantastic toothpaste if your goal is leaking tubes.",
+      "date": "2026-04-10",
+      "source": "json",
+      "review_id": "TRS-J-0003",
+      "rating": 1,
+      "firmware_version": "batch-02",
+      "component_focus": "packaging",
+      "is_sarcastic": true
+    }
+  ]
+}

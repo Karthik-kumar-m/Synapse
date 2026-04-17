@@ -13,6 +13,35 @@ const sentimentStyles: Record<string, string> = {
   ambiguous: 'bg-[#FF9500]/10 text-[#C16B00]',
 };
 
+function buildAISummary(review: Review): string {
+  const sentiment = (review.overall_sentiment ?? 'neutral').toLowerCase();
+  const topAspects = review.aspects.slice(0, 2).map((a) => a.aspect);
+
+  const tone =
+    sentiment === 'negative'
+      ? 'Overall sentiment is negative'
+      : sentiment === 'positive'
+        ? 'Overall sentiment is positive'
+        : 'Overall sentiment is neutral';
+
+  const focus =
+    topAspects.length > 0
+      ? `with key focus on ${topAspects.join(' and ')}`
+      : 'with no strong aspect signal extracted';
+
+  const hygieneFlags: string[] = [];
+  if (review.is_bot) hygieneFlags.push('bot-like pattern');
+  if (review.is_spam) hygieneFlags.push('spam indicators');
+  if (review.is_duplicate) hygieneFlags.push('possible duplicate content');
+
+  const flagsText =
+    hygieneFlags.length > 0
+      ? ` Data quality flags: ${hygieneFlags.join(', ')}.`
+      : ' No quality-risk flags detected.';
+
+  return `${tone} ${focus}.${flagsText}`;
+}
+
 export function ReviewsPage() {
   const { dateFilter, category, selectedProductId } = useOutletContext<DashboardContextType>();
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -26,8 +55,7 @@ export function ReviewsPage() {
       try {
         const data = await fetchReviews({
           page: 1,
-          page_size: 50,
-          product_id: selectedProductId || undefined,
+          page_size: 100,
         });
         setReviews(data);
       } catch (error) {
@@ -101,6 +129,7 @@ export function ReviewsPage() {
                 <th className="pb-4 font-semibold text-[12px] text-[#86868B] uppercase tracking-wider">Product</th>
                 <th className="pb-4 font-semibold text-[12px] text-[#86868B] uppercase tracking-wider max-w-md">Snippet</th>
                 <th className="pb-4 font-semibold text-[12px] text-[#86868B] uppercase tracking-wider">Sentiment</th>
+                <th className="pb-4 font-semibold text-[12px] text-[#86868B] uppercase tracking-wider">Flags</th>
                 <th className="pb-4 font-semibold text-[12px] text-[#86868B] uppercase tracking-wider text-right pr-4">Action</th>
               </tr>
             </thead>
@@ -128,6 +157,30 @@ export function ReviewsPage() {
                         <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-semibold ${sentimentStyles[sentiment] ?? sentimentStyles.neutral}`}>
                           {sentiment}
                         </span>
+                      </td>
+                      <td className="py-4 whitespace-nowrap">
+                        <div className="flex flex-wrap gap-2">
+                          {review.is_bot && (
+                            <span className="inline-flex items-center px-2 py-1 rounded-full text-[11px] font-semibold bg-[#FF9500]/10 text-[#C16B00]">
+                              Bot
+                            </span>
+                          )}
+                          {review.is_spam && (
+                            <span className="inline-flex items-center px-2 py-1 rounded-full text-[11px] font-semibold bg-[#FF3B30]/10 text-[#D70015]">
+                              Spam
+                            </span>
+                          )}
+                          {review.is_duplicate && (
+                            <span className="inline-flex items-center px-2 py-1 rounded-full text-[11px] font-semibold bg-[#0071E3]/10 text-[#005bb5]">
+                              Duplicate
+                            </span>
+                          )}
+                          {!review.is_bot && !review.is_spam && !review.is_duplicate && (
+                            <span className="inline-flex items-center px-2 py-1 rounded-full text-[11px] font-semibold bg-[#34C759]/10 text-[#248A3D]">
+                              Clean
+                            </span>
+                          )}
+                        </div>
                       </td>
                       <td
                         className="py-4 whitespace-nowrap text-right pr-4 text-[#86868B] group-hover:text-[#1D1D1F] transition-colors"
@@ -163,6 +216,15 @@ export function ReviewsPage() {
                                   <p className="text-[14px] text-[#1D1D1F] font-medium leading-relaxed">
                                     {review.raw_text}
                                   </p>
+
+                                  <div className="mt-5 rounded-2xl border border-[#0071E3]/20 bg-[#0071E3]/5 p-4">
+                                    <h4 className="text-[12px] font-bold text-[#0071E3] uppercase tracking-wider mb-2">
+                                      AI Summarized Review
+                                    </h4>
+                                    <p className="text-[14px] text-[#1D1D1F] font-medium leading-relaxed">
+                                      {buildAISummary(review)}
+                                    </p>
+                                  </div>
                                 </div>
                                 <div className="w-64 shrink-0 border-l border-[#E5E5EA]/60 pl-8 space-y-5">
                                   <div>
@@ -171,6 +233,22 @@ export function ReviewsPage() {
                                     </span>
                                     <span className="text-[14px] font-medium text-[#1D1D1F]">
                                       {review.source_review_id || 'N/A'}
+                                    </span>
+                                  </div>
+                                  <div>
+                                    <span className="text-[12px] font-bold text-[#86868B] uppercase tracking-wider block mb-1.5">
+                                      Spam Reason
+                                    </span>
+                                    <span className="text-[14px] font-medium text-[#1D1D1F]">
+                                      {review.spam_reason || 'N/A'}
+                                    </span>
+                                  </div>
+                                  <div>
+                                    <span className="text-[12px] font-bold text-[#86868B] uppercase tracking-wider block mb-1.5">
+                                      Duplicate Cluster
+                                    </span>
+                                    <span className="text-[14px] font-medium text-[#1D1D1F]">
+                                      {review.duplicate_cluster_id || 'N/A'}
                                     </span>
                                   </div>
                                   <div>

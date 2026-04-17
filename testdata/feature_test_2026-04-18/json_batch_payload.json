@@ -1,0 +1,132 @@
+[
+  {
+    "product_id": "P1001",
+    "product_name": "UltraPhone X",
+    "category": "Consumer Electronics",
+    "text": "Software update made the UI smoother and battery drain is lower.",
+    "created_at": "2026-04-10T09:00:00Z",
+    "source": "json",
+    "rating": 4.4,
+    "component_focus": "Software/UI"
+  },
+  {
+    "product_id": "P1001",
+    "product_name": "UltraPhone X",
+    "category": "Consumer Electronics",
+    "text": "Camera details are crisp but now the price feels unjustified.",
+    "created_at": "2026-04-14T14:20:00Z",
+    "source": "json",
+    "rating": 2.5,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P1001",
+    "product_name": "UltraPhone X",
+    "category": "Consumer Electronics",
+    "text": "At this new price, I expected better battery and accessories included.",
+    "created_at": "2026-04-15T11:25:00Z",
+    "source": "json",
+    "rating": 2.2,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P1001",
+    "product_name": "UltraPhone X",
+    "category": "Consumer Electronics",
+    "text": "Retail price jumped again and value for money dropped significantly.",
+    "created_at": "2026-04-16T10:05:00Z",
+    "source": "json",
+    "rating": 1.9,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P1001",
+    "product_name": "UltraPhone X",
+    "category": "Consumer Electronics",
+    "text": "Buy now limited offer click here http://spam.example/ultrax",
+    "created_at": "2026-04-16T10:15:00Z",
+    "source": "json",
+    "rating": 1.0,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P1001",
+    "product_name": "UltraPhone X",
+    "category": "Consumer Electronics",
+    "text": "Too expensive now and customer support did not justify the premium.",
+    "created_at": "2026-04-17T09:10:00Z",
+    "source": "json",
+    "rating": 2.0,
+    "component_focus": "Customer Support"
+  },
+  {
+    "product_id": "P2001",
+    "product_name": "CoolFridge Pro",
+    "category": "Home Appliances",
+    "text": "Cooling is consistent and food stays fresh for longer.",
+    "created_at": "2026-04-12T08:00:00Z",
+    "source": "json",
+    "rating": 4.5,
+    "component_focus": "Build Quality"
+  },
+  {
+    "product_id": "P2001",
+    "product_name": "CoolFridge Pro",
+    "category": "Home Appliances",
+    "text": "Power consumption is lower and compressor noise is minimal.",
+    "created_at": "2026-04-13T12:00:00Z",
+    "source": "json",
+    "rating": 4.4,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P3001",
+    "product_name": "Synapse CRM Cloud",
+    "category": "Software Services",
+    "text": "The analytics dashboard is fast and reports are easy to export.",
+    "created_at": "2026-04-11T09:00:00Z",
+    "source": "json",
+    "rating": 4.6,
+    "component_focus": "Software/UI"
+  },
+  {
+    "product_id": "P3001",
+    "product_name": "Synapse CRM Cloud",
+    "category": "Software Services",
+    "text": "Subscription cost increased and pricing tiers are difficult to understand.",
+    "created_at": "2026-04-16T15:10:00Z",
+    "source": "json",
+    "rating": 2.4,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P3001",
+    "product_name": "Synapse CRM Cloud",
+    "category": "Software Services",
+    "text": "बहुत अच्छा इंटरफ़ेस है लेकिन कीमत अब ज्यादा लगती है।",
+    "created_at": "2026-04-17T11:05:00Z",
+    "source": "json",
+    "rating": 3.0,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P3001",
+    "product_name": "Synapse CRM Cloud",
+    "category": "Software Services",
+    "text": "இந்த சேவை நல்லது ஆனால் விலை அதிகம்.",
+    "created_at": "2026-04-17T12:45:00Z",
+    "source": "json",
+    "rating": 3.0,
+    "component_focus": "Price/Value"
+  },
+  {
+    "product_id": "P3001",
+    "product_name": "Synapse CRM Cloud",
+    "category": "Software Services",
+    "text": "ಸೇವೆ ಚೆನ್ನಾಗಿದೆ ಆದರೆ ಬೆಲೆ ಹೆಚ್ಚು.",
+    "created_at": "2026-04-17T15:15:00Z",
+    "source": "json",
+    "rating": 3.0,
+    "component_focus": "Price/Value"
+  }
+]

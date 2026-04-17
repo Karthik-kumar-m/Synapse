@@ -1,0 +1,164 @@
+{
+  "batches": [
+    [
+      {
+        "product_id": "SHM100",
+        "product_name": "SparkleShine Shampoo",
+        "raw_text": "Hair feels soft after wash and the fragrance is pleasant.",
+        "source": "api",
+        "created_at": "2026-04-18T09:00:00Z"
+      },
+      {
+        "product_id": "SHM100",
+        "product_name": "SparkleShine Shampoo",
+        "raw_text": "Cap leaks inside the travel bag when the bottle is tilted.",
+        "source": "api",
+        "created_at": "2026-04-18T09:00:30Z"
+      },
+      {
+        "product_id": "MXS210",
+        "product_name": "MaxClean Detergent",
+        "raw_text": "Removes lunch stains quickly in the first wash.",
+        "source": "api",
+        "created_at": "2026-04-18T09:01:00Z"
+      },
+      {
+        "product_id": "MXS210",
+        "product_name": "MaxClean Detergent",
+        "raw_text": "Packet tore during delivery and powder spilled out.",
+        "source": "api",
+        "created_at": "2026-04-18T09:01:30Z"
+      },
+      {
+        "product_id": "CRS330",
+        "product_name": "CrispBite Biscuits",
+        "raw_text": "Crunchy biscuits and great taste with evening tea.",
+        "source": "api",
+        "created_at": "2026-04-18T09:02:00Z"
+      },
+      {
+        "product_id": "CRS330",
+        "product_name": "CrispBite Biscuits",
+        "raw_text": "Buy now click here for free add-on http://offer.example",
+        "source": "api",
+        "created_at": "2026-04-18T09:02:30Z"
+      },
+      {
+        "product_id": "FRN440",
+        "product_name": "FreshSip Coffee",
+        "raw_text": "Rich aroma and balanced taste for breakfast.",
+        "source": "api",
+        "created_at": "2026-04-18T09:03:00Z"
+      },
+      {
+        "product_id": "TRL550",
+        "product_name": "ToothSure Toothpaste",
+        "raw_text": "Fresh mint feel stays for hours after brushing.",
+        "source": "api",
+        "created_at": "2026-04-18T09:03:30Z"
+      }
+    ],
+    [
+      {
+        "product_id": "SHM100",
+        "product_name": "SparkleShine Shampoo",
+        "raw_text": "Hair feels soft after wash and the fragrance is pleasant.",
+        "source": "api",
+        "created_at": "2026-04-18T10:00:00Z"
+      },
+      {
+        "product_id": "SHM100",
+        "product_name": "SparkleShine Shampoo",
+        "raw_text": "Hair feels soft after wash and the fragrance is pleasant.",
+        "source": "api",
+        "created_at": "2026-04-18T10:00:05Z"
+      },
+      {
+        "product_id": "SHM100",
+        "product_name": "SparkleShine Shampoo",
+        "raw_text": "Amazing shampoo if you enjoy hair fall in the shower.",
+        "source": "api",
+        "created_at": "2026-04-18T10:00:30Z"
+      },
+      {
+        "product_id": "MXS210",
+        "product_name": "MaxClean Detergent",
+        "raw_text": "Clothes come out bright even in hard water.",
+        "source": "api",
+        "created_at": "2026-04-18T10:01:00Z"
+      },
+      {
+        "product_id": "MXS210",
+        "product_name": "MaxClean Detergent",
+        "raw_text": "Brilliant if you enjoy paying more for less wash power.",
+        "source": "api",
+        "created_at": "2026-04-18T10:01:30Z"
+      },
+      {
+        "product_id": "CRS330",
+        "product_name": "CrispBite Biscuits",
+        "raw_text": "Packets arrived crushed and crumbs were everywhere.",
+        "source": "api",
+        "created_at": "2026-04-18T10:02:00Z"
+      },
+      {
+        "product_id": "FRN440",
+        "product_name": "FreshSip Coffee",
+        "raw_text": "Aromatic coffee but the sachet seal was weak.",
+        "source": "api",
+        "created_at": "2026-04-18T10:02:30Z"
+      },
+      {
+        "product_id": "TRL550",
+        "product_name": "ToothSure Toothpaste",
+        "raw_text": "Tube cap cracked and paste leaked in the drawer.",
+        "source": "api",
+        "created_at": "2026-04-18T10:02:40Z"
+      }
+    ],
+    [
+      {
+        "product_id": "SHM100",
+        "product_name": "SparkleShine Shampoo",
+        "raw_text": "Bottle seal was intact and the pack reached safely.",
+        "source": "api",
+        "created_at": "2026-04-18T11:00:00Z"
+      },
+      {
+        "product_id": "MXS210",
+        "product_name": "MaxClean Detergent",
+        "raw_text": "Stain removal improved after switching to the large pack.",
+        "source": "api",
+        "created_at": "2026-04-18T11:00:30Z"
+      },
+      {
+        "product_id": "CRS330",
+        "product_name": "CrispBite Biscuits",
+        "raw_text": "Fresh pack and good crunch, perfect with tea.",
+        "source": "api",
+        "created_at": "2026-04-18T11:01:00Z"
+      },
+      {
+        "product_id": "FRN440",
+        "product_name": "FreshSip Coffee",
+        "raw_text": "Price is okay for the aroma and taste quality.",
+        "source": "api",
+        "created_at": "2026-04-18T11:01:30Z"
+      },
+      {
+        "product_id": "TRL550",
+        "product_name": "ToothSure Toothpaste",
+        "raw_text": "Family pack feels good value and seals properly.",
+        "source": "api",
+        "created_at": "2026-04-18T11:02:00Z"
+      },
+      {
+        "product_id": "MXS210",
+        "product_name": "MaxClean Detergent",
+        "raw_text": "Buy now limited offer click here http://promo.example/detergent-now",
+        "source": "api",
+        "created_at": "2026-04-18T11:02:30Z"
+      }
+    ]
+  ]
+}

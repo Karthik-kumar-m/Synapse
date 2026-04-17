@@ -1,0 +1,23 @@
+[
+  {
+    "product_id": "P1001",
+    "product_name": "UltraPhone X",
+    "category": "Consumer Electronics",
+    "raw_text": "I liked the camera before, but after the new price jump this is not worth it.",
+    "source": "manual"
+  },
+  {
+    "product_id": "P2001",
+    "product_name": "CoolFridge Pro",
+    "category": "Home Appliances",
+    "raw_text": "Good cooling and low power usage, happy with this purchase.",
+    "source": "manual"
+  },
+  {
+    "product_id": "P3001",
+    "product_name": "Synapse CRM Cloud",
+    "category": "Software Services",
+    "raw_text": "ಬಹಳ ಚೆನ್ನಾಗಿದೆ ಆದರೆ ಬೆಲೆ ಸ್ವಲ್ಪ ಹೆಚ್ಚು ಇದೆ.",
+    "source": "manual"
+  }
+]

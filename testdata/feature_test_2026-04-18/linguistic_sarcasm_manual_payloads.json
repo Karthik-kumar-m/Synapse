@@ -1,0 +1,92 @@
+[
+  {
+    "sample_id": "LM001",
+    "payload": {
+      "product_id": "P1001",
+      "product_name": "UltraPhone X",
+      "category": "Consumer Electronics",
+      "raw_text": "yeah right this battery is amazing it died in two hours",
+      "source": "manual"
+    },
+    "expected": {
+      "language_detected": "en",
+      "overall_sentiment": "negative",
+      "is_sarcastic_any_aspect": true
+    }
+  },
+  {
+    "sample_id": "LM002",
+    "payload": {
+      "product_id": "P1001",
+      "product_name": "UltraPhone X",
+      "category": "Consumer Electronics",
+      "raw_text": "accha phone hai battery mast hai aur camera bhi acha hai",
+      "source": "manual"
+    },
+    "expected": {
+      "language_detected": "en",
+      "overall_sentiment": "positive",
+      "is_sarcastic_any_aspect": false
+    }
+  },
+  {
+    "sample_id": "LM003",
+    "payload": {
+      "product_id": "P1001",
+      "product_name": "UltraPhone X",
+      "category": "Consumer Electronics",
+      "raw_text": "यह अपडेट खराब है और ऐप बहुत धीमा है",
+      "source": "manual"
+    },
+    "expected": {
+      "language_detected": "hi",
+      "overall_sentiment": "negative",
+      "is_sarcastic_any_aspect": false
+    }
+  },
+  {
+    "sample_id": "LM004",
+    "payload": {
+      "product_id": "P2001",
+      "product_name": "CoolFridge Pro",
+      "category": "Home Appliances",
+      "raw_text": "இந்த சேவை நல்லது மற்றும் தயாரிப்பு வேகம் நன்றாக உள்ளது",
+      "source": "manual"
+    },
+    "expected": {
+      "language_detected": "ta",
+      "overall_sentiment": "positive",
+      "is_sarcastic_any_aspect": false
+    }
+  },
+  {
+    "sample_id": "LM005",
+    "payload": {
+      "product_id": "P3001",
+      "product_name": "Synapse CRM Cloud",
+      "category": "Software Services",
+      "raw_text": "ಈ ಅಪ್ಡೇಟ್ ಕೆಟ್ಟಿದೆ ಮತ್ತು ಆಪ್ ನಿಧಾನವಾಗಿದೆ",
+      "source": "manual"
+    },
+    "expected": {
+      "language_detected": "kn",
+      "overall_sentiment": "negative",
+      "is_sarcastic_any_aspect": false
+    }
+  },
+  {
+    "sample_id": "LM006",
+    "payload": {
+      "product_id": "P3001",
+      "product_name": "Synapse CRM Cloud",
+      "category": "Software Services",
+      "raw_text": "really impressed this launch is a joke and very poor value",
+      "source": "manual"
+    },
+    "expected": {
+      "language_detected": "en",
+      "overall_sentiment": "negative",
+      "is_sarcastic_any_aspect": true
+    }
+  }
+]

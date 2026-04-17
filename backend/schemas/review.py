@@ -11,6 +11,7 @@ class ReviewCreate(BaseModel):
     product_id: str = Field(..., min_length=1, max_length=255)
     product_name: str = Field(..., min_length=1, max_length=500)
     raw_text: str = Field(..., min_length=1)
+    category: Optional[str] = Field(default=None, max_length=100)
     source: str = Field(..., pattern="^(csv|json|api|manual)$")
 
 
@@ -33,11 +34,15 @@ class ReviewResponse(BaseModel):
     id: uuid.UUID
     product_id: str
     product_name: str
+    category: Optional[str] = None
     raw_text: str
     cleaned_text: Optional[str]
     language_detected: Optional[str]
     is_bot: bool
+    is_spam: bool = False
+    spam_reason: Optional[str] = None
     is_duplicate: bool
+    duplicate_cluster_id: Optional[str] = None
     overall_sentiment: Optional[str]
     overall_score: Optional[float]
     created_at: datetime
@@ -53,6 +58,7 @@ class BulkUploadResponse(BaseModel):
     total_processed: int
     duplicates_quarantined: int
     bots_quarantined: int
+    spam_quarantined: int = 0
     insights_generated: int
 
 

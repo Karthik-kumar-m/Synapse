@@ -39,11 +39,15 @@ export type Review = {
   id: string;
   product_id: string;
   product_name: string;
+  category?: string | null;
   raw_text: string;
   cleaned_text?: string | null;
   language_detected?: string | null;
   is_bot: boolean;
+  is_spam?: boolean;
+  spam_reason?: string | null;
   is_duplicate: boolean;
+  duplicate_cluster_id?: string | null;
   overall_sentiment?: string | null;
   overall_score?: number | null;
   created_at: string;
@@ -112,7 +116,43 @@ export type BulkUploadResponse = {
   total_processed: number;
   duplicates_quarantined: number;
   bots_quarantined: number;
+  spam_quarantined?: number;
   insights_generated: number;
+};
+
+export type TrendItem = {
+  aspect: string;
+  previous_negative_rate: number;
+  current_negative_rate: number;
+  negative_delta: number;
+  previous_positive_rate: number;
+  current_positive_rate: number;
+  positive_delta: number;
+  current_mentions: number;
+  classification: 'isolated' | 'systemic' | string;
+  trend_type: string;
+};
+
+export type BatchTrendResponse = {
+  product_id?: string | null;
+  batch_size: number;
+  current_window_reviews: number;
+  previous_window_reviews: number;
+  trends: TrendItem[];
+  message?: string;
+};
+
+export type CategoryComparisonItem = {
+  category: string;
+  total_reviews: number;
+  avg_sentiment_score: number;
+  bot_rate: number;
+  spam_rate: number;
+  duplicate_rate: number;
+};
+
+export type CategoryComparisonResponse = {
+  categories: CategoryComparisonItem[];
 };
 
 export const fetchSummary = async () => (await api.get<DashboardSummary>('/dashboard/summary')).data;
@@ -131,6 +171,15 @@ export const fetchAnomalyReport = async (productId: string) =>
   (await api.get<AnomalyReport>(`/dashboard/anomaly-report/${productId}`)).data;
 export const fetchAIInsights = async (productId: string) =>
   (await api.get<ProductAIInsights>(`/dashboard/ai-insights/${productId}`)).data;
+export const fetchBatchTrends = async (params?: { product_id?: string; batch_size?: number }) =>
+  (await api.get<BatchTrendResponse>('/dashboard/trends', { params })).data;
+export const fetchCategoryComparison = async (params?: { top_n?: number }) =>
+  (await api.get<CategoryComparisonResponse>('/dashboard/category-comparison', { params })).data;
+export const downloadDashboardReport = async (params?: { product_id?: string; category?: string }) =>
+  await api.get<Blob>('/dashboard/report/export', {
+    params,
+    responseType: 'blob',
+  });
 
 export const ingestCsv = async (file: File) => {
   const form = new FormData();
@@ -149,6 +198,7 @@ export const ingestManual = async (payload: {
   product_id: string;
   product_name: string;
   raw_text: string;
+  category?: string;
   source: 'manual';
 }) => (await api.post<Review>('/ingest/manual', payload)).data;
 

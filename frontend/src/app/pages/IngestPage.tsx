@@ -95,13 +95,20 @@ export function IngestPage() {
   const summaryCards = useMemo(() => {
     if (!lastUpload) return null;
 
-    const spamRate = lastUpload.total_processed
+    const spamQuarantined = lastUpload.spam_quarantined ?? 0;
+    const botRate = lastUpload.total_processed
       ? (lastUpload.bots_quarantined / lastUpload.total_processed) * 100
+      : 0;
+    const spamRate = lastUpload.total_processed
+      ? (spamQuarantined / lastUpload.total_processed) * 100
       : 0;
 
     return {
       total: lastUpload.total_processed,
+      botRate,
       spamRate,
+      spamQuarantined,
+      duplicateCount: lastUpload.duplicates_quarantined,
       topIssue: lastUpload.duplicates_quarantined > 0 ? 'Duplicate Review Spike' : 'No critical issue',
       insight:
         lastUpload.insights_generated > 0
@@ -167,6 +174,7 @@ export function IngestPage() {
         total_processed: 1,
         duplicates_quarantined: 0,
         bots_quarantined: 0,
+        spam_quarantined: 0,
         insights_generated: 1,
       });
       setManualText('');
@@ -213,10 +221,14 @@ export function IngestPage() {
             <p className="text-[#86868B] text-[15px] font-medium">Data has been successfully ingested into Synapse Intelligence.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="bg-white border border-[#E5E5EA] shadow-sm rounded-[20px] p-6 flex flex-col">
               <span className="text-[#86868B] text-[13px] font-semibold uppercase tracking-wider mb-2">Total Processed</span>
               <span className="text-3xl font-bold text-[#1D1D1F]">{summaryCards.total}</span>
+            </div>
+            <div className="bg-white border border-[#E5E5EA] shadow-sm rounded-[20px] p-6 flex flex-col">
+              <span className="text-[#86868B] text-[13px] font-semibold uppercase tracking-wider mb-2">Flagged as Bots</span>
+              <span className="text-3xl font-bold text-[#FF9500]">{summaryCards.botRate.toFixed(1)}%</span>
             </div>
             <div className="bg-white border border-[#E5E5EA] shadow-sm rounded-[20px] p-6 flex flex-col">
               <span className="text-[#86868B] text-[13px] font-semibold uppercase tracking-wider mb-2">Flagged as Spam</span>
@@ -227,7 +239,9 @@ export function IngestPage() {
                 <AlertTriangle size={80} className="text-[#1D1D1F]" />
               </div>
               <span className="text-[#86868B] text-[13px] font-semibold uppercase tracking-wider mb-1">Top Issue Detected</span>
-              <span className="text-xl font-semibold text-[#FF3B30] leading-tight">{summaryCards.topIssue}</span>
+              <span className="text-xl font-semibold text-[#FF3B30] leading-tight">
+                {summaryCards.topIssue} ({summaryCards.duplicateCount})
+              </span>
             </div>
           </div>
 

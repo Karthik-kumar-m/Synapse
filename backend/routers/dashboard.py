@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
+import io
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, Response, status
+from fastapi.responses import StreamingResponse
 from sqlalchemy import Integer, cast, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -15,11 +18,44 @@ from logic.aggregates import recompute_aggregates, recompute_aggregates_backgrou
 from logic.ollama_client import generate_json
 from models.aggregate import DashboardAggregate, ProductAnomalyAggregate, ProductAspectAggregate
 from models.alert import AnomalyAlert
-from models.review import Review
+from models.review import AspectInsight, Review
 from schemas.alert import AlertResponse, DashboardSummary, PrecomputeResponse, ProductAIInsights, ProductSummary
 from schemas.review import ReviewResponse
 
 router = APIRouter(prefix="/api/dashboard", tags=["Dashboard"])
+
+_CATEGORY_BASELINE = ["Consumer Electronics", "Home Appliances", "Software Services"]
+
+
+def _compute_window_rates(window_rows: List[tuple]) -> Dict[str, Dict[str, float]]:
+    review_aspect_sentiments: Dict[str, Dict[str, set]] = {}
+    for review_id, aspect, sentiment in window_rows:
+        key = str(review_id)
+        if key not in review_aspect_sentiments:
+            review_aspect_sentiments[key] = {"negative": set(), "positive": set()}
+        if sentiment == "negative":
+            review_aspect_sentiments[key]["negative"].add(aspect)
+        elif sentiment == "positive":
+            review_aspect_sentiments[key]["positive"].add(aspect)
+
+    total_reviews = max(len(review_aspect_sentiments), 1)
+    aspect_counts: Dict[str, Dict[str, int]] = {}
+    for sentiment_bucket in ["negative", "positive"]:
+        for _, sentiments in review_aspect_sentiments.items():
+            for aspect in sentiments[sentiment_bucket]:
+                if aspect not in aspect_counts:
+                    aspect_counts[aspect] = {"negative": 0, "positive": 0}
+                aspect_counts[aspect][sentiment_bucket] += 1
+
+    rates: Dict[str, Dict[str, float]] = {}
+    for aspect, counts in aspect_counts.items():
+        rates[aspect] = {
+            "negative": round(counts["negative"] / total_reviews, 4),
+            "positive": round(counts["positive"] / total_reviews, 4),
+            "current_count": counts["negative"] + counts["positive"],
+            "total_reviews": total_reviews,
+        }
+    return rates
 
 
 def _build_ai_fallback(
@@ -231,12 +267,6 @@ async def get_aspects_for_product(
     )
     aggregates = rows.scalars().all()
 
-    if not aggregates:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"No reviews found for product_id '{product_id}'.",
-        )
-
     total_reviews_result = await db.execute(
         select(func.count(Review.id)).where(Review.product_id == product_id)
     )
@@ -282,12 +312,6 @@ async def get_anomaly_report(
     )
     spikes = spikes_result.scalars().all()
 
-    if not spikes:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"No reviews found for product_id '{product_id}'.",
-        )
-
     active_alerts_result = await db.execute(
         select(AnomalyAlert).where(
             AnomalyAlert.product_id == product_id,
@@ -321,6 +345,103 @@ async def get_anomaly_report(
         "active_alerts": [AlertResponse.model_validate(a) for a in active_alerts],
         "spike_count": len(detected_spikes),
         "systemic_failures": [s for s in detected_spikes if s.get("is_systemic")],
+    }
+
+
+@router.get(
+    "/trends",
+    summary="Batch-over-batch issue and praise trend detection",
+)
+async def get_batch_trends(
+    db: AsyncSession = Depends(get_db),
+    product_id: Optional[str] = Query(default=None),
+    batch_size: int = Query(default=50, ge=10, le=500),
+) -> Dict[str, Any]:
+    reviews_query = select(Review.id).where(
+        Review.is_bot.is_(False),
+        Review.is_spam.is_(False),
+        Review.is_duplicate.is_(False),
+    )
+    if product_id:
+        reviews_query = reviews_query.where(Review.product_id == product_id)
+
+    reviews_query = reviews_query.order_by(Review.created_at.desc()).limit(batch_size * 2)
+    review_rows = await db.execute(reviews_query)
+    review_ids = [row[0] for row in review_rows.all()]
+
+    if len(review_ids) < 2:
+        return {
+            "product_id": product_id,
+            "batch_size": batch_size,
+            "message": "Not enough reviews to compute trends.",
+            "trends": [],
+        }
+
+    split = min(batch_size, len(review_ids) // 2)
+    current_ids = set(review_ids[:split])
+    previous_ids = set(review_ids[split:split * 2])
+
+    aspects_result = await db.execute(
+        select(AspectInsight.review_id, AspectInsight.aspect, AspectInsight.sentiment)
+        .where(AspectInsight.review_id.in_(list(current_ids | previous_ids)))
+    )
+    all_rows = aspects_result.all()
+
+    current_rows = [row for row in all_rows if row[0] in current_ids]
+    previous_rows = [row for row in all_rows if row[0] in previous_ids]
+
+    current_rates = _compute_window_rates(current_rows)
+    previous_rates = _compute_window_rates(previous_rows)
+
+    all_aspects = set(current_rates.keys()) | set(previous_rates.keys())
+    trends: List[Dict[str, Any]] = []
+    for aspect in sorted(all_aspects):
+        prev_neg = previous_rates.get(aspect, {}).get("negative", 0.0)
+        curr_neg = current_rates.get(aspect, {}).get("negative", 0.0)
+        prev_pos = previous_rates.get(aspect, {}).get("positive", 0.0)
+        curr_pos = current_rates.get(aspect, {}).get("positive", 0.0)
+
+        neg_delta = round(curr_neg - prev_neg, 4)
+        pos_delta = round(curr_pos - prev_pos, 4)
+
+        if abs(neg_delta) < 0.05 and abs(pos_delta) < 0.05:
+            continue
+
+        current_count = int(current_rates.get(aspect, {}).get("current_count", 0))
+        classification = "systemic" if curr_neg >= 0.15 and current_count >= 3 else "isolated"
+        if neg_delta >= 0.2:
+            trend_type = "issue_spike"
+        elif pos_delta >= 0.2:
+            trend_type = "praise_spike"
+        elif neg_delta > 0:
+            trend_type = "emerging_issue"
+        elif pos_delta > 0:
+            trend_type = "emerging_praise"
+        else:
+            trend_type = "stabilizing"
+
+        trends.append(
+            {
+                "aspect": aspect,
+                "previous_negative_rate": prev_neg,
+                "current_negative_rate": curr_neg,
+                "negative_delta": neg_delta,
+                "previous_positive_rate": prev_pos,
+                "current_positive_rate": curr_pos,
+                "positive_delta": pos_delta,
+                "current_mentions": current_count,
+                "classification": classification,
+                "trend_type": trend_type,
+            }
+        )
+
+    trends.sort(key=lambda t: abs(float(t["negative_delta"])) + abs(float(t["positive_delta"])), reverse=True)
+    return {
+        "product_id": product_id,
+        "batch_size": batch_size,
+        "current_window_reviews": len(current_ids),
+        "previous_window_reviews": len(previous_ids),
+        "trends": trends,
     }
 
 
@@ -430,6 +551,172 @@ async def get_ai_insights(
         )
     except Exception:
         return fallback_payload
+
+
+@router.get(
+    "/category-comparison",
+    summary="Cross-category sentiment and quality comparison",
+)
+async def get_category_comparison(
+    db: AsyncSession = Depends(get_db),
+    top_n: int = Query(default=5, ge=3, le=10),
+) -> Dict[str, Any]:
+    rows = await db.execute(
+        select(
+            Review.category,
+            func.count(Review.id).label("total_reviews"),
+            func.coalesce(func.avg(Review.overall_score), 0.0).label("avg_sentiment_score"),
+            func.coalesce(func.avg(cast(Review.is_bot, Integer)), 0.0).label("bot_rate"),
+            func.coalesce(func.avg(cast(Review.is_spam, Integer)), 0.0).label("spam_rate"),
+            func.coalesce(func.avg(cast(Review.is_duplicate, Integer)), 0.0).label("duplicate_rate"),
+        )
+        .group_by(Review.category)
+        .order_by(func.count(Review.id).desc())
+        .limit(top_n)
+    )
+
+    category_rows = rows.all()
+    payload: List[Dict[str, Any]] = []
+    existing = set()
+
+    for row in category_rows:
+        category_name = row.category or "Uncategorized"
+        existing.add(category_name)
+        payload.append(
+            {
+                "category": category_name,
+                "total_reviews": int(row.total_reviews or 0),
+                "avg_sentiment_score": round(float(row.avg_sentiment_score or 0.0), 4),
+                "bot_rate": round(float(row.bot_rate or 0.0), 4),
+                "spam_rate": round(float(row.spam_rate or 0.0), 4),
+                "duplicate_rate": round(float(row.duplicate_rate or 0.0), 4),
+            }
+        )
+
+    for baseline_category in _CATEGORY_BASELINE:
+        if len(payload) >= top_n:
+            break
+        if baseline_category in existing:
+            continue
+        payload.append(
+            {
+                "category": baseline_category,
+                "total_reviews": 0,
+                "avg_sentiment_score": 0.0,
+                "bot_rate": 0.0,
+                "spam_rate": 0.0,
+                "duplicate_rate": 0.0,
+            }
+        )
+
+    return {"categories": payload}
+
+
+@router.get(
+    "/report/export",
+    summary="Download dashboard report as PDF",
+)
+async def export_dashboard_report(
+    db: AsyncSession = Depends(get_db),
+    product_id: Optional[str] = Query(default=None),
+    category: Optional[str] = Query(default=None),
+) -> Response:
+    try:
+        from reportlab.lib.pagesizes import LETTER
+        from reportlab.pdfgen import canvas
+    except ModuleNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="PDF export dependency missing: install 'reportlab' in the backend Python environment.",
+        ) from exc
+
+    reviews_query = select(Review)
+    if product_id:
+        reviews_query = reviews_query.where(Review.product_id == product_id)
+    if category:
+        reviews_query = reviews_query.where(Review.category == category)
+
+    reviews_query = reviews_query.order_by(Review.created_at.desc()).limit(200)
+    result = await db.execute(reviews_query)
+    reviews = result.scalars().all()
+
+    summary = await get_summary(db)
+    categories = await get_category_comparison(db, top_n=5)
+
+    buffer = io.BytesIO()
+    pdf = canvas.Canvas(buffer, pagesize=LETTER)
+    page_width, page_height = LETTER
+    y = page_height - 50
+
+    def ensure_space(lines: int = 1) -> None:
+        nonlocal y
+        if y <= 50 + (lines * 14):
+            pdf.showPage()
+            y = page_height - 50
+
+    def draw_line(text: str, font_name: str = "Helvetica", font_size: int = 10) -> None:
+        nonlocal y
+        ensure_space(1)
+        pdf.setFont(font_name, font_size)
+        pdf.drawString(50, y, text[:120])
+        y -= 14
+
+    def draw_wrapped(text: str, max_chars: int = 110) -> None:
+        chunks = [text[i:i + max_chars] for i in range(0, len(text), max_chars)] if text else [""]
+        for chunk in chunks:
+            draw_line(chunk)
+
+    generated_at = datetime.now(timezone.utc).isoformat()
+
+    draw_line("Synapse Intelligence Report", font_name="Helvetica-Bold", font_size=16)
+    draw_line(f"Generated At: {generated_at}")
+    draw_line(f"Product Filter: {product_id or 'All'}")
+    draw_line(f"Category Filter: {category or 'All'}")
+    y -= 8
+
+    draw_line("Global Summary", font_name="Helvetica-Bold", font_size=12)
+    draw_line(f"Total Reviews: {summary.total_reviews}")
+    draw_line(f"Average Sentiment: {round(float(summary.avg_sentiment_score), 4)}")
+    draw_line(f"Active Alerts: {summary.active_alerts}")
+    draw_line(f"Bot Rate: {round(float(summary.bot_rate), 4)}")
+    draw_line(f"Sarcasm Rate: {round(float(summary.sarcasm_rate), 4)}")
+    y -= 8
+
+    draw_line("Category Comparison", font_name="Helvetica-Bold", font_size=12)
+    for row in categories["categories"]:
+        draw_line(
+            f"{row['category']} | reviews={row['total_reviews']} | sentiment={row['avg_sentiment_score']} | "
+            f"bot={row['bot_rate']} | spam={row['spam_rate']} | duplicate={row['duplicate_rate']}"
+        )
+    y -= 8
+
+    draw_line("Recent Reviews (up to 200)", font_name="Helvetica-Bold", font_size=12)
+    for review in reviews:
+        ensure_space(6)
+        draw_line(f"Review ID: {review.id}", font_name="Helvetica-Bold")
+        draw_line(f"Product: {review.product_id} - {review.product_name}")
+        draw_line(f"Category: {review.category} | Sentiment: {review.overall_sentiment} | Score: {review.overall_score}")
+        draw_line(f"Language: {review.language_detected} | Source: {review.source}")
+        draw_line(f"Created At: {review.created_at.isoformat() if review.created_at else ''}")
+        draw_wrapped(f"Text: {review.raw_text}")
+        y -= 6
+
+    pdf.save()
+    buffer.seek(0)
+
+    filename_parts = ["synapse_report"]
+    if product_id:
+        filename_parts.append(product_id)
+    if category:
+        filename_parts.append(category.lower().replace(" ", "_"))
+    filename_parts.append(datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S"))
+    filename = "_".join(filename_parts) + ".pdf"
+
+    return StreamingResponse(
+        buffer,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
 
 
 @router.post(

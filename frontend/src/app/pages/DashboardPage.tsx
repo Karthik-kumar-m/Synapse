@@ -13,9 +13,11 @@ import type { DashboardContextType } from '../RootLayout';
 import {
   fetchAlerts,
   fetchAspects,
+  fetchBatchTrends,
   fetchProducts,
   fetchSummary,
   type Alert,
+  type BatchTrendResponse,
   type DashboardSummary,
   type ProductAspects,
   type ProductSummary,
@@ -33,6 +35,7 @@ export function DashboardPage() {
   const [summary, setSummary] = useState<DashboardSummary | null>(null);
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [aspectsData, setAspectsData] = useState<ProductAspects | null>(null);
+  const [trendData, setTrendData] = useState<BatchTrendResponse | null>(null);
 
   useEffect(() => {
     const loadTopLevel = async () => {
@@ -58,20 +61,26 @@ export function DashboardPage() {
     };
 
     loadTopLevel();
-  }, [dateFilter, category, selectedProductId, setSelectedProductId]);
+  }, [dateFilter, category, setSelectedProductId]);
 
   useEffect(() => {
     if (!selectedProductId) {
       setAspectsData(null);
+      setTrendData(null);
       return;
     }
 
     const loadProductData = async () => {
       try {
-        const data = await fetchAspects(selectedProductId);
+        const [data, trends] = await Promise.all([
+          fetchAspects(selectedProductId),
+          fetchBatchTrends({ product_id: selectedProductId, batch_size: 50 }),
+        ]);
         setAspectsData(data);
+        setTrendData(trends);
       } catch (error) {
         setAspectsData(null);
+        setTrendData(null);
         console.error('Failed to load aspect breakdown', error);
       }
     };
@@ -190,6 +199,45 @@ export function DashboardPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full min-h-[500px]">
             <Recommendations selectedProductId={selectedProductId} />
             <ReviewQueue selectedProductId={selectedProductId} />
+          </div>
+
+          <div className="bg-white border border-[#E5E5EA] rounded-[24px] p-6 shadow-sm">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-[18px] font-semibold text-[#1D1D1F]">Emerging Trends (Current vs Previous Batch)</h3>
+              <span className="text-[12px] text-[#86868B] font-semibold uppercase tracking-wider">
+                batch {trendData?.batch_size ?? 50}
+              </span>
+            </div>
+            {!trendData || trendData.trends.length === 0 ? (
+              <p className="text-[14px] text-[#86868B]">No meaningful trend shift detected yet.</p>
+            ) : (
+              <div className="space-y-3">
+                {trendData.trends.slice(0, 6).map((trend) => (
+                  <div key={trend.aspect} className="rounded-2xl border border-[#E5E5EA] p-4 bg-[#F5F5F7]/40">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <div className="text-[14px] font-semibold text-[#1D1D1F]">{trend.aspect}</div>
+                        <div className="text-[12px] text-[#86868B] mt-1">
+                          Current negative: {(trend.current_negative_rate * 100).toFixed(1)}% | Previous: {(trend.previous_negative_rate * 100).toFixed(1)}%
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div
+                          className={`text-[13px] font-bold ${
+                            trend.negative_delta > 0 ? 'text-[#D70015]' : 'text-[#248A3D]'
+                          }`}
+                        >
+                          Δ {(trend.negative_delta * 100).toFixed(1)} pp
+                        </div>
+                        <div className="text-[12px] text-[#86868B] uppercase tracking-wider mt-1">
+                          {trend.trend_type.replaceAll('_', ' ')} • {trend.classification}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {summary && (

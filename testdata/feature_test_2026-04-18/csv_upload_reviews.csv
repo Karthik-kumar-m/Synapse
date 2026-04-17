@@ -1,0 +1,30 @@
+product_id,product_name,category,text,created_at,source,rating,component_focus
+P1001,UltraPhone X,Consumer Electronics,Battery backup is excellent and camera quality is sharp,2026-03-25T10:00:00Z,csv,4.6,Battery Life
+P1001,UltraPhone X,Consumer Electronics,Display is bright and touch response is smooth,2026-03-26T11:30:00Z,csv,4.5,Display
+P1001,UltraPhone X,Consumer Electronics,Charging speed improved after update,2026-03-27T09:05:00Z,csv,4.4,Battery Life
+P1001,UltraPhone X,Consumer Electronics,Packaging was premium and delivery was on time,2026-03-28T14:40:00Z,csv,4.3,Packaging
+P1001,UltraPhone X,Consumer Electronics,Camera does a great job in daylight,2026-03-29T16:20:00Z,csv,4.5,Camera
+P1001,UltraPhone X,Consumer Electronics,UI feels clean and app switching is fast,2026-03-30T12:00:00Z,csv,4.4,Software/UI
+P1001,UltraPhone X,Consumer Electronics,Build quality is solid for this segment,2026-03-31T18:10:00Z,csv,4.2,Build Quality
+P1001,UltraPhone X,Consumer Electronics,Value for money looked good at launch price,2026-04-01T08:30:00Z,csv,4.1,Price/Value
+P1001,UltraPhone X,Consumer Electronics,Price keeps increasing every week and it feels overpriced,2026-04-14T09:15:00Z,csv,2.0,Price/Value
+P1001,UltraPhone X,Consumer Electronics,Now the same model costs too much for these features,2026-04-14T11:05:00Z,csv,1.9,Price/Value
+P1001,UltraPhone X,Consumer Electronics,Discount removed and final checkout price is very high,2026-04-15T10:45:00Z,csv,1.8,Price/Value
+P1001,UltraPhone X,Consumer Electronics,Price hike again this week and no meaningful upgrade,2026-04-15T13:35:00Z,csv,1.7,Price/Value
+P1001,UltraPhone X,Consumer Electronics,At this price point competitors offer better camera and battery,2026-04-16T10:10:00Z,csv,2.1,Price/Value
+P1001,UltraPhone X,Consumer Electronics,Expensive now and not worth the premium they are asking,2026-04-16T17:25:00Z,csv,1.6,Price/Value
+P1001,UltraPhone X,Consumer Electronics,Buy now limited offer click here http://spam.example/deal,2026-04-16T19:00:00Z,csv,1.0,Price/Value
+P1001,UltraPhone X,Consumer Electronics,This is too costly now and feels like poor value,2026-04-17T09:20:00Z,csv,1.9,Price/Value
+P1001,UltraPhone X,Consumer Electronics,This is too costly now and feels like poor value,2026-04-17T09:40:00Z,csv,1.9,Price/Value
+P2001,CoolFridge Pro,Home Appliances,Cooling performance is stable and quiet at night,2026-04-01T08:00:00Z,csv,4.4,Build Quality
+P2001,CoolFridge Pro,Home Appliances,Door seal quality is good and temperature is consistent,2026-04-03T12:00:00Z,csv,4.3,Build Quality
+P2001,CoolFridge Pro,Home Appliances,Energy usage is low compared to previous model,2026-04-05T15:00:00Z,csv,4.5,Price/Value
+P2001,CoolFridge Pro,Home Appliances,Service visit was delayed but issue got fixed,2026-04-12T10:00:00Z,csv,3.5,Customer Support
+P3001,Synapse CRM Cloud,Software Services,Dashboard loads fast and workflow automation is useful,2026-04-02T09:00:00Z,csv,4.6,Software/UI
+P3001,Synapse CRM Cloud,Software Services,API response times are good and reports are clear,2026-04-04T11:30:00Z,csv,4.4,Speed
+P3001,Synapse CRM Cloud,Software Services,Latest patch improved search relevance and reliability,2026-04-06T16:10:00Z,csv,4.5,Software/UI
+P3001,Synapse CRM Cloud,Software Services,Login failed twice during peak hours and support was slow,2026-04-15T10:20:00Z,csv,2.6,Customer Support
+P3001,Synapse CRM Cloud,Software Services,The subscription price increased and contract terms are confusing,2026-04-16T12:10:00Z,csv,2.3,Price/Value
+P3001,Synapse CRM Cloud,Software Services,बहुत अच्छा इंटरफ़ेस है लेकिन कीमत अब ज्यादा लगती है,2026-04-17T09:30:00Z,csv,3.1,Price/Value
+P3001,Synapse CRM Cloud,Software Services,இந்த சேவை நல்லது ஆனால் விலை அதிகம்,2026-04-17T12:45:00Z,csv,3.0,Price/Value
+P3001,Synapse CRM Cloud,Software Services,ಸೇವೆ ಚೆನ್ನಾಗಿದೆ ಆದರೆ ಬೆಲೆ ಹೆಚ್ಚು,2026-04-17T15:00:00Z,csv,3.0,Price/Value
