@@ -1,0 +1,90 @@
+[
+  {
+    "product_id": "earbuds-pro",
+    "product_name": "Wireless Earbuds Pro",
+    "review_id": "REV001",
+    "date": "2026-08-20",
+    "rating": 5.0,
+    "text": "Excellent product quality, sound is crystal clear and bass is perfect.",
+    "firmware_version": "v1.5",
+    "component_focus": "audio_quality",
+    "is_sarcastic": false
+  },
+  {
+    "product_id": "earbuds-pro",
+    "product_name": "Wireless Earbuds Pro",
+    "review_id": "REV002",
+    "date": "2026-08-20",
+    "rating": 1.0,
+    "text": "Completely bricked after firmware update v1.4, DO NOT UPDATE!",
+    "firmware_version": "v1.4",
+    "component_focus": "firmware",
+    "is_sarcastic": false
+  },
+  {
+    "product_id": "earbuds-pro",
+    "product_name": "Wireless Earbuds Pro",
+    "review_id": "REV003",
+    "date": "2026-08-21",
+    "rating": 2.0,
+    "text": "Battery drains so fast, lasts only 2 hours, amazing right?",
+    "firmware_version": "v1.5",
+    "component_focus": "battery",
+    "is_sarcasm": true
+  },
+  {
+    "product_id": "earbuds-pro",
+    "product_name": "Wireless Earbuds Pro",
+    "review_id": "REV004",
+    "date": "2026-08-21",
+    "rating": 4.0,
+    "text": "Good noise cancellation, minor connectivity issues but overall solid.",
+    "firmware_version": "v1.5",
+    "component_focus": "connectivity",
+    "is_sarcastic": false
+  },
+  {
+    "product_id": "earbuds-lite",
+    "product_name": "Earbuds Lite",
+    "review_id": "REV005",
+    "date": "2026-08-22",
+    "rating": 3.0,
+    "text": "Average product for the price, does what it promises.",
+    "firmware_version": "v1.2",
+    "component_focus": "microphone",
+    "is_sarcastic": false
+  },
+  {
+    "product_id": "earbuds-lite",
+    "product_name": "Earbuds Lite",
+    "review_id": "REV006",
+    "date": "2026-08-22",
+    "rating": 5.0,
+    "text": "Surprisingly good for a budget model, excellent build quality!",
+    "firmware_version": "v1.2",
+    "component_focus": "build_quality",
+    "is_sarcastic": false
+  },
+  {
+    "product_id": "earbuds-pro",
+    "product_name": "Wireless Earbuds Pro",
+    "review_id": "REV007",
+    "date": "2026-08-23",
+    "rating": 2.0,
+    "text": "The case stopped charging after 3 months, very disappointed.",
+    "firmware_version": "v1.5",
+    "component_focus": "charging_case",
+    "is_sarcastic": false
+  },
+  {
+    "product_id": "earbuds-lite",
+    "product_name": "Earbuds Lite",
+    "review_id": "REV008",
+    "date": "2026-08-23",
+    "rating": 4.0,
+    "text": "Great value for money, comfortable fit, works as advertised.",
+    "firmware_version": "v1.2",
+    "component_focus": "comfort",
+    "is_sarcastic": false
+  }
+]

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import io
 import uuid
+from datetime import datetime, timezone
 from typing import Any, Dict, List
 
 import pandas as pd
@@ -22,6 +23,29 @@ router = APIRouter(prefix="/api/ingest", tags=["Ingestion"])
 _REQUIRED_CSV_COLUMNS = {"product_id", "product_name", "text"}
 
 
+def _parse_created_at(row: Dict[str, Any]) -> datetime | None:
+    raw = row.get("created_at") or row.get("date")
+    if not raw:
+        return None
+
+    text = str(raw).strip()
+    if not text:
+        return None
+
+    # Accept YYYY-MM-DD and ISO datetime variants.
+    try:
+        if len(text) == 10:
+            dt = datetime.strptime(text, "%Y-%m-%d")
+            return dt.replace(tzinfo=timezone.utc)
+
+        dt = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            return dt.replace(tzinfo=timezone.utc)
+        return dt
+    except ValueError:
+        return None
+
+
 # ---------------------------------------------------------------------------
 # Shared processing helpers
 # ---------------------------------------------------------------------------
@@ -31,9 +55,14 @@ def _build_review_orm(
     product_name: str,
     raw_text: str,
     source: str,
+    created_at: datetime | None,
     norm: dict,
     dedup_result: dict,
     bot_flag: bool,
+    source_review_id: str | None = None,
+    rating: float | None = None,
+    firmware_version: str | None = None,
+    component_focus: str | None = None,
 ) -> Review:
     return Review(
         id=uuid.uuid4(),
@@ -47,6 +76,11 @@ def _build_review_orm(
         overall_sentiment=norm["overall_sentiment"],
         overall_score=norm["final_sentiment_score"],
         source=source,
+        created_at=created_at,
+        source_review_id=source_review_id,
+        rating=rating,
+        firmware_version=firmware_version,
+        component_focus=component_focus,
     )
 
 
@@ -94,15 +128,41 @@ async def _process_reviews_bulk(
 
         bot_flag = is_bot_review(raw_text)
         dedup_result = dedup_engine.check_and_add(cleaned)
+        created_at = _parse_created_at(row)
+
+        # Extract optional enriched fields from CSV
+        source_review_id = row.get("review_id")
+        if source_review_id:
+            source_review_id = str(source_review_id).strip()
+
+        rating = None
+        if row.get("rating") is not None:
+            try:
+                rating = float(row.get("rating"))
+            except (ValueError, TypeError):
+                rating = None
+
+        firmware_version = row.get("firmware_version")
+        if firmware_version:
+            firmware_version = str(firmware_version).strip()
+
+        component_focus = row.get("component_focus")
+        if component_focus:
+            component_focus = str(component_focus).strip()
 
         review = _build_review_orm(
             product_id=product_id,
             product_name=product_name,
             raw_text=raw_text,
             source=source,
+            created_at=created_at,
             norm=norm,
             dedup_result=dedup_result,
             bot_flag=bot_flag,
+            source_review_id=source_review_id,
+            rating=rating,
+            firmware_version=firmware_version,
+            component_focus=component_focus,
         )
         db.add(review)
 

@@ -5,16 +5,23 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 const PAGE_SIZE = 20;
 
-function AspectRow({ productId }) {
+function ReviewDetailsModal({ review, onClose }) {
+  const productId = review?.product_id || review?.product;
   const [aspects, setAspects]   = useState(null);
   const [loading, setLoading]   = useState(true);
 
   useEffect(() => {
+    if (!productId) {
+      setAspects([]);
+      setLoading(false);
+      return;
+    }
+
     let cancelled = false;
     (async () => {
       try {
         const data = await getAspects(productId);
-        if (!cancelled) setAspects(data);
+        if (!cancelled) setAspects(data?.aspect_breakdown || []);
       } catch {
         if (!cancelled) setAspects([]);
       } finally {
@@ -24,52 +31,113 @@ function AspectRow({ productId }) {
     return () => { cancelled = true; };
   }, [productId]);
 
-  if (loading) {
-    return (
-      <tr>
-        <td colSpan={8} style={{ padding: '10px 14px', background: 'var(--surface-2)' }}>
-          <LoadingSpinner size={16} /> Loading aspects…
-        </td>
-      </tr>
-    );
-  }
-
   const list = Array.isArray(aspects) ? aspects : [];
+  const fullText = review?.raw_text || review?.text || review?.review_text || '—';
+  const sentimentScore = review?.overall_score ?? review?.sentiment_score;
+  const sentiment = review?.overall_sentiment || review?.sentiment;
+  const lang = review?.language_detected || review?.language || 'en';
+  const source = review?.source || '—';
 
   return (
-    <tr>
-      <td colSpan={8} style={{ padding: '12px 20px', background: 'rgba(99,102,241,0.05)', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', marginBottom: 8, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-          Aspect Insights for {productId}
+    <div
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(8,12,24,0.72)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1100,
+        padding: 16,
+      }}
+    >
+      <div
+        onClick={e => e.stopPropagation()}
+        style={{
+          width: 'min(860px, 100%)',
+          maxHeight: '88vh',
+          overflowY: 'auto',
+          background: 'var(--surface)',
+          border: '1px solid var(--border)',
+          borderRadius: 14,
+          boxShadow: '0 24px 60px rgba(0,0,0,0.35)',
+          padding: 20,
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+          <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>Review details</h3>
+          <button className="btn btn-secondary" onClick={onClose}>Close</button>
         </div>
-        {list.length === 0 ? (
-          <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>No aspect data available.</span>
-        ) : (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            {list.slice(0, 12).map((a, i) => (
-              <div key={i} style={{
-                background: 'var(--surface)',
-                border: '1px solid var(--border)',
-                borderRadius: 8,
-                padding: '6px 12px',
-                fontSize: 12,
-              }}>
-                <span style={{ fontWeight: 600 }}>{a.aspect || a.name || a}</span>
-                {a.count != null && <span style={{ color: 'var(--text-muted)', marginLeft: 6 }}>({a.count})</span>}
-                {a.sentiment_score != null && (
-                  <span style={{
-                    marginLeft: 6,
-                    color: a.sentiment_score >= 0.6 ? 'var(--positive)' : a.sentiment_score <= 0.35 ? 'var(--negative)' : 'var(--neutral)',
-                  }}>
-                    {a.sentiment_score.toFixed(2)}
-                  </span>
-                )}
-              </div>
-            ))}
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(120px, 1fr))', gap: 10, marginBottom: 14 }}>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Product
+            <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 13 }}>{review?.product_name || productId || '—'}</div>
           </div>
-        )}
-      </td>
-    </tr>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Product ID
+            <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 13 }}>{productId || '—'}</div>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Language
+            <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 13 }}>{lang}</div>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Source
+            <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 13 }}>{source}</div>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Sentiment
+            <div style={{ marginTop: 4 }}><SentimentBadge sentiment={sentiment} /></div>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Score
+            <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 13 }}>{sentimentScore != null ? Number(sentimentScore).toFixed(3) : '—'}</div>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Date
+            <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 13 }}>{review?.created_at ? new Date(review.created_at).toLocaleString() : '—'}</div>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Flags
+            <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 13 }}>
+              {review?.is_bot ? 'Bot' : 'Human'} / {review?.is_duplicate ? 'Duplicate' : 'Unique'}
+            </div>
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 14 }}>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Full review text</div>
+          <div style={{ background: 'var(--surface-2)', border: '1px solid var(--border)', borderRadius: 10, padding: 12, lineHeight: 1.55, fontSize: 14 }}>
+            {fullText}
+          </div>
+        </div>
+
+        <div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            Product aspect summary
+          </div>
+          {loading ? (
+            <div style={{ padding: 8, color: 'var(--text-muted)' }}><LoadingSpinner size={16} /> Loading aspects...</div>
+          ) : list.length === 0 ? (
+            <div style={{ padding: 8, color: 'var(--text-muted)' }}>No aspect data available.</div>
+          ) : (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {list.slice(0, 16).map((a, i) => (
+                <div key={i} style={{
+                  background: 'var(--surface-2)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 8,
+                  padding: '7px 10px',
+                  fontSize: 12,
+                }}>
+                  <span style={{ fontWeight: 600 }}>{a.aspect || a.name || a}</span>
+                  {a.count != null && <span style={{ color: 'var(--text-muted)', marginLeft: 6 }}>({a.count})</span>}
+                  {a.avg_score != null && (
+                    <span style={{ marginLeft: 6, color: 'var(--text-muted)' }}>avg {Number(a.avg_score).toFixed(2)}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -78,7 +146,7 @@ export default function ReviewsPage() {
   const [loading, setLoading]   = useState(false);
   const [page, setPage]         = useState(1);
   const [hasMore, setHasMore]   = useState(false);
-  const [expandedIdx, setExpandedIdx] = useState(null);
+  const [selectedReview, setSelectedReview] = useState(null);
   const [error, setError]       = useState(null);
 
   const [filters, setFilters] = useState({
@@ -87,7 +155,7 @@ export default function ReviewsPage() {
   });
   const [applied, setApplied] = useState({ product_id: '', sentiment: '' });
 
-  const fetchReviews = useCallback(async (pageNum = 1, f = applied) => {
+  const fetchReviews = useCallback(async (pageNum = 1, f = { product_id: '', sentiment: '' }) => {
     setLoading(true);
     setError(null);
     try {
@@ -98,20 +166,19 @@ export default function ReviewsPage() {
       const items = Array.isArray(data) ? data : data.reviews ?? data.items ?? [];
       setReviews(items);
       setHasMore(items.length === PAGE_SIZE);
-      setExpandedIdx(null);
+      setSelectedReview(null);
     } catch (err) {
       setError('Failed to load reviews.');
       setReviews([]);
     } finally {
       setLoading(false);
     }
-  }, [applied]);
+  }, []);
 
   /* Initial load */
   useEffect(() => {
     fetchReviews(1, { product_id: '', sentiment: '' });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchReviews]);
 
   const handleSearch = () => {
     setApplied(filters);
@@ -195,7 +262,7 @@ export default function ReviewsPage() {
               <th>Score</th>
               <th>Source</th>
               <th>Date</th>
-              <th></th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -215,14 +282,9 @@ export default function ReviewsPage() {
               </tr>
             ) : (
               reviews.map((r, i) => {
-                const isExpanded = expandedIdx === i;
                 const productId = r.product_id || r.product;
-                return [
-                  <tr
-                    key={`row-${i}`}
-                    onClick={() => setExpandedIdx(isExpanded ? null : i)}
-                    style={{ background: isExpanded ? 'rgba(99,102,241,0.08)' : undefined }}
-                  >
+                return (
+                  <tr key={`row-${i}`}>
                     <td style={{ fontWeight: 500, fontSize: 12, color: 'var(--primary)' }}>{productId || '—'}</td>
                     <td style={{ maxWidth: 300 }}>
                       <span title={r.text || r.review_text} style={{ fontSize: 13 }}>
@@ -235,12 +297,13 @@ export default function ReviewsPage() {
                     <td style={{ fontSize: 13, fontWeight: 600 }}>{r.sentiment_score != null ? r.sentiment_score.toFixed(3) : '—'}</td>
                     <td style={{ fontSize: 12, color: 'var(--text-muted)' }}>{r.source || '—'}</td>
                     <td style={{ fontSize: 12, color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>{formatDate(r.timestamp || r.date || r.created_at)}</td>
-                    <td style={{ fontSize: 12, color: 'var(--text-muted)' }}>{isExpanded ? '▲' : '▼'}</td>
-                  </tr>,
-                  isExpanded && productId && (
-                    <AspectRow key={`aspects-${i}`} productId={productId} />
-                  ),
-                ];
+                    <td>
+                      <button className="btn btn-secondary" onClick={() => setSelectedReview(r)}>
+                        View details
+                      </button>
+                    </td>
+                  </tr>
+                );
               })
             )}
           </tbody>
@@ -257,6 +320,10 @@ export default function ReviewsPage() {
           Next →
         </button>
       </div>
+
+      {selectedReview && (
+        <ReviewDetailsModal review={selectedReview} onClose={() => setSelectedReview(null)} />
+      )}
     </div>
   );
 }

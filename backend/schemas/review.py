@@ -42,6 +42,10 @@ class ReviewResponse(BaseModel):
     overall_score: Optional[float]
     created_at: datetime
     source: str
+    source_review_id: Optional[str] = None
+    rating: Optional[float] = None
+    firmware_version: Optional[str] = None
+    component_focus: Optional[str] = None
     aspects: List[AspectInsightResponse] = []
 
 
