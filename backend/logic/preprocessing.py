@@ -195,7 +195,7 @@ def compute_similarity(text1: str, text2: str) -> float:
 _REPETITIVE_PATTERN = re.compile(r"(\b\w+\b)(?:\s+\1){2,}")
 
 
-def is_bot_review(text: str, review_count_from_same_source: int = 1) -> bool:
+def is_bot_review(text: str) -> bool:
     """Heuristic bot detection."""
     words = text.split()
     if len(words) < 5:
@@ -203,8 +203,6 @@ def is_bot_review(text: str, review_count_from_same_source: int = 1) -> bool:
     if text == text.upper() and len(text) > 5:
         return True
     if _REPETITIVE_PATTERN.search(text.lower()):
-        return True
-    if review_count_from_same_source > 10:
         return True
     return False
 
