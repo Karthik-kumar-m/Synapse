@@ -30,6 +30,10 @@ class Review(Base):
         Enum("csv", "json", "api", "manual", name="review_source_enum"),
         nullable=False,
     )
+    source_review_id = Column(String(255), nullable=True, index=True)
+    rating = Column(Float, nullable=True)
+    firmware_version = Column(String(100), nullable=True)
+    component_focus = Column(String(255), nullable=True)
 
     aspects = relationship(
         "AspectInsight", back_populates="review", cascade="all, delete-orphan"
