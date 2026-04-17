@@ -1,13 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 export function useToast() {
   const [toasts, setToasts] = useState([]);
+  const timers = useRef([]);
 
-  const addToast = (message, type = 'info') => {
+  /* Clear all pending timers on unmount */
+  useEffect(() => {
+    return () => timers.current.forEach(clearTimeout);
+  }, []);
+
+  const addToast = useCallback((message, type = 'info') => {
     const id = Date.now();
     setToasts(prev => [...prev, { id, message, type }]);
-    setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 3200);
-  };
+    const tid = setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 3200);
+    timers.current.push(tid);
+  }, []);
 
   const toast = {
     success: (msg) => addToast(msg, 'success'),

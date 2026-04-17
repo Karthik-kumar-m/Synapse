@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { getReviews, getAspects } from '../api';
 import SentimentBadge from '../components/SentimentBadge';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -7,26 +7,22 @@ const PAGE_SIZE = 20;
 
 function AspectRow({ productId }) {
   const [aspects, setAspects]   = useState(null);
-  const [loading, setLoading]   = useState(false);
-  const [fetched, setFetched]   = useState(false);
+  const [loading, setLoading]   = useState(true);
 
-  const load = async () => {
-    if (fetched) return;
-    setLoading(true);
-    try {
-      const data = await getAspects(productId);
-      setAspects(data);
-    } catch {
-      setAspects([]);
-    } finally {
-      setLoading(false);
-      setFetched(true);
-    }
-  };
-
-  if (!fetched) {
-    load();
-  }
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const data = await getAspects(productId);
+        if (!cancelled) setAspects(data);
+      } catch {
+        if (!cancelled) setAspects([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [productId]);
 
   if (loading) {
     return (
@@ -112,11 +108,10 @@ export default function ReviewsPage() {
   }, [applied]);
 
   /* Initial load */
-  const [initialized, setInitialized] = useState(false);
-  if (!initialized) {
-    setInitialized(true);
+  useEffect(() => {
     fetchReviews(1, { product_id: '', sentiment: '' });
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSearch = () => {
     setApplied(filters);
