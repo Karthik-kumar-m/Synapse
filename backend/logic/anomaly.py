@@ -68,7 +68,7 @@ def detect_spike(historical_pct: float, current_pct: float) -> dict:
         }
     """
     delta = current_pct - historical_pct
-    z_score = delta / max(historical_pct, 0.01)
+    z_score = delta / max(historical_pct, 0.01)  # percentage change ratio
 
     if delta > 0.30:
         severity: Optional[str] = "critical"

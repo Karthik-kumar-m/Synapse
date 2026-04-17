@@ -6,6 +6,7 @@ import hashlib
 import re
 from typing import Dict
 
+
 import emoji
 from langdetect import detect, LangDetectException
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -170,9 +171,9 @@ def normalize_review(raw_text: str) -> dict:
 # ---------------------------------------------------------------------------
 
 def compute_text_hash(text: str) -> str:
-    """MD5 hash of cleaned, lowercased text for exact deduplication."""
+    """SHA-256 hash of cleaned, lowercased text for exact deduplication."""
     normalized = text.strip().lower()
-    return hashlib.md5(normalized.encode("utf-8")).hexdigest()  # noqa: S324
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
 
 def compute_similarity(text1: str, text2: str) -> float:

@@ -8,11 +8,12 @@ from typing import Any, Dict, List
 
 import pandas as pd
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from database import get_db
 from logic.analytics import run_absa
-from logic.preprocessing import DeduplicationEngine, is_bot_review, normalize_review
+from logic.preprocessing import DeduplicationEngine, compute_text_hash, is_bot_review, normalize_review
 from models.review import AspectInsight, Review
 from schemas.review import BulkUploadResponse, ReviewCreate, ReviewResponse
 
@@ -200,22 +201,31 @@ async def ingest_manual(
     cleaned = norm["cleaned_text"]
 
     bot_flag = is_bot_review(review_in.raw_text)
-    dedup_engine = DeduplicationEngine()
-    dedup_result = dedup_engine.check_and_add(cleaned)
 
-    review = _build_review_orm(
+    # DB-backed exact deduplication via SHA-256 hash
+    text_hash = compute_text_hash(cleaned)
+    existing = await db.execute(
+        select(Review).where(Review.cleaned_text == cleaned).limit(1)
+    )
+    is_dup = existing.scalar_one_or_none() is not None
+
+    review = Review(
+        id=uuid.uuid4(),
         product_id=review_in.product_id,
         product_name=review_in.product_name,
         raw_text=review_in.raw_text,
+        cleaned_text=cleaned,
+        language_detected=norm["language_detected"],
+        is_bot=bot_flag,
+        is_duplicate=is_dup,
+        overall_sentiment=norm["overall_sentiment"],
+        overall_score=norm["final_sentiment_score"],
         source=review_in.source,
-        norm=norm,
-        dedup_result=dedup_result,
-        bot_flag=bot_flag,
     )
     db.add(review)
 
     aspects_response = []
-    if not bot_flag and not dedup_result["is_duplicate"]:
+    if not bot_flag and not is_dup:
         absa_result = run_absa(cleaned, review_in.raw_text)
         for insight in _build_aspect_insights(review.id, absa_result):
             db.add(insight)
