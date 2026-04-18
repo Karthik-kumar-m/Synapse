@@ -1,0 +1,242 @@
+[
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 0: quality achi nahi hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 1: theek thaak hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "text": "JSON review 2: theek thaak hai",
+    "category": "Personal Care",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 3: quality achi nahi hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 4
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 4: bohot badiya product hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "text": "JSON review 5: waste of money hai",
+    "category": "Home Care",
+    "source": "json",
+    "rating": 3
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 6: waste of money hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 7: quality achi nahi hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 4
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 8: superb packing",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 5
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 9: quality achi nahi hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 4
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 10: bohot badiya product hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 3
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "text": "JSON review 11: waste of money hai",
+    "category": "Home Care",
+    "source": "json",
+    "rating": 2
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 12: quality achi nahi hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 13: theek thaak hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 14: theek thaak hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 5
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 15: waste of money hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 4
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 16: quality achi nahi hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 5
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 17: waste of money hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 2
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 18: superb packing",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "text": "JSON review 19: theek thaak hai",
+    "category": "Personal Care",
+    "source": "json",
+    "rating": 3
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "text": "JSON review 20: quality achi nahi hai",
+    "category": "Personal Care",
+    "source": "json",
+    "rating": 2
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "text": "JSON review 21: bohot badiya product hai",
+    "category": "Home Care",
+    "source": "json",
+    "rating": 4
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "text": "JSON review 22: bohot badiya product hai",
+    "category": "Personal Care",
+    "source": "json",
+    "rating": 5
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 23: quality achi nahi hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 2
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "text": "JSON review 24: quality achi nahi hai",
+    "category": "Home Care",
+    "source": "json",
+    "rating": 2
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "text": "JSON review 25: theek thaak hai",
+    "category": "Personal Care",
+    "source": "json",
+    "rating": 4
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "text": "JSON review 26: superb packing",
+    "category": "Personal Care",
+    "source": "json",
+    "rating": 1
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 27: superb packing",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 4
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "text": "JSON review 28: waste of money hai",
+    "category": "Food & Beverage",
+    "source": "json",
+    "rating": 2
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "text": "JSON review 29: waste of money hai",
+    "category": "Software Services",
+    "source": "json",
+    "rating": 4
+  }
+]

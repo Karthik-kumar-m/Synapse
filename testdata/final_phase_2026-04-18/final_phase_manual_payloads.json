@@ -1,0 +1,92 @@
+[
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "raw_text": "Manual input 0: what a great camera... not",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "raw_text": "Manual input 1: yeah right, very durable",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "raw_text": "Manual input 2: yeah right, very durable",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "raw_text": "Manual input 3: thanks for nothing",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "raw_text": "Manual input 4: what a great camera... not",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "raw_text": "Manual input 5: totally great screen, broken in 2 days",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "raw_text": "Manual input 6: what a great camera... not",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "raw_text": "Manual input 7: yeah right, very durable",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1001",
+    "product_name": "Personal Care",
+    "raw_text": "Manual input 8: thanks for nothing",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1002",
+    "product_name": "Home Care",
+    "raw_text": "Manual input 9: thanks for nothing",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "raw_text": "Manual input 10: totally great screen, broken in 2 days",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1003",
+    "product_name": "Food & Beverage",
+    "raw_text": "Manual input 11: yeah right, very durable",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "raw_text": "Manual input 12: yeah right, very durable",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "raw_text": "Manual input 13: yeah right, very durable",
+    "source": "manual"
+  },
+  {
+    "product_id": "FP1004",
+    "product_name": "Software Services",
+    "raw_text": "Manual input 14: what a great camera... not",
+    "source": "manual"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "product_id": "P6001",
+    "product_name": "PulseWatch S",
+    "text": "Battery lasts two days and screen is bright outdoors.",
+    "source": "json",
+    "category": "Consumer Electronics",
+    "rating": 5,
+    "firmware_version": "7.1.0",
+    "component_focus": "battery",
+    "created_at": "2026-04-18T09:00:00Z",
+    "review_id": "JSON-001"
+  },
+  {
+    "product_id": "P6001",
+    "product_name": "PulseWatch S",
+    "text": "Band quality is poor and clasp broke in one week.",
+    "source": "json",
+    "category": "Consumer Electronics",
+    "rating": 2,
+    "firmware_version": "7.1.0",
+    "component_focus": "build",
+    "created_at": "2026-04-18T09:01:00Z",
+    "review_id": "JSON-002"
+  },
+  {
+    "product_id": "P6002",
+    "product_name": "HeatMate Oven",
+    "text": "Preheating is fast and controls are simple.",
+    "source": "json",
+    "category": "Home Appliances",
+    "rating": 4,
+    "firmware_version": "2.0.3",
+    "component_focus": "heating",
+    "created_at": "2026-04-18T09:02:00Z",
+    "review_id": "JSON-003"
+  },
+  {
+    "product_id": "P6002",
+    "product_name": "HeatMate Oven",
+    "text": "bahut kharab support, no callback for 3 days",
+    "source": "json",
+    "category": "Home Appliances",
+    "rating": 1,
+    "firmware_version": "2.0.3",
+    "component_focus": "support",
+    "created_at": "2026-04-18T09:03:00Z",
+    "review_id": "JSON-004"
+  },
+  {
+    "product_id": "P6003",
+    "product_name": "OpsBoard Cloud",
+    "text": "Oh sure, best platform ever, incident alerts never arrive on time.",
+    "source": "json",
+    "category": "Software Services",
+    "rating": 1,
+    "firmware_version": "2026.4",
+    "component_focus": "alerts",
+    "created_at": "2026-04-18T09:04:00Z",
+    "review_id": "JSON-005"
+  },
+  {
+    "product_id": "P6003",
+    "product_name": "OpsBoard Cloud",
+    "text": "Release notes are clear and dashboard performance is smooth.",
+    "source": "json",
+    "category": "Software Services",
+    "rating": 5,
+    "firmware_version": "2026.4",
+    "component_focus": "dashboard",
+    "created_at": "2026-04-18T09:05:00Z",
+    "review_id": "JSON-006"
+  },
+  {
+    "product_id": "P6004",
+    "product_name": "Edge Cases Kit",
+    "text": "Amazing speed 🔥 but crashes twice a day 😞",
+    "source": "json",
+    "category": "Uncategorized",
+    "rating": 2,
+    "firmware_version": "0.9.9",
+    "component_focus": "stability",
+    "created_at": "2026-04-18T09:06:00Z",
+    "review_id": "JSON-007"
+  },
+  {
+    "product_id": "P6004",
+    "product_name": "Edge Cases Kit",
+    "text": "click here limited offer promo code FREE99",
+    "source": "json",
+    "category": "Uncategorized",
+    "rating": 1,
+    "firmware_version": "0.9.9",
+    "component_focus": "promo",
+    "created_at": "2026-04-18T09:07:00Z",
+    "review_id": "JSON-008"
+  }
+]

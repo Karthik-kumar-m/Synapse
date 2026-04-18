@@ -103,6 +103,36 @@ export function InsightsPage() {
     [recentReviews],
   );
 
+  const translationPairs = useMemo(
+    () =>
+      recentReviews
+        .filter(
+          (review) =>
+            !!review.raw_text &&
+            !!review.translated_text &&
+            review.language_detected &&
+            review.language_detected !== 'en',
+        )
+        .map((review) => ({ raw: review.raw_text, translated: review.translated_text as string })),
+    [recentReviews],
+  );
+
+  const renderTranslatedInsightText = (text: string): string => {
+    if (!text) return text;
+
+    let resolved = text;
+    for (const pair of translationPairs) {
+      if (pair.raw && pair.translated && resolved.includes(pair.raw)) {
+        resolved = resolved.replaceAll(pair.raw, pair.translated);
+      }
+    }
+    return resolved;
+  };
+
+  const aiSummaryDisplay = renderTranslatedInsightText(aiInsights?.summary || '');
+  const aiRootCausesDisplay = (aiInsights?.likely_root_causes ?? []).map((item) => renderTranslatedInsightText(item));
+  const aiActionsDisplay = (aiInsights?.immediate_actions ?? []).map((item) => renderTranslatedInsightText(item));
+
   const evidenceHighlights = useMemo(() => {
     const highlights: string[] = [];
 
@@ -124,11 +154,21 @@ export function InsightsPage() {
       highlights.push(`${flaggedReviews.length} of the latest ${recentReviews.length} reviews were quarantined/flagged (spam, bot, or duplicate).`);
     }
 
+    const sampleRecent = recentReviews[0];
+    if (sampleRecent) {
+      const sampleText =
+        sampleRecent.language_detected && sampleRecent.language_detected !== 'en' && sampleRecent.translated_text
+          ? sampleRecent.translated_text
+          : sampleRecent.raw_text;
+      const preview = sampleText.length > 110 ? `${sampleText.slice(0, 110)}...` : sampleText;
+      highlights.push(`Recent signal sample: "${preview}"`);
+    }
+
     if (highlights.length === 0) {
       highlights.push('No strong insight signals yet. Ingest at least 30 varied reviews for this product to unlock richer trend and anomaly insights.');
     }
 
-    return highlights.slice(0, 4);
+    return highlights.slice(0, 5);
   }, [flaggedReviews.length, recentReviews.length, strongestNegativeTrend, topPriority, topSpike]);
 
   const handleExportReport = async () => {
@@ -254,7 +294,7 @@ export function InsightsPage() {
               </span>
             </div>
             <p className="text-[14px] text-[#1D1D1F] leading-relaxed font-medium">
-              {aiInsights?.summary || 'No AI insight yet. Ingest more reviews for this product to generate root-cause analysis.'}
+              {aiSummaryDisplay || 'No AI insight yet. Ingest more reviews for this product to generate root-cause analysis.'}
             </p>
             <div className="mt-3 text-[12px] text-[#86868B] font-semibold">
               Confidence: {Math.round((aiInsights?.confidence ?? 0) * 100)}%
@@ -263,7 +303,7 @@ export function InsightsPage() {
               <div>
                 <div className="text-[12px] text-[#86868B] font-semibold uppercase tracking-wider mb-2">Likely Root Causes</div>
                 <ul className="text-[13px] text-[#1D1D1F] space-y-1 list-disc pl-4">
-                  {(aiInsights?.likely_root_causes?.length ? aiInsights.likely_root_causes : ['No root-cause signals yet']).map((item, idx) => (
+                  {(aiRootCausesDisplay.length ? aiRootCausesDisplay : ['No root-cause signals yet']).map((item, idx) => (
                     <li key={`cause-${idx}`}>{item}</li>
                   ))}
                 </ul>
@@ -271,7 +311,7 @@ export function InsightsPage() {
               <div>
                 <div className="text-[12px] text-[#86868B] font-semibold uppercase tracking-wider mb-2">Immediate Actions</div>
                 <ul className="text-[13px] text-[#1D1D1F] space-y-1 list-disc pl-4">
-                  {(aiInsights?.immediate_actions?.length ? aiInsights.immediate_actions : ['No action suggestions yet']).map((item, idx) => (
+                  {(aiActionsDisplay.length ? aiActionsDisplay : ['No action suggestions yet']).map((item, idx) => (
                     <li key={`action-${idx}`}>{item}</li>
                   ))}
                 </ul>

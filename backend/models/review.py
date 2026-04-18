@@ -17,6 +17,7 @@ class Review(Base):
     product_name = Column(String(500), nullable=False)
     category = Column(String(100), nullable=False, default="Uncategorized", index=True)
     raw_text = Column(Text, nullable=False)
+    translated_text = Column(Text, nullable=True)
     cleaned_text = Column(Text, nullable=True)
     language_detected = Column(String(10), nullable=True)
     is_bot = Column(Boolean, default=False, nullable=False)

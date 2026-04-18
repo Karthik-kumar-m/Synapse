@@ -18,7 +18,8 @@ export function ProductSelector({ products, selectedProductId, onSelectProduct }
   }
 
   return (
-    <div className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar">
+    <div className="rounded-[24px] border border-[#E5E5EA] bg-white/80 p-3 shadow-sm">
+      <div className="flex gap-4 overflow-x-auto pb-1 hide-scrollbar">
       {products.map((product) => {
         const isSelected = product.product_id === selectedProductId;
         const sentimentPct = Math.max(0, Math.min(100, Math.round((product.avg_sentiment_score ?? 0) * 10)));
@@ -63,6 +64,7 @@ export function ProductSelector({ products, selectedProductId, onSelectProduct }
           </button>
         );
       })}
+      </div>
     </div>
   );
 }

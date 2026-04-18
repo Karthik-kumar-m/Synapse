@@ -1,0 +1,162 @@
+[
+  {
+    "product_id": "FP1004",
+    "stream_id": "RT-0",
+    "content": "Realtime feed 0: click here http://spam.ex",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1002",
+    "stream_id": "RT-1",
+    "content": "Realtime feed 1: click here http://spam.ex",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1002",
+    "stream_id": "RT-2",
+    "content": "Realtime feed 2: contact me for discount",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1001",
+    "stream_id": "RT-3",
+    "content": "Realtime feed 3: contact me for discount",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1004",
+    "stream_id": "RT-4",
+    "content": "Realtime feed 4: buy now limited offer",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1003",
+    "stream_id": "RT-5",
+    "content": "Realtime feed 5: click here http://spam.ex",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1004",
+    "stream_id": "RT-6",
+    "content": "Realtime feed 6: use promo code SAVE20",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1003",
+    "stream_id": "RT-7",
+    "content": "Realtime feed 7: click here http://spam.ex",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1001",
+    "stream_id": "RT-8",
+    "content": "Realtime feed 8: click here http://spam.ex",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1003",
+    "stream_id": "RT-9",
+    "content": "Realtime feed 9: contact me for discount",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1002",
+    "stream_id": "RT-10",
+    "content": "Realtime feed 10: contact me for discount",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1004",
+    "stream_id": "RT-11",
+    "content": "Realtime feed 11: buy now limited offer",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1004",
+    "stream_id": "RT-12",
+    "content": "Realtime feed 12: use promo code SAVE20",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1004",
+    "stream_id": "RT-13",
+    "content": "Realtime feed 13: contact me for discount",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1002",
+    "stream_id": "RT-14",
+    "content": "Realtime feed 14: use promo code SAVE20",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1001",
+    "stream_id": "RT-15",
+    "content": "Realtime feed 15: buy now limited offer",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1001",
+    "stream_id": "RT-16",
+    "content": "Realtime feed 16: contact me for discount",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1003",
+    "stream_id": "RT-17",
+    "content": "Realtime feed 17: contact me for discount",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1004",
+    "stream_id": "RT-18",
+    "content": "Realtime feed 18: use promo code SAVE20",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  },
+  {
+    "product_id": "FP1001",
+    "stream_id": "RT-19",
+    "content": "Realtime feed 19: use promo code SAVE20",
+    "metadata": {
+      "firmware": "v4.0"
+    }
+  }
+]

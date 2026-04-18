@@ -4,10 +4,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { fetchReviews, type Review } from '../api';
 
 function toQueueFlag(review: Review): string {
-  if (review.is_bot) return 'Bot Suspected';
-  if (review.is_duplicate) return 'Potential Duplicate';
-  if (review.aspects.some((a) => a.is_sarcastic)) return 'Sarcasm';
-  if (review.aspects.some((a) => a.flagged_for_review)) return 'Needs Review';
   return 'Ambiguity';
 }
 
@@ -43,10 +39,8 @@ export function ReviewQueue({ selectedProductId = '' }: { selectedProductId?: st
   }, [selectedProductId]);
 
   const queueReviews = useMemo(() => {
-    const flagged = reviews.filter(
-      (r) => r.is_bot || r.is_duplicate || r.aspects.some((a) => a.flagged_for_review || a.is_sarcastic),
-    );
-    return (flagged.length ? flagged : reviews).slice(0, 12);
+    const flagged = reviews.filter((review) => review.aspects.some((aspect) => aspect.sentiment === 'ambiguous'));
+    return flagged.slice(0, 12);
   }, [reviews]);
 
   return (
@@ -116,7 +110,7 @@ export function ReviewQueue({ selectedProductId = '' }: { selectedProductId?: st
           ))}
 
           {queueReviews.length === 0 && (
-            <div className="text-sm text-[#86868B] font-medium">No reviews available for moderation.</div>
+            <div className="text-sm text-[#86868B] font-medium">No ambiguous reviews available for moderation.</div>
           )}
         </div>
       </div>

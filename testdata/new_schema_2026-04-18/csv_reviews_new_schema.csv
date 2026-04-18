@@ -1,0 +1,25 @@
+product_id,product_name,text,category,source,created_at,review_id,rating,firmware_version,component_focus
+P2001,ZenPhone X1,"Battery backup is excellent and camera quality is sharp.",Consumer Electronics,csv,2026-04-18T08:10:00Z,CSV-001,5,1.2.1,battery
+P2001,ZenPhone X1,"Battery drains too fast after update and phone gets warm.",Consumer Electronics,csv,2026-04-18T08:11:00Z,CSV-002,2,1.2.2,battery
+P2001,ZenPhone X1,"Display is bright but touch response is laggy at times.",Consumer Electronics,csv,2026-04-18T08:12:00Z,CSV-003,3,1.2.2,display
+P2001,ZenPhone X1,"bahut accha camera but charging bahut slow",Consumer Electronics,csv,2026-04-18T08:13:00Z,CSV-004,3,1.2.2,camera
+P2002,AeroBuds Pro,"Sound clarity is amazing, bass is clean and punchy.",Consumer Electronics,csv,2026-04-18T08:14:00Z,CSV-005,5,3.4.0,audio
+P2002,AeroBuds Pro,"Left earbud disconnects randomly, very annoying.",Consumer Electronics,csv,2026-04-18T08:15:00Z,CSV-006,2,3.4.0,connectivity
+P2002,AeroBuds Pro,"yeah right, amazing battery life... dies in 40 minutes",Consumer Electronics,csv,2026-04-18T08:16:00Z,CSV-007,1,3.4.0,battery
+P3001,SmartWash 8kg,"Washing quality is good and noise level is low.",Home Appliances,csv,2026-04-18T08:17:00Z,CSV-008,4,2.1.0,motor
+P3001,SmartWash 8kg,"Delivery was delayed by 5 days and box arrived dented.",Home Appliances,csv,2026-04-18T08:18:00Z,CSV-009,2,2.1.0,delivery
+P3001,SmartWash 8kg,"kaam nahi karta after spin cycle, support not responding",Home Appliances,csv,2026-04-18T08:19:00Z,CSV-010,1,2.1.1,support
+P3002,CoolMax Fridge 320L,"Cooling performance is stable and power usage is low.",Home Appliances,csv,2026-04-18T08:20:00Z,CSV-011,5,5.0.0,cooling
+P3002,CoolMax Fridge 320L,"Door seal feels flimsy and handle came loose.",Home Appliances,csv,2026-04-18T08:21:00Z,CSV-012,2,5.0.0,build
+P4001,FlowDesk SaaS,"Dashboard UI is clean and onboarding is smooth.",Software Services,csv,2026-04-18T08:22:00Z,CSV-013,5,2026.4,ui
+P4001,FlowDesk SaaS,"Login keeps failing on Firefox after latest patch.",Software Services,csv,2026-04-18T08:23:00Z,CSV-014,2,2026.4,auth
+P4001,FlowDesk SaaS,"API response time improved a lot in this release.",Software Services,csv,2026-04-18T08:24:00Z,CSV-015,4,2026.4,api
+P4001,FlowDesk SaaS,"totally great update, now reports crash every hour",Software Services,csv,2026-04-18T08:25:00Z,CSV-016,1,2026.4,stability
+P4002,CloudSync Pro,"Price is fair and sync speed is very fast.",Software Services,csv,2026-04-18T08:26:00Z,CSV-017,4,2026.4,sync
+P4002,CloudSync Pro,"paise ki barbadi, files missing after migration",Software Services,csv,2026-04-18T08:27:00Z,CSV-018,1,2026.4,migration
+P5001,EdgeCase Product,"Great service 😊 quick delivery and easy setup",Uncategorized,csv,2026-04-18T08:28:00Z,CSV-019,5,1.0.0,delivery
+P5001,EdgeCase Product,"Worst packaging ever 😡 box broken and item scratched",Uncategorized,csv,2026-04-18T08:29:00Z,CSV-020,1,1.0.0,packaging
+P5001,EdgeCase Product,"BUY NOW limited offer click here http://spam.example",Uncategorized,csv,2026-04-18T08:30:00Z,CSV-021,1,1.0.0,promo
+P5001,EdgeCase Product,"ok",Uncategorized,csv,2026-04-18T08:31:00Z,CSV-022,3,1.0.0,other
+P5001,EdgeCase Product,"battery battery battery battery battery",Uncategorized,csv,2026-04-18T08:32:00Z,CSV-023,1,1.0.0,battery
+P2001,ZenPhone X1,"Battery drains too fast after update and phone gets warm.",Consumer Electronics,csv,2026-04-18T08:33:00Z,CSV-024,2,1.2.2,battery

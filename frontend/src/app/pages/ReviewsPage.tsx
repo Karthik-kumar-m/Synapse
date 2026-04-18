@@ -84,6 +84,13 @@ export function ReviewsPage() {
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
+  const listSnippet = (review: Review): string => {
+    if (review.language_detected && review.language_detected !== 'en' && review.translated_text) {
+      return review.translated_text;
+    }
+    return review.raw_text;
+  };
+
   return (
     <PageWrapper title="Reviews Data">
       <motion.div
@@ -152,7 +159,7 @@ export function ReviewsPage() {
                         {review.source}
                       </td>
                       <td className="py-4 whitespace-nowrap text-[13px] font-medium text-[#86868B]">{review.product_name}</td>
-                      <td className="py-4 text-[14px] text-[#1D1D1F] max-w-md truncate pr-8">"{review.raw_text}"</td>
+                      <td className="py-4 text-[14px] text-[#1D1D1F] max-w-md truncate pr-8">"{listSnippet(review)}"</td>
                       <td className="py-4 whitespace-nowrap">
                         <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-semibold ${sentimentStyles[sentiment] ?? sentimentStyles.neutral}`}>
                           {sentiment}
@@ -216,6 +223,17 @@ export function ReviewsPage() {
                                   <p className="text-[14px] text-[#1D1D1F] font-medium leading-relaxed">
                                     {review.raw_text}
                                   </p>
+
+                                  {review.language_detected && review.language_detected !== 'en' && review.translated_text && review.translated_text !== review.raw_text && (
+                                    <div className="mt-4 rounded-xl border border-[#E5E5EA] bg-white p-3">
+                                      <h5 className="text-[11px] font-bold text-[#86868B] uppercase tracking-wider mb-1.5">
+                                        Translated (English)
+                                      </h5>
+                                      <p className="text-[13px] text-[#1D1D1F] font-medium leading-relaxed">
+                                        {review.translated_text}
+                                      </p>
+                                    </div>
+                                  )}
 
                                   <div className="mt-5 rounded-2xl border border-[#0071E3]/20 bg-[#0071E3]/5 p-4">
                                     <h4 className="text-[12px] font-bold text-[#0071E3] uppercase tracking-wider mb-2">

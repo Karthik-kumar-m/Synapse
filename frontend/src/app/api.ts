@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { type AxiosProgressEvent } from 'axios';
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL ?? '/api',
@@ -41,6 +41,7 @@ export type Review = {
   product_name: string;
   category?: string | null;
   raw_text: string;
+  translated_text?: string | null;
   cleaned_text?: string | null;
   language_detected?: string | null;
   is_bot: boolean;
@@ -155,6 +156,17 @@ export type CategoryComparisonResponse = {
   categories: CategoryComparisonItem[];
 };
 
+export type UploadProgressHandler = (event: AxiosProgressEvent) => void;
+
+export type IngestProgressResponse = {
+  upload_id: string;
+  status: 'processing' | 'completed' | 'failed' | string;
+  total_reviews: number;
+  processed_reviews: number;
+  updated_at: string;
+  error?: string | null;
+};
+
 export const fetchSummary = async () => (await api.get<DashboardSummary>('/dashboard/summary')).data;
 export const fetchProducts = async () => (await api.get<ProductSummary[]>('/dashboard/products')).data;
 export const fetchAlerts = async () => (await api.get<Alert[]>('/dashboard/alerts')).data;
@@ -181,18 +193,35 @@ export const downloadDashboardReport = async (params?: { product_id?: string; ca
     responseType: 'blob',
   });
 
-export const ingestCsv = async (file: File) => {
+export const ingestCsv = async (
+  file: File,
+  onUploadProgress?: UploadProgressHandler,
+  uploadId?: string,
+) => {
   const form = new FormData();
   form.append('file', file);
   return (
     await api.post<BulkUploadResponse>('/ingest/csv', form, {
-      headers: { 'Content-Type': 'multipart/form-data' },
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        ...(uploadId ? { 'X-Upload-Id': uploadId } : {}),
+      },
+      onUploadProgress,
     })
   ).data;
 };
 
-export const ingestJson = async (payload: Array<Record<string, unknown>>) =>
-  (await api.post<BulkUploadResponse>('/ingest/json', payload)).data;
+export const ingestJson = async (
+  payload: Array<Record<string, unknown>>,
+  onUploadProgress?: UploadProgressHandler,
+  uploadId?: string,
+) =>
+  (
+    await api.post<BulkUploadResponse>('/ingest/json', payload, {
+      onUploadProgress,
+      headers: uploadId ? { 'X-Upload-Id': uploadId } : undefined,
+    })
+  ).data;
 
 export const ingestManual = async (payload: {
   product_id: string;
@@ -200,7 +229,16 @@ export const ingestManual = async (payload: {
   raw_text: string;
   category?: string;
   source: 'manual';
-}) => (await api.post<Review>('/ingest/manual', payload)).data;
+}, onUploadProgress?: UploadProgressHandler, uploadId?: string) =>
+  (
+    await api.post<Review>('/ingest/manual', payload, {
+      onUploadProgress,
+      headers: uploadId ? { 'X-Upload-Id': uploadId } : undefined,
+    })
+  ).data;
+
+export const fetchIngestProgress = async (uploadId: string) =>
+  (await api.get<IngestProgressResponse>(`/ingest/progress/${uploadId}`)).data;
 
 export const ingestRealtimeFeed = async (payload: Array<Record<string, unknown>>) =>
   (await api.post<{ job_id: string; status: string; reviews_received: number }>('/ingest/realtime-feed', payload)).data;

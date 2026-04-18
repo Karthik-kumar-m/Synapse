@@ -9,11 +9,19 @@ import {
   CheckCircle2,
   AlertTriangle,
   Sparkles,
-  Loader2,
   Send,
 } from 'lucide-react';
 import { PageWrapper } from '../components/PageWrapper';
-import { ingestCsv, ingestJson, ingestManual, ingestRealtimeFeed, type BulkUploadResponse } from '../api';
+import { Progress } from '../components/ui/progress';
+import {
+  fetchIngestProgress,
+  ingestCsv,
+  ingestJson,
+  ingestManual,
+  ingestRealtimeFeed,
+  type BulkUploadResponse,
+  type UploadProgressHandler,
+} from '../api';
 
 type Tab = 'csv' | 'json' | 'manual' | 'realtime';
 type UploadState = 'idle' | 'uploading' | 'success' | 'error';
@@ -21,6 +29,10 @@ type UploadState = 'idle' | 'uploading' | 'success' | 'error';
 export function IngestPage() {
   const [activeTab, setActiveTab] = useState<Tab>('csv');
   const [uploadState, setUploadState] = useState<UploadState>('idle');
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadProgressCompleted, setUploadProgressCompleted] = useState(0);
+  const [uploadProgressTotal, setUploadProgressTotal] = useState(0);
+  const [activeUploadId, setActiveUploadId] = useState<string | null>(null);
   const [isLive, setIsLive] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [lastUpload, setLastUpload] = useState<BulkUploadResponse | null>(null);
@@ -41,6 +53,50 @@ export function IngestPage() {
     setUploadState('idle');
     setErrorMessage('');
   }, [activeTab]);
+
+  useEffect(() => {
+    if (uploadState !== 'uploading' || !activeUploadId) {
+      if (uploadState !== 'uploading') {
+        setUploadProgress(0);
+        setUploadProgressCompleted(0);
+        setUploadProgressTotal(0);
+        setActiveUploadId(null);
+      }
+      return;
+    }
+
+    let isActive = true;
+    const poll = async () => {
+      try {
+        const progress = await fetchIngestProgress(activeUploadId);
+        if (!isActive) {
+          return;
+        }
+
+        const total = Math.max(1, progress.total_reviews || 1);
+        const completed = Math.max(0, Math.min(total, progress.processed_reviews || 0));
+        setUploadProgressTotal(total);
+        setUploadProgressCompleted(completed);
+        setUploadProgress(Math.round((completed / total) * 100));
+
+        if (progress.status === 'failed') {
+          setUploadState('error');
+          setErrorMessage(progress.error || 'Upload processing failed.');
+          return;
+        }
+      } catch {
+        // Ignore transient polling failures while upload request is still active.
+      }
+    };
+
+    const interval = setInterval(poll, 300);
+    void poll();
+
+    return () => {
+      isActive = false;
+      clearInterval(interval);
+    };
+  }, [uploadState, activeUploadId]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -117,6 +173,61 @@ export function IngestPage() {
     };
   }, [lastUpload]);
 
+  const countCsvRows = async (file: File): Promise<number> => {
+    const contents = await file.text();
+    return contents
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .slice(1).length;
+  };
+
+  const getJsonRecordCount = (payload: unknown): number => {
+    if (Array.isArray(payload)) {
+      return payload.length;
+    }
+
+    if (payload && typeof payload === 'object') {
+      const maybeImages = (payload as { images?: unknown[] }).images;
+      if (Array.isArray(maybeImages)) {
+        return maybeImages.length;
+      }
+    }
+
+    return 0;
+  };
+
+  const beginUpload = (totalRecords: number) => {
+    setUploadProgressTotal(Math.max(1, totalRecords));
+    setUploadProgressCompleted(0);
+    setUploadProgress(0);
+    setUploadState('uploading');
+    setErrorMessage('');
+  };
+
+  const createUploadId = (): string => {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      return crypto.randomUUID();
+    }
+    return `upload-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
+  };
+
+  const buildUploadProgressHandler = (totalRecords: number): UploadProgressHandler => {
+    const safeTotal = Math.max(1, totalRecords);
+
+    return (event) => {
+      const ratioFromProgress = typeof event.progress === 'number' ? event.progress : undefined;
+      const ratioFromBytes = event.total ? event.loaded / event.total : undefined;
+      const ratio = Math.max(0, Math.min(1, ratioFromProgress ?? ratioFromBytes ?? 0));
+
+      const visualProgress = Math.max(8, Math.min(92, Math.round(ratio * 92)));
+      setUploadProgress((current) => Math.max(current, visualProgress));
+
+      const uploadedEstimate = Math.max(0, Math.min(safeTotal - 1, Math.ceil(ratio * safeTotal)));
+      setUploadProgressCompleted((current) => Math.max(current, uploadedEstimate));
+    };
+  };
+
   const handleCsvUpload = async () => {
     if (!csvFile) {
       setUploadState('error');
@@ -124,12 +235,18 @@ export function IngestPage() {
       return;
     }
 
-    setUploadState('uploading');
-    setErrorMessage('');
+    const totalRecords = await countCsvRows(csvFile);
+    const uploadId = createUploadId();
+    setActiveUploadId(uploadId);
+    beginUpload(totalRecords);
 
     try {
-      const result = await ingestCsv(csvFile);
+      const result = await ingestCsv(csvFile, buildUploadProgressHandler(totalRecords), uploadId);
       setLastUpload(result);
+      const finalTotal = Math.max(1, result.total_processed);
+      setUploadProgressTotal(finalTotal);
+      setUploadProgressCompleted(finalTotal);
+      setUploadProgress(100);
       setUploadState('success');
     } catch (error: any) {
       setUploadState('error');
@@ -138,13 +255,28 @@ export function IngestPage() {
   };
 
   const handleJsonUpload = async () => {
-    setUploadState('uploading');
-    setErrorMessage('');
+    let payload: unknown;
 
     try {
-      const payload = JSON.parse(jsonText);
-      const result = await ingestJson(payload);
+      payload = JSON.parse(jsonText);
+    } catch (error: any) {
+      setUploadState('error');
+      setErrorMessage('JSON upload failed. Make sure the payload is a valid array.');
+      return;
+    }
+
+    const totalRecords = getJsonRecordCount(payload);
+    const uploadId = createUploadId();
+    setActiveUploadId(uploadId);
+    beginUpload(totalRecords);
+
+    try {
+      const result = await ingestJson(payload, buildUploadProgressHandler(totalRecords), uploadId);
       setLastUpload(result);
+      const finalTotal = Math.max(1, result.total_processed);
+      setUploadProgressTotal(finalTotal);
+      setUploadProgressCompleted(finalTotal);
+      setUploadProgress(100);
       setUploadState('success');
     } catch (error: any) {
       setUploadState('error');
@@ -159,8 +291,9 @@ export function IngestPage() {
       return;
     }
 
-    setUploadState('uploading');
-    setErrorMessage('');
+    const uploadId = createUploadId();
+    setActiveUploadId(uploadId);
+    beginUpload(1);
 
     try {
       await ingestManual({
@@ -168,7 +301,10 @@ export function IngestPage() {
         product_name: manualProductName.trim(),
         raw_text: manualText.trim(),
         source: 'manual',
-      });
+      }, buildUploadProgressHandler(1), uploadId);
+      setUploadProgressTotal(1);
+      setUploadProgressCompleted(1);
+      setUploadProgress(100);
       setUploadState('success');
       setLastUpload({
         total_processed: 1,
@@ -193,11 +329,19 @@ export function IngestPage() {
           animate={{ opacity: 1, scale: 1 }}
           className="flex flex-col items-center justify-center p-16 rounded-[24px] bg-[#F5F5F7]/50 border border-[#E5E5EA]"
         >
-          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}>
-            <Loader2 size={40} className="text-[#0071E3] mb-6" />
-          </motion.div>
-          <h3 className="text-xl font-semibold text-[#1D1D1F] mb-2">Processing Data...</h3>
-          <p className="text-[14px] text-[#86868B]">Analyzing text and classifying sentiments</p>
+          <div className="w-full max-w-md">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-xl font-semibold text-[#1D1D1F]">Processing Data...</h3>
+              <span className="text-[13px] font-semibold text-[#0071E3]">Uploading</span>
+            </div>
+            <Progress value={uploadProgress} className="h-3 rounded-full bg-[#E5E5EA]" />
+            <div className="mt-4 flex items-center justify-between text-[13px] font-semibold text-[#86868B]">
+              <span>Analyzing text and classifying sentiments</span>
+              <span>
+                {uploadProgressCompleted} / {uploadProgressTotal} records uploaded
+              </span>
+            </div>
+          </div>
         </motion.div>
       );
     }

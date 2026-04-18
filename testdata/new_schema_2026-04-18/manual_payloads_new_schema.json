@@ -1,0 +1,30 @@
+[
+  {
+    "product_id": "P7001",
+    "product_name": "Manual Test Device",
+    "raw_text": "Battery is decent but charging is very slow.",
+    "category": "Consumer Electronics",
+    "source": "manual"
+  },
+  {
+    "product_id": "P7001",
+    "product_name": "Manual Test Device",
+    "raw_text": "bahut accha display and camera, paisa vasool",
+    "category": "Consumer Electronics",
+    "source": "manual"
+  },
+  {
+    "product_id": "P7002",
+    "product_name": "Manual Test SaaS",
+    "raw_text": "thanks for nothing, support closed the ticket without fix",
+    "category": "Software Services",
+    "source": "manual"
+  },
+  {
+    "product_id": "P7002",
+    "product_name": "Manual Test SaaS",
+    "raw_text": "Great experience overall 😊",
+    "category": "Software Services",
+    "source": "manual"
+  }
+]

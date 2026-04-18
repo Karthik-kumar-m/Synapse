@@ -44,6 +44,8 @@ async def _ensure_legacy_schema() -> None:
                 sync_conn.execute(text("ALTER TABLE reviews ADD COLUMN duplicate_cluster_id VARCHAR(255)"))
             if "category" not in review_columns:
                 sync_conn.execute(text("ALTER TABLE reviews ADD COLUMN category VARCHAR(100) NOT NULL DEFAULT 'Uncategorized'"))
+            if "translated_text" not in review_columns:
+                sync_conn.execute(text("ALTER TABLE reviews ADD COLUMN translated_text TEXT"))
 
             indexes = {index["name"] for index in inspector.get_indexes("reviews")}
             if "ix_reviews_batch_id" not in indexes:

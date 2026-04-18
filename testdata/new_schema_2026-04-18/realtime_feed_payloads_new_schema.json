@@ -1,0 +1,38 @@
+[
+  {
+    "product_id": "P8001",
+    "product_name": "Realtime Cam",
+    "text": "Camera focus is fast and low-light quality improved.",
+    "source": "api",
+    "category": "Consumer Electronics",
+    "created_at": "2026-04-18T10:00:00Z",
+    "review_id": "RT-001"
+  },
+  {
+    "product_id": "P8001",
+    "product_name": "Realtime Cam",
+    "text": "great job with this update, app crashes on every launch",
+    "source": "api",
+    "category": "Consumer Electronics",
+    "created_at": "2026-04-18T10:01:00Z",
+    "review_id": "RT-002"
+  },
+  {
+    "product_id": "P8002",
+    "product_name": "Realtime Home Hub",
+    "text": "Device setup took 3 minutes and works smoothly.",
+    "source": "api",
+    "category": "Home Appliances",
+    "created_at": "2026-04-18T10:02:00Z",
+    "review_id": "RT-003"
+  },
+  {
+    "product_id": "P8002",
+    "product_name": "Realtime Home Hub",
+    "text": "BUY NOW limited offer visit our site http://promo.example",
+    "source": "api",
+    "category": "Home Appliances",
+    "created_at": "2026-04-18T10:03:00Z",
+    "review_id": "RT-004"
+  }
+]

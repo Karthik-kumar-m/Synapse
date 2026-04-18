@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List
 
 import pandas as pd
-from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, BackgroundTasks, Depends, File, Header, HTTPException, UploadFile, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -40,6 +40,40 @@ _KNOWN_CATEGORIES = {
     "software services": "Software Services",
 }
 
+_INGEST_PROGRESS: Dict[str, Dict[str, Any]] = {}
+
+
+def _init_progress(upload_id: str, total_reviews: int) -> None:
+    _INGEST_PROGRESS[upload_id] = {
+        "upload_id": upload_id,
+        "status": "processing",
+        "total_reviews": max(1, total_reviews),
+        "processed_reviews": 0,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "error": None,
+    }
+
+
+def _update_progress(upload_id: str, processed_reviews: int) -> None:
+    state = _INGEST_PROGRESS.get(upload_id)
+    if not state:
+        return
+    state["processed_reviews"] = min(max(0, processed_reviews), int(state["total_reviews"]))
+    state["updated_at"] = datetime.now(timezone.utc).isoformat()
+
+
+def _finish_progress(upload_id: str, status_value: str, error: str | None = None) -> None:
+    state = _INGEST_PROGRESS.get(upload_id)
+    if not state:
+        return
+
+    if status_value == "completed":
+        state["processed_reviews"] = int(state["total_reviews"])
+
+    state["status"] = status_value
+    state["error"] = error
+    state["updated_at"] = datetime.now(timezone.utc).isoformat()
+
 
 def _canonical_category(raw_category: Any) -> str:
     if raw_category is None:
@@ -51,17 +85,25 @@ def _canonical_category(raw_category: Any) -> str:
     return mapped if mapped else raw
 
 
-def _infer_category(product_name: str, component_focus: str | None, raw_text: str) -> str:
-    haystack = f"{product_name} {component_focus or ''} {raw_text}".lower()
+def _infer_category(
+    product_name: str,
+    component_focus: str | None,
+    raw_text: str,
+    translated_text: str | None = None,
+) -> str:
+    haystack = f"{product_name} {component_focus or ''} {raw_text} {translated_text or ''}".lower()
 
     software_terms = {
         "app", "ui", "software", "portal", "subscription", "api", "login", "dashboard", "saas",
+        "performance", "bug", "crash", "update", "feature", "issue", "service",
     }
     appliance_terms = {
         "fridge", "refrigerator", "washing", "machine", "microwave", "ac", "air conditioner", "mixer", "oven",
+        "cooler", "dishwasher", "washer", "dryer", "mixie",
     }
     electronics_terms = {
         "phone", "mobile", "laptop", "earbuds", "headphone", "camera", "display", "battery", "bluetooth",
+        "charger", "charging", "screen", "tablet", "smartwatch",
     }
 
     if any(term in haystack for term in software_terms):
@@ -379,6 +421,7 @@ def _build_review_orm(
     product_id: str,
     product_name: str,
     raw_text: str,
+    translated_text: str | None,
     source: str,
     created_at: datetime | None,
     norm: dict,
@@ -400,6 +443,7 @@ def _build_review_orm(
         product_name=product_name,
         category=_canonical_category(category),
         raw_text=raw_text,
+        translated_text=translated_text,
         cleaned_text=norm["cleaned_text"],
         language_detected=norm["language_detected"],
         is_bot=bot_flag,
@@ -443,14 +487,23 @@ async def _process_reviews_bulk(
     source: str,
     db: AsyncSession,
     batch_id: str | None = None,
+    upload_id: str | None = None,
 ) -> BulkUploadResponse:
     total_processed = 0
     duplicates_quarantined = 0
     bots_quarantined = 0
     spam_quarantined = 0
     insights_generated = 0
+    processed_reviews = 0
 
     pending_for_analysis: List[dict] = []
+
+    total_reviews = sum(
+        1 for row in rows if str(row.get("text", row.get("raw_text", ""))).strip()
+    )
+
+    if upload_id:
+        _init_progress(upload_id, total_reviews)
 
     for row in rows:
         if batch_id and not row.get("batch_id"):
@@ -501,12 +554,18 @@ async def _process_reviews_bulk(
 
         category = _canonical_category(row.get("category"))
         if category == _DEFAULT_CATEGORY:
-            category = _infer_category(product_name, component_focus, raw_text)
+            category = _infer_category(
+                product_name,
+                component_focus,
+                f"{raw_text} {cleaned}",
+                translated_text=norm.get("translated_text"),
+            )
 
         review = _build_review_orm(
             product_id=product_id,
             product_name=product_name,
             raw_text=raw_text,
+            translated_text=norm.get("translated_text"),
             source=source,
             created_at=created_at,
             norm=norm,
@@ -539,6 +598,10 @@ async def _process_reviews_bulk(
                     "raw": raw_text,
                 }
             )
+        else:
+            processed_reviews += 1
+            if upload_id:
+                _update_progress(upload_id, processed_reviews)
 
         total_processed += 1
 
@@ -551,8 +614,15 @@ async def _process_reviews_bulk(
             for insight in _build_aspect_insights(item["review"].id, absa_result):
                 db.add(insight)
             insights_generated += absa_result["aspects_found"]
+            processed_reviews += 1
+            if upload_id:
+                _update_progress(upload_id, processed_reviews)
 
     await db.flush()
+
+    if upload_id:
+        _finish_progress(upload_id, "completed")
+
     return BulkUploadResponse(
         total_processed=total_processed,
         duplicates_quarantined=duplicates_quarantined,
@@ -575,6 +645,7 @@ async def _process_reviews_bulk(
 async def ingest_csv(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
+    upload_id: str | None = Header(default=None, alias="X-Upload-Id"),
     db: AsyncSession = Depends(get_db),
 ) -> BulkUploadResponse:
     if not file.filename or not file.filename.lower().endswith(".csv"):
@@ -598,7 +669,19 @@ async def ingest_csv(
     db.add(batch_record)
     await db.flush()
 
-    result = await _process_reviews_bulk(rows, source="csv", db=db, batch_id=batch_record.batch_id)
+    try:
+        result = await _process_reviews_bulk(
+            rows,
+            source="csv",
+            db=db,
+            batch_id=batch_record.batch_id,
+            upload_id=upload_id,
+        )
+    except Exception as exc:
+        if upload_id:
+            _finish_progress(upload_id, "failed", str(exc))
+        raise
+
     background_tasks.add_task(recompute_aggregates_background)
     return result
 
@@ -612,6 +695,7 @@ async def ingest_csv(
 async def ingest_json(
     reviews: List[Dict[str, Any]] | Dict[str, Any],
     background_tasks: BackgroundTasks,
+    upload_id: str | None = Header(default=None, alias="X-Upload-Id"),
     db: AsyncSession = Depends(get_db),
 ) -> BulkUploadResponse:
     batch_record = None
@@ -628,7 +712,18 @@ async def ingest_json(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Request body must be a non-empty list of review objects.",
         )
-    result = await _process_reviews_bulk(normalized_rows, source="json", db=db)
+    try:
+        result = await _process_reviews_bulk(
+            normalized_rows,
+            source="json",
+            db=db,
+            upload_id=upload_id,
+        )
+    except Exception as exc:
+        if upload_id:
+            _finish_progress(upload_id, "failed", str(exc))
+        raise
+
     background_tasks.add_task(recompute_aggregates_background)
     return result
 
@@ -642,8 +737,12 @@ async def ingest_json(
 async def ingest_manual(
     review_in: ReviewCreate,
     background_tasks: BackgroundTasks,
+    upload_id: str | None = Header(default=None, alias="X-Upload-Id"),
     db: AsyncSession = Depends(get_db),
 ) -> ReviewResponse:
+    if upload_id:
+        _init_progress(upload_id, 1)
+
     norm = normalize_review(review_in.raw_text)
     cleaned = norm["cleaned_text"]
 
@@ -683,8 +782,14 @@ async def ingest_manual(
         product_name=review_in.product_name,
         category=_canonical_category(review_in.category)
         if review_in.category
-        else _infer_category(review_in.product_name, None, review_in.raw_text),
+        else _infer_category(
+            review_in.product_name,
+            None,
+            f"{review_in.raw_text} {cleaned}",
+            translated_text=norm.get("translated_text"),
+        ),
         raw_text=review_in.raw_text,
+        translated_text=norm.get("translated_text"),
         cleaned_text=cleaned,
         language_detected=norm["language_detected"],
         is_bot=bot_flag,
@@ -708,6 +813,10 @@ async def ingest_manual(
     await db.flush()
     await db.refresh(review)
 
+    if upload_id:
+        _update_progress(upload_id, 1)
+        _finish_progress(upload_id, "completed")
+
     background_tasks.add_task(recompute_aggregates_background, review.product_id)
 
     return ReviewResponse(
@@ -716,6 +825,7 @@ async def ingest_manual(
         product_name=review.product_name,
         category=review.category,
         raw_text=review.raw_text,
+        translated_text=review.translated_text,
         cleaned_text=review.cleaned_text,
         language_detected=review.language_detected,
         is_bot=review.is_bot,
@@ -765,6 +875,21 @@ async def ingest_realtime_feed(
     background_tasks.add_task(recompute_aggregates_background)
 
     return {"job_id": job_id, "status": "queued", "reviews_received": len(reviews)}
+
+
+@router.get(
+    "/progress/{upload_id}",
+    summary="Get ingestion progress for an active upload",
+    status_code=status.HTTP_200_OK,
+)
+async def get_ingest_progress(upload_id: str) -> Dict[str, Any]:
+    progress = _INGEST_PROGRESS.get(upload_id)
+    if not progress:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No ingestion progress found for upload_id '{upload_id}'.",
+        )
+    return progress
 
 
 @router.get(

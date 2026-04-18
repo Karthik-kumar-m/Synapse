@@ -36,6 +36,7 @@ class ReviewResponse(BaseModel):
     product_name: str
     category: Optional[str] = None
     raw_text: str
+    translated_text: Optional[str] = None
     cleaned_text: Optional[str]
     language_detected: Optional[str]
     is_bot: bool

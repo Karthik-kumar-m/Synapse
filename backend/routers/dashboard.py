@@ -658,7 +658,8 @@ async def export_dashboard_report(
         nonlocal y
         ensure_space(1)
         pdf.setFont(font_name, font_size)
-        pdf.drawString(50, y, text[:120])
+        safe_text = text.encode("latin-1", errors="replace").decode("latin-1")
+        pdf.drawString(50, y, safe_text[:120])
         y -= 14
 
     def draw_wrapped(text: str, max_chars: int = 110) -> None:
@@ -698,7 +699,15 @@ async def export_dashboard_report(
         draw_line(f"Category: {review.category} | Sentiment: {review.overall_sentiment} | Score: {review.overall_score}")
         draw_line(f"Language: {review.language_detected} | Source: {review.source}")
         draw_line(f"Created At: {review.created_at.isoformat() if review.created_at else ''}")
-        draw_wrapped(f"Text: {review.raw_text}")
+
+        display_text = review.raw_text
+        if review.language_detected and review.language_detected.lower() != "en":
+            display_text = review.translated_text or review.cleaned_text or review.raw_text
+            draw_wrapped(f"Original Text: {review.raw_text}")
+            draw_wrapped(f"English Translation: {display_text}")
+        else:
+            display_text = review.translated_text or review.raw_text
+            draw_wrapped(f"Text: {display_text}")
         y -= 6
 
     pdf.save()

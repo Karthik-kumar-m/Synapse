@@ -1,76 +1,1401 @@
-product_id,product_name,review_id,date,source,rating,text,firmware_version,component_focus,is_sarcastic
-SHM100,SparkleShine Shampoo,SSH-0001,2026-04-01,csv,5,Lathers well and leaves hair soft with a pleasant fragrance,batch-14,fragrance,false
-SHM100,SparkleShine Shampoo,SSH-0002,2026-04-01,csv,4,Good value for daily use and easy to rinse,batch-14,price_value,false
-SHM100,SparkleShine Shampoo,SSH-0003,2026-04-02,csv,2,Cap leaked inside the bag and soaked the box,batch-14,packaging,false
-SHM100,SparkleShine Shampoo,SSH-0004,2026-04-02,csv,2,Hair feels dry after wash and needs too much product,batch-14,formula,false
-SHM100,SparkleShine Shampoo,SSH-0005,2026-04-03,csv,1,Buy now limited offer click here http://promo.example/shampoo,batch-14,other,false
-SHM100,SparkleShine Shampoo,SSH-0006,2026-04-03,csv,5,Fragrance stays fresh for most of the day,batch-15,fragrance,false
-SHM100,SparkleShine Shampoo,SSH-0007,2026-04-04,csv,1,Wow amazing how it turns hair into straw after one use,batch-15,formula,true
-SHM100,SparkleShine Shampoo,SSH-0008,2026-04-04,csv,3,Good for dandruff control but the bottle is small,batch-15,pack_size,false
-SHM100,SparkleShine Shampoo,SSH-0009,2026-04-05,csv,4,Hair looks cleaner and softer after the recent reformulation,batch-15,formula,false
-SHM100,SparkleShine Shampoo,SSH-0010,2026-04-05,csv,2,Repeated cap leakage makes it messy in travel bags,batch-15,packaging,false
-SHM100,SparkleShine Shampoo,SSH-0011,2026-04-06,csv,4,Scalp feels fresh and no itchiness after a week,batch-15,formula,false
-SHM100,SparkleShine Shampoo,SSH-0012,2026-04-06,csv,2,Price is high for the quantity compared to local brands,batch-15,price_value,false
-SHM100,SparkleShine Shampoo,SSH-0013,2026-04-07,csv,5,Accha smell hai and family likes the fragrance,batch-15,fragrance,false
-SHM100,SparkleShine Shampoo,SSH-0014,2026-04-07,csv,1,Fantastic shampoo if you enjoy hair fall in the shower,batch-14,formula,true
-SHM100,SparkleShine Shampoo,SSH-0015,2026-04-08,csv,4,Delivery arrived on time and outer carton was intact,batch-15,delivery,false
-MXS210,MaxClean Detergent,MXC-0001,2026-04-01,csv,5,Removes stains from school uniforms very well,batch-21,stain_removal,false
-MXS210,MaxClean Detergent,MXC-0002,2026-04-01,csv,4,Fresh smell and good foam in both hand and machine wash,batch-21,fragrance,false
-MXS210,MaxClean Detergent,MXC-0003,2026-04-02,csv,2,Packet tore during delivery and powder spilled out,batch-21,packaging,false
-MXS210,MaxClean Detergent,MXC-0004,2026-04-02,csv,2,Does not remove tea stains completely,batch-21,stain_removal,false
-MXS210,MaxClean Detergent,MXC-0005,2026-04-03,csv,1,Special offer just click now http://spam.example/detergent,batch-21,other,false
-MXS210,MaxClean Detergent,MXC-0006,2026-04-03,csv,5,Clothes come out bright and clean even in hard water,batch-22,stain_removal,false
-MXS210,MaxClean Detergent,MXC-0007,2026-04-04,csv,1,Brilliant if you enjoy paying more for less wash power,batch-22,price_value,true
-MXS210,MaxClean Detergent,MXC-0008,2026-04-04,csv,3,Works okay but the pouch seal is hard to open,batch-22,packaging,false
-MXS210,MaxClean Detergent,MXC-0009,2026-04-05,csv,4,Good cleaning and the fragrance is not too strong,batch-22,fragrance,false
-MXS210,MaxClean Detergent,MXC-0010,2026-04-05,csv,2,Clumps in water and leaves residue on dark clothes,batch-22,formula,false
-MXS210,MaxClean Detergent,MXC-0011,2026-04-06,csv,4,Big family pack offers better value than the small pack,batch-22,pack_size,false
-MXS210,MaxClean Detergent,MXC-0012,2026-04-06,csv,2,Delivery box was crushed and powder dust leaked,batch-22,delivery,false
-MXS210,MaxClean Detergent,MXC-0013,2026-04-07,csv,5,Works great on lunch stains and oils,batch-22,stain_removal,false
-MXS210,MaxClean Detergent,MXC-0014,2026-04-07,csv,1,Amazing detergent if your goal is to keep stains forever,batch-21,stain_removal,true
-MXS210,MaxClean Detergent,MXC-0015,2026-04-08,csv,4,Packaging was sealed properly and bag came intact,batch-22,packaging,false
-CRS330,CrispBite Biscuits,CRB-0001,2026-04-01,csv,5,Crunchy and fresh with a nice buttery taste,batch-05,taste,false
-CRS330,CrispBite Biscuits,CRB-0002,2026-04-01,csv,4,Tea-time snack feels light and not too sweet,batch-05,taste,false
-CRS330,CrispBite Biscuits,CRB-0003,2026-04-02,csv,2,Packets arrived broken and biscuits were crushed,batch-05,packaging,false
-CRS330,CrispBite Biscuits,CRB-0004,2026-04-02,csv,2,Stale smell from the pack and not crunchy,batch-05,freshness,false
-CRS330,CrispBite Biscuits,CRB-0005,2026-04-03,csv,1,Buy now limited offer click here http://promo.example/biscuits,batch-05,other,false
-CRS330,CrispBite Biscuits,CRB-0006,2026-04-03,csv,5,Perfect with chai and stays crisp after opening,batch-06,freshness,false
-CRS330,CrispBite Biscuits,CRB-0007,2026-04-04,csv,1,Wow amazing freshness if you like crumbs and dust,batch-06,freshness,true
-CRS330,CrispBite Biscuits,CRB-0008,2026-04-04,csv,3,Good taste but smaller pack size than expected,batch-06,pack_size,false
-CRS330,CrispBite Biscuits,CRB-0009,2026-04-05,csv,4,Value is okay for the family pack,batch-06,price_value,false
-CRS330,CrispBite Biscuits,CRB-0010,2026-04-05,csv,2,Some packets had broken edges inside the box,batch-06,packaging,false
-CRS330,CrispBite Biscuits,CRB-0011,2026-04-06,csv,4,Fresh aroma and buttery flavor are nice,batch-06,taste,false
-CRS330,CrispBite Biscuits,CRB-0012,2026-04-06,csv,2,Delivery delay meant biscuits reached me stale,batch-06,delivery,false
-CRS330,CrispBite Biscuits,CRB-0013,2026-04-07,csv,5,Family loved the taste and the pack was intact,batch-06,taste,false
-CRS330,CrispBite Biscuits,CRB-0014,2026-04-07,csv,1,Fantastic biscuits if your definition of crunchy is cardboard,batch-05,taste,true
-CRS330,CrispBite Biscuits,CRB-0015,2026-04-08,csv,4,Outer carton was fine and biscuits were fresh,batch-06,packaging,false
-FRN440,FreshSip Coffee,FRS-0001,2026-04-01,csv,5,Strong aroma and balanced taste in the morning,batch-09,taste,false
-FRN440,FreshSip Coffee,FRS-0002,2026-04-01,csv,4,Good value compared with cafe sachets,batch-09,price_value,false
-FRN440,FreshSip Coffee,FRS-0003,2026-04-02,csv,2,Sachet seal was weak and powder spilled in transit,batch-09,packaging,false
-FRN440,FreshSip Coffee,FRS-0004,2026-04-02,csv,2,Too bitter and not smooth enough for daily drink,batch-09,taste,false
-FRN440,FreshSip Coffee,FRS-0005,2026-04-03,csv,1,Click here for a free coffee promo http://deal.example/coffee,batch-09,other,false
-FRN440,FreshSip Coffee,FRS-0006,2026-04-03,csv,5,Rich flavor and the aroma fills the kitchen,batch-10,taste,false
-FRN440,FreshSip Coffee,FRS-0007,2026-04-04,csv,1,Brilliant coffee if you enjoy paying premium for sadness,batch-10,price_value,true
-FRN440,FreshSip Coffee,FRS-0008,2026-04-04,csv,3,Good sachet size but the box looked dented,batch-10,packaging,false
-FRN440,FreshSip Coffee,FRS-0009,2026-04-05,csv,4,Mixes well with milk and tastes consistent,batch-10,taste,false
-FRN440,FreshSip Coffee,FRS-0010,2026-04-05,csv,2,Flavor is inconsistent between packets,batch-10,taste,false
-FRN440,FreshSip Coffee,FRS-0011,2026-04-06,csv,4,Good morning drink and easy to prepare,batch-10,preparation,false
-FRN440,FreshSip Coffee,FRS-0012,2026-04-06,csv,2,Delivery delay meant the package arrived dusty,batch-10,delivery,false
-FRN440,FreshSip Coffee,FRS-0013,2026-04-07,csv,5,Accha coffee hai and guests liked the aroma,batch-10,taste,false
-FRN440,FreshSip Coffee,FRS-0014,2026-04-07,csv,1,Fantastic coffee if burnt beans are your thing,batch-09,taste,true
-FRN440,FreshSip Coffee,FRS-0015,2026-04-08,csv,4,Outer carton and inner sachets were intact,batch-10,packaging,false
-TRL550,ToothSure Toothpaste,TRS-0001,2026-04-01,csv,5,Fresh mint taste and clean feeling after brushing,batch-02,freshness,false
-TRL550,ToothSure Toothpaste,TRS-0002,2026-04-01,csv,4,Tube closes properly and is easy to use,batch-02,packaging,false
-TRL550,ToothSure Toothpaste,TRS-0003,2026-04-02,csv,2,Cap cracked on arrival and paste leaked slightly,batch-02,packaging,false
-TRL550,ToothSure Toothpaste,TRS-0004,2026-04-02,csv,2,Too much foam and the mint taste is harsh,batch-02,freshness,false
-TRL550,ToothSure Toothpaste,TRS-0005,2026-04-03,csv,1,Buy now limited offer click here http://promo.example/toothpaste,batch-02,other,false
-TRL550,ToothSure Toothpaste,TRS-0006,2026-04-03,csv,5,Teeth feel clean and breath stays fresh for hours,batch-03,freshness,false
-TRL550,ToothSure Toothpaste,TRS-0007,2026-04-04,csv,1,Wow amazing paste if you like a broken cap and sticky sink,batch-02,packaging,true
-TRL550,ToothSure Toothpaste,TRS-0008,2026-04-04,csv,3,Good cleaning but the pack size is small,batch-03,pack_size,false
-TRL550,ToothSure Toothpaste,TRS-0009,2026-04-05,csv,4,Strong cleaning power and pleasant flavor,batch-03,freshness,false
-TRL550,ToothSure Toothpaste,TRS-0010,2026-04-05,csv,2,Price is high for such a tiny tube,batch-03,price_value,false
-TRL550,ToothSure Toothpaste,TRS-0011,2026-04-06,csv,4,Travel pack is handy and seals well,batch-03,packaging,false
-TRL550,ToothSure Toothpaste,TRS-0012,2026-04-06,csv,2,Delivery box was dented and cap had shifted,batch-03,delivery,false
-TRL550,ToothSure Toothpaste,TRS-0013,2026-04-07,csv,5,Family likes the mint freshness and clean finish,batch-03,freshness,false
-TRL550,ToothSure Toothpaste,TRS-0014,2026-04-07,csv,1,Fantastic toothpaste if your goal is leaking tubes,batch-02,packaging,true
-TRL550,ToothSure Toothpaste,TRS-0015,2026-04-08,csv,4,Outer box and tube arrived intact,batch-03,packaging,false
+product_id,product_name,category,review_id,date,source,rating,text,firmware_version,component_focus,is_sarcastic
+P1001,Personal Care,Personal Care,R10000,2026-03-03,amazon,1,Decent for the price.,v3.3,UI,0
+P1001,Personal Care,Personal Care,R10001,2026-01-01,flipkart,4,Duplicate review text for testing.,v3.0,UI,0
+P1001,Personal Care,Personal Care,R10002,2026-01-25,amazon,4,"Average quality, nothing special.",v2.3,Power,0
+P1001,Personal Care,Personal Care,R10003,2026-03-05,amazon,1,Great product!!! 😂🔥💯,v1.5,Power,0
+P1001,Personal Care,Personal Care,R10004,2026-03-30,amazon,1,"Quality thodi weak hai, better ho sakti thi.",v4.4,Packaging,0
+P1001,Personal Care,Personal Care,R10005,2026-02-10,direct,5,"Amazing product, works like a charm!",v4.1,General,0
+P1001,Personal Care,Personal Care,R10006,2026-02-28,flipkart,3,Terrible experience.,v1.4,General,0
+P1001,Personal Care,Personal Care,R10007,2026-04-06,amazon,3,Avoid this product.,v2.3,Packaging,0
+P1001,Personal Care,Personal Care,R10008,2026-02-14,amazon,1,"Amazing product, works like a charm!",v3.3,General,0
+P1001,Personal Care,Personal Care,R10009,2026-02-23,amazon,3,Terrible experience.,v5.5,Power,0
+P1001,Personal Care,Personal Care,R10010,2026-03-05,flipkart,4,Doesn't work as advertised.,v2.6,Packaging,0
+P1001,Personal Care,Personal Care,R10011,2026-02-05,direct,5,"Average quality, nothing special.",v1.2,UI,0
+P1001,Personal Care,Personal Care,R10012,2026-04-05,direct,3,Waste of money.,v5.5,Power,0
+P1001,Personal Care,Personal Care,R10013,2026-03-21,flipkart,4,"Amazing product, works like a charm!",v3.9,General,0
+P1001,Personal Care,Personal Care,R10014,2026-01-22,direct,1,Very good quality.,v5.4,UI,0
+P1001,Personal Care,Personal Care,R10015,2026-02-09,direct,5,Best purchase this year!,v3.7,Packaging,0
+P1001,Personal Care,Personal Care,R10016,2026-01-10,flipkart,5,Doesn't work as advertised.,v1.4,General,0
+P1001,Personal Care,Personal Care,R10017,2026-02-12,amazon,1,"Amazing product, works like a charm!",v4.5,Packaging,0
+P1001,Personal Care,Personal Care,R10018,2026-01-03,direct,2,"Quality thodi weak hai, better ho sakti thi.",v1.9,Packaging,0
+P1001,Personal Care,Personal Care,R10019,2026-04-05,direct,5,Decent for the price.,v3.2,General,0
+P1001,Personal Care,Personal Care,R10020,2026-01-23,direct,4,Decent for the price.,v1.3,General,0
+P1001,Personal Care,Personal Care,R10021,2026-02-04,flipkart,5,"Quality thodi weak hai, better ho sakti thi.",v4.5,General,0
+P1001,Personal Care,Personal Care,R10022,2026-02-27,amazon,2,"Amazing product, works like a charm!",v2.5,UI,0
+P1001,Personal Care,Personal Care,R10023,2026-03-05,amazon,4,"Not bad, not great.",v5.3,UI,0
+P1001,Personal Care,Personal Care,R10024,2026-01-25,direct,5,"Quality thodi weak hai, better ho sakti thi.",v4.4,UI,0
+P1001,Personal Care,Personal Care,R10025,2026-02-14,flipkart,5,Best purchase this year!,v1.2,General,0
+P1001,Personal Care,Personal Care,R10026,2026-02-02,amazon,1,Best purchase this year!,v2.4,General,0
+P1001,Personal Care,Personal Care,R10027,2026-03-18,flipkart,4,Exceeded my expectations.,v1.1,General,0
+P1001,Personal Care,Personal Care,R10028,2026-02-04,flipkart,5,Best purchase this year!,v2.0,Power,0
+P1001,Personal Care,Personal Care,R10029,2026-02-15,amazon,4,"Poor quality, very disappointed.",v2.5,Packaging,0
+P1001,Personal Care,Personal Care,R10030,2026-03-29,amazon,4,Avoid this product.,v5.0,Power,0
+P1001,Personal Care,Personal Care,R10031,2026-02-20,flipkart,4,Best purchase this year!,v3.2,General,0
+P1001,Personal Care,Personal Care,R10032,2026-01-07,amazon,3,Exceeded my expectations.,v2.5,UI,0
+P1001,Personal Care,Personal Care,R10033,2026-01-19,flipkart,4,"Love it, will buy again.",v4.1,UI,0
+P1001,Personal Care,Personal Care,R10034,2026-04-11,amazon,4,Waste of money.,v4.6,General,0
+P1001,Personal Care,Personal Care,R10035,2026-03-05,flipkart,4,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v3.7,General,1
+P1001,Personal Care,Personal Care,R10036,2026-03-17,direct,4,Doesn't work as advertised.,v3.0,Packaging,0
+P1001,Personal Care,Personal Care,R10037,2026-01-10,flipkart,1,"Amazing product, works like a charm!",v3.3,General,0
+P1001,Personal Care,Personal Care,R10038,2026-03-10,direct,1,Terrible experience.,v5.9,Power,0
+P1001,Personal Care,Personal Care,R10039,2026-01-20,amazon,5,Waste of money.,v3.4,Power,0
+P1001,Personal Care,Personal Care,R10040,2026-04-09,flipkart,1,"Amazing product, works like a charm!",v2.7,UI,0
+P1001,Personal Care,Personal Care,R10041,2026-03-08,amazon,4,"Poor quality, very disappointed.",v5.3,Power,0
+P1001,Personal Care,Personal Care,R10042,2026-01-17,direct,3,Doesn't work as advertised.,v5.5,General,0
+P1001,Personal Care,Personal Care,R10043,2026-04-10,direct,4,"Fine, but I've seen better.",v1.8,UI,0
+P1001,Personal Care,Personal Care,R10044,2026-02-24,amazon,3,Very good quality.,v5.7,UI,0
+P1001,Personal Care,Personal Care,R10045,2026-01-06,amazon,4,Kam paise me badiya cheez hai.,v5.5,Packaging,0
+P1001,Personal Care,Personal Care,R10046,2026-03-25,direct,3,Very good quality.,v4.5,Packaging,0
+P1001,Personal Care,Personal Care,R10047,2026-03-09,flipkart,4,"Amazing product, works like a charm!",v3.9,General,0
+P1001,Personal Care,Personal Care,R10048,2026-03-05,amazon,4,"Love it, will buy again.",v3.9,Power,0
+P1001,Personal Care,Personal Care,R10049,2026-01-25,direct,2,Exceeded my expectations.,v2.0,Packaging,0
+P1001,Personal Care,Personal Care,R10050,2026-02-18,direct,2,"Delivery late thi, lekin product sahi hai.",v3.5,Power,0
+P1001,Personal Care,Personal Care,R10051,2026-01-11,direct,1,"Not bad, not great.",v4.2,Packaging,0
+P1001,Personal Care,Personal Care,R10052,2026-04-04,amazon,3,Exceeded my expectations.,v3.0,UI,0
+P1001,Personal Care,Personal Care,R10053,2026-01-01,amazon,1,Very good quality.,v2.6,UI,0
+P1001,Personal Care,Personal Care,R10054,2026-02-17,flipkart,2,Avoid this product.,v3.2,UI,0
+P1001,Personal Care,Personal Care,R10055,2026-02-13,direct,4,Terrible experience.,v4.4,UI,0
+P1001,Personal Care,Personal Care,R10056,2026-02-07,amazon,4,Waste of money.,v1.8,Packaging,0
+P1001,Personal Care,Personal Care,R10057,2026-02-25,amazon,3,"Poor quality, very disappointed.",v1.5,General,0
+P1001,Personal Care,Personal Care,R10058,2026-03-19,direct,4,"Delivery late thi, lekin product sahi hai.",v3.5,UI,0
+P1001,Personal Care,Personal Care,R10059,2026-02-08,direct,1,"It's okay, does the job.",v3.6,General,0
+P1001,Personal Care,Personal Care,R10060,2026-02-01,amazon,4,"Fine, but I've seen better.",v3.9,UI,0
+P1001,Personal Care,Personal Care,R10061,2026-02-26,direct,5,Best purchase this year!,v1.3,UI,0
+P1001,Personal Care,Personal Care,R10062,2026-03-21,direct,5,"Poor quality, very disappointed.",v4.0,Power,0
+P1001,Personal Care,Personal Care,R10063,2026-03-26,flipkart,2,"Delivery late thi, lekin product sahi hai.",v1.5,UI,0
+P1001,Personal Care,Personal Care,R10064,2026-01-26,flipkart,4,"Amazing product, works like a charm!",v5.2,Packaging,0
+P1001,Personal Care,Personal Care,R10065,2026-02-21,amazon,3,"Love it, will buy again.",v4.0,Power,0
+P1001,Personal Care,Personal Care,R10066,2026-02-16,flipkart,3,Best purchase this year!,v5.3,Power,0
+P1001,Personal Care,Personal Care,R10067,2026-03-24,direct,1,Doesn't work as advertised.,v3.1,General,0
+P1001,Personal Care,Personal Care,R10068,2026-02-03,flipkart,5,Avoid this product.,v4.9,Packaging,0
+P1001,Personal Care,Personal Care,R10069,2026-01-02,direct,1,"It's okay, does the job.",v5.3,Packaging,0
+P1001,Personal Care,Personal Care,R10070,2026-01-29,amazon,4,"It's okay, does the job.",v2.7,UI,0
+P1001,Personal Care,Personal Care,R10071,2026-01-18,direct,1,"It's okay, does the job.",v2.5,Power,0
+P1001,Personal Care,Personal Care,R10072,2026-04-05,amazon,3,Waste of money.,v1.5,Power,0
+P1001,Personal Care,Personal Care,R10073,2026-03-31,flipkart,5,Kam paise me badiya cheez hai.,v3.0,Power,0
+P1001,Personal Care,Personal Care,R10074,2026-04-11,flipkart,1,Terrible experience.,v1.0,Power,0
+P1001,Personal Care,Personal Care,R10075,2026-03-11,flipkart,5,Waste of money.,v3.6,Packaging,0
+P1001,Personal Care,Personal Care,R10076,2026-01-11,direct,2,Terrible experience.,v3.7,Power,0
+P1001,Personal Care,Personal Care,R10077,2026-01-22,direct,4,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v1.2,General,1
+P1001,Personal Care,Personal Care,R10078,2026-03-25,flipkart,3,Very good quality.,v4.6,Packaging,0
+P1001,Personal Care,Personal Care,R10079,2026-04-09,amazon,5,"Amazing product, works like a charm!",v5.8,UI,0
+P1001,Personal Care,Personal Care,R10080,2026-03-14,amazon,2,Avoid this product.,v1.9,UI,0
+P1001,Personal Care,Personal Care,R10081,2026-02-05,direct,4,"Amazing product, works like a charm!",v1.6,General,0
+P1001,Personal Care,Personal Care,R10082,2026-03-10,direct,4,Avoid this product.,v4.2,UI,0
+P1001,Personal Care,Personal Care,R10083,2026-04-08,flipkart,1,Decent for the price.,v4.4,Packaging,0
+P1001,Personal Care,Personal Care,R10084,2026-03-10,amazon,1,"Love it, will buy again.",v5.4,UI,0
+P1001,Personal Care,Personal Care,R10085,2026-03-20,direct,2,Best purchase this year!,v3.0,UI,0
+P1001,Personal Care,Personal Care,R10086,2026-04-08,amazon,5,Avoid this product.,v2.5,UI,0
+P1001,Personal Care,Personal Care,R10087,2026-03-11,amazon,3,Great product!!! 😂🔥💯,v3.1,Power,0
+P1001,Personal Care,Personal Care,R10088,2026-03-28,direct,5,Best purchase this year!,v2.8,General,0
+P1001,Personal Care,Personal Care,R10089,2026-02-19,direct,1,"Average quality, nothing special.",v2.0,General,0
+P1001,Personal Care,Personal Care,R10090,2026-03-28,direct,1,"Poor quality, very disappointed.",v1.5,UI,0
+P1001,Personal Care,Personal Care,R10091,2026-03-15,flipkart,1,Decent for the price.,v3.1,UI,0
+P1001,Personal Care,Personal Care,R10092,2026-03-05,amazon,4,"It's okay, does the job.",v2.2,UI,0
+P1001,Personal Care,Personal Care,R10093,2026-02-06,flipkart,3,"Boht accha product hai, maza aa gaya.",v4.5,Power,0
+P1001,Personal Care,Personal Care,R10094,2026-02-04,flipkart,5,"Quality thodi weak hai, better ho sakti thi.",v3.3,Power,0
+P1001,Personal Care,Personal Care,R10095,2026-02-11,flipkart,5,"Poor quality, very disappointed.",v4.1,General,0
+P1001,Personal Care,Personal Care,R10096,2026-01-28,amazon,5,Avoid this product.,v3.5,Power,0
+P1001,Personal Care,Personal Care,R10097,2026-04-06,direct,2,Waste of money.,v5.9,General,0
+P1001,Personal Care,Personal Care,R10098,2026-02-13,direct,2,"Average quality, nothing special.",v4.1,Packaging,0
+P1001,Personal Care,Personal Care,R10099,2026-02-02,direct,1,"Fine, but I've seen better.",v2.6,UI,0
+P1001,Personal Care,Personal Care,R10100,2026-03-27,amazon,5,Doesn't work as advertised.,v1.2,General,0
+P1001,Personal Care,Personal Care,R10101,2026-01-13,amazon,2,"Amazing product, works like a charm!",v5.9,Packaging,0
+P1001,Personal Care,Personal Care,R10102,2026-04-05,flipkart,4,"Average quality, nothing special.",v5.4,Power,0
+P1001,Personal Care,Personal Care,R10103,2026-04-05,amazon,2,"Poor quality, very disappointed.",v5.5,UI,0
+P1001,Personal Care,Personal Care,R10104,2026-04-05,amazon,2,"Amazing product, works like a charm!",v2.5,Packaging,0
+P1001,Personal Care,Personal Care,R10105,2026-02-14,direct,2,"It's okay, does the job.",v4.9,Packaging,0
+P1001,Personal Care,Personal Care,R10106,2026-02-13,amazon,2,Terrible experience.,v5.5,Packaging,0
+P1001,Personal Care,Personal Care,R10107,2026-01-28,amazon,5,Best purchase this year!,v4.8,Power,0
+P1001,Personal Care,Personal Care,R10108,2026-02-23,flipkart,2,Waste of money.,v1.4,UI,0
+P1001,Personal Care,Personal Care,R10109,2026-03-06,direct,4,"Average quality, nothing special.",v4.9,Packaging,0
+P1001,Personal Care,Personal Care,R10110,2026-03-27,flipkart,3,Buy now limited offer click here http://spam.example,v4.8,Power,0
+P1001,Personal Care,Personal Care,R10111,2026-02-17,flipkart,2,"Not bad, not great.",v3.0,General,0
+P1001,Personal Care,Personal Care,R10112,2026-02-18,direct,5,"Love it, will buy again.",v5.2,Packaging,0
+P1001,Personal Care,Personal Care,R10113,2026-03-26,direct,2,Best purchase this year!,v1.0,Packaging,0
+P1001,Personal Care,Personal Care,R10114,2026-02-25,amazon,5,"Boht accha product hai, maza aa gaya.",v1.1,UI,0
+P1001,Personal Care,Personal Care,R10115,2026-02-10,amazon,5,"Boht accha product hai, maza aa gaya.",v4.9,Power,0
+P1001,Personal Care,Personal Care,R10116,2026-04-09,flipkart,1,"Bilkul bakwas hai, mat lena.",v2.6,Power,0
+P1001,Personal Care,Personal Care,R10117,2026-01-02,direct,2,Exceeded my expectations.,v5.2,General,0
+P1001,Personal Care,Personal Care,R10118,2026-01-09,flipkart,3,Very good quality.,v4.5,Power,0
+P1001,Personal Care,Personal Care,R10119,2026-01-25,amazon,1,Best purchase this year!,v3.2,General,0
+P1001,Personal Care,Personal Care,R10120,2026-02-03,flipkart,4,"Amazing product, works like a charm!",v2.2,General,0
+P1001,Personal Care,Personal Care,R10121,2026-01-09,flipkart,3,"Love it, will buy again.",v3.1,UI,0
+P1001,Personal Care,Personal Care,R10122,2026-04-05,direct,5,"Amazing product, works like a charm!",v1.6,Power,0
+P1001,Personal Care,Personal Care,R10123,2026-01-07,flipkart,1,Duplicate review text for testing.,v3.9,Power,0
+P1001,Personal Care,Personal Care,R10124,2026-02-09,flipkart,1,Kam paise me badiya cheez hai.,v2.6,General,0
+P1001,Personal Care,Personal Care,R10125,2026-03-24,flipkart,4,Best purchase this year!,v3.9,Packaging,0
+P1001,Personal Care,Personal Care,R10126,2026-02-14,flipkart,5,Waste of money.,v1.0,General,0
+P1001,Personal Care,Personal Care,R10127,2026-02-01,amazon,5,"Average quality, nothing special.",v5.4,UI,0
+P1001,Personal Care,Personal Care,R10128,2026-02-04,amazon,2,"Love it, will buy again.",v5.2,UI,0
+P1001,Personal Care,Personal Care,R10129,2026-01-24,flipkart,4,Great product!!! 😂🔥💯,v1.1,Power,0
+P1001,Personal Care,Personal Care,R10130,2026-01-18,flipkart,4,Duplicate review text for testing.,v1.9,Power,0
+P1001,Personal Care,Personal Care,R10131,2026-01-21,amazon,3,"Delivery late thi, lekin product sahi hai.",v5.0,General,0
+P1001,Personal Care,Personal Care,R10132,2026-02-24,amazon,1,"Poor quality, very disappointed.",v3.1,General,0
+P1001,Personal Care,Personal Care,R10133,2026-03-01,amazon,3,Best purchase this year!,v4.3,General,0
+P1001,Personal Care,Personal Care,R10134,2026-03-16,direct,2,Very good quality.,v5.6,Packaging,0
+P1001,Personal Care,Personal Care,R10135,2026-04-03,amazon,1,"Amazing product, works like a charm!",v5.5,UI,0
+P1001,Personal Care,Personal Care,R10136,2026-04-11,amazon,3,Decent for the price.,v1.2,General,0
+P1001,Personal Care,Personal Care,R10137,2026-03-21,direct,4,"Love it, will buy again.",v4.7,UI,0
+P1001,Personal Care,Personal Care,R10138,2026-03-28,direct,3,"Average quality, nothing special.",v1.8,Packaging,0
+P1001,Personal Care,Personal Care,R10139,2026-04-04,flipkart,4,"Love it, will buy again.",v3.0,Power,0
+P1001,Personal Care,Personal Care,R10140,2026-03-27,direct,3,Very good quality.,v5.6,Packaging,0
+P1001,Personal Care,Personal Care,R10141,2026-03-30,flipkart,3,"Poor quality, very disappointed.",v4.1,UI,0
+P1001,Personal Care,Personal Care,R10142,2026-03-18,direct,1,"Love it, will buy again.",v5.3,UI,0
+P1001,Personal Care,Personal Care,R10143,2026-02-14,direct,4,Waste of money.,v2.8,General,0
+P1001,Personal Care,Personal Care,R10144,2026-03-09,direct,1,"Boht accha product hai, maza aa gaya.",v2.6,UI,0
+P1001,Personal Care,Personal Care,R10145,2026-01-29,amazon,3,Best purchase this year!,v2.0,Packaging,0
+P1001,Personal Care,Personal Care,R10146,2026-03-09,direct,1,Avoid this product.,v2.4,Packaging,0
+P1001,Personal Care,Personal Care,R10147,2026-01-15,amazon,3,"Not bad, not great.",v2.1,UI,0
+P1001,Personal Care,Personal Care,R10148,2026-02-17,amazon,2,"Poor quality, very disappointed.",v2.6,Power,0
+P1001,Personal Care,Personal Care,R10149,2026-04-03,direct,4,"Love it, will buy again.",v2.8,Power,0
+P1001,Personal Care,Personal Care,R10150,2026-01-17,direct,1,Terrible experience.,v3.3,Power,0
+P1001,Personal Care,Personal Care,R10151,2026-03-11,flipkart,2,"Poor quality, very disappointed.",v3.6,Packaging,0
+P1001,Personal Care,Personal Care,R10152,2026-03-19,direct,3,Best purchase this year!,v1.9,Packaging,0
+P1001,Personal Care,Personal Care,R10153,2026-01-18,flipkart,4,"It's okay, does the job.",v5.6,Packaging,0
+P1001,Personal Care,Personal Care,R10154,2026-04-09,flipkart,1,"It's okay, does the job.",v4.0,General,0
+P1001,Personal Care,Personal Care,R10155,2026-02-28,flipkart,2,Exceeded my expectations.,v2.9,Power,0
+P1001,Personal Care,Personal Care,R10156,2026-04-01,flipkart,5,Very good quality.,v4.9,UI,0
+P1001,Personal Care,Personal Care,R10157,2026-01-26,amazon,5,"Fine, but I've seen better.",v5.4,General,0
+P1001,Personal Care,Personal Care,R10158,2026-01-05,amazon,4,Exceeded my expectations.,v2.0,Packaging,0
+P1001,Personal Care,Personal Care,R10159,2026-03-15,direct,4,Exceeded my expectations.,v1.0,UI,0
+P1001,Personal Care,Personal Care,R10160,2026-02-16,direct,5,Doesn't work as advertised.,v5.5,Power,0
+P1001,Personal Care,Personal Care,R10161,2026-03-09,direct,4,"Fine, but I've seen better.",v1.9,General,0
+P1001,Personal Care,Personal Care,R10162,2026-01-10,flipkart,2,Terrible experience.,v3.8,UI,0
+P1001,Personal Care,Personal Care,R10163,2026-03-09,amazon,2,"It's okay, does the job.",v2.0,Power,0
+P1001,Personal Care,Personal Care,R10164,2026-02-07,flipkart,3,"Love it, will buy again.",v4.7,General,0
+P1001,Personal Care,Personal Care,R10165,2026-03-13,direct,4,Duplicate review text for testing.,v1.0,Power,0
+P1001,Personal Care,Personal Care,R10166,2026-02-22,flipkart,2,"It's okay, does the job.",v4.9,Packaging,0
+P1001,Personal Care,Personal Care,R10167,2026-02-16,direct,4,Best purchase this year!,v4.8,UI,0
+P1001,Personal Care,Personal Care,R10168,2026-02-06,amazon,4,Avoid this product.,v2.0,Power,0
+P1001,Personal Care,Personal Care,R10169,2026-02-17,direct,1,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v3.5,Power,1
+P1001,Personal Care,Personal Care,R10170,2026-03-06,amazon,3,Waste of money.,v1.4,General,0
+P1001,Personal Care,Personal Care,R10171,2026-04-07,direct,5,"Not bad, not great.",v1.0,Power,0
+P1001,Personal Care,Personal Care,R10172,2026-01-07,direct,2,Terrible experience.,v2.8,Power,0
+P1001,Personal Care,Personal Care,R10173,2026-02-28,amazon,2,Doesn't work as advertised.,v3.8,Packaging,0
+P1001,Personal Care,Personal Care,R10174,2026-02-28,flipkart,2,Very good quality.,v2.2,Packaging,0
+P1001,Personal Care,Personal Care,R10175,2026-01-12,amazon,2,Exceeded my expectations.,v3.6,Power,0
+P1001,Personal Care,Personal Care,R10176,2026-02-26,direct,2,"Poor quality, very disappointed.",v5.1,Packaging,0
+P1001,Personal Care,Personal Care,R10177,2026-02-27,flipkart,4,Terrible experience.,v5.6,General,0
+P1001,Personal Care,Personal Care,R10178,2026-02-08,flipkart,1,"Love it, will buy again.",v3.2,General,0
+P1001,Personal Care,Personal Care,R10179,2026-01-31,direct,2,"Poor quality, very disappointed.",v2.3,Power,0
+P1001,Personal Care,Personal Care,R10180,2026-03-21,flipkart,4,"Amazing product, works like a charm!",v4.1,Packaging,0
+P1001,Personal Care,Personal Care,R10181,2026-01-05,direct,2,Doesn't work as advertised.,v1.2,UI,0
+P1001,Personal Care,Personal Care,R10182,2026-03-09,amazon,2,"Delivery late thi, lekin product sahi hai.",v3.1,Packaging,0
+P1001,Personal Care,Personal Care,R10183,2026-01-02,flipkart,2,Avoid this product.,v1.5,Packaging,0
+P1001,Personal Care,Personal Care,R10184,2026-02-04,amazon,1,"Amazing product, works like a charm!",v4.1,General,0
+P1001,Personal Care,Personal Care,R10185,2026-03-16,direct,2,Exceeded my expectations.,v2.2,UI,0
+P1001,Personal Care,Personal Care,R10186,2026-03-22,amazon,5,"Poor quality, very disappointed.",v5.6,Packaging,0
+P1001,Personal Care,Personal Care,R10187,2026-02-11,flipkart,5,"Not bad, not great.",v5.8,Power,0
+P1001,Personal Care,Personal Care,R10188,2026-04-09,amazon,2,Exceeded my expectations.,v2.0,Packaging,0
+P1001,Personal Care,Personal Care,R10189,2026-02-17,flipkart,1,Duplicate review text for testing.,v1.2,General,0
+P1001,Personal Care,Personal Care,R10190,2026-02-09,amazon,2,"Bilkul bakwas hai, mat lena.",v4.6,Packaging,0
+P1001,Personal Care,Personal Care,R10191,2026-01-22,amazon,5,Terrible experience.,v2.2,Packaging,0
+P1001,Personal Care,Personal Care,R10192,2026-01-27,amazon,1,Decent for the price.,v3.1,UI,0
+P1001,Personal Care,Personal Care,R10193,2026-01-22,direct,4,Exceeded my expectations.,v4.5,UI,0
+P1001,Personal Care,Personal Care,R10194,2026-03-16,direct,2,Best purchase this year!,v5.9,UI,0
+P1001,Personal Care,Personal Care,R10195,2026-01-14,flipkart,4,"Amazing product, works like a charm!",v5.3,UI,0
+P1001,Personal Care,Personal Care,R10196,2026-04-07,flipkart,3,Waste of money.,v4.5,General,0
+P1001,Personal Care,Personal Care,R10197,2026-02-16,flipkart,3,Decent for the price.,v1.4,UI,0
+P1001,Personal Care,Personal Care,R10198,2026-01-13,direct,3,Avoid this product.,v5.7,General,0
+P1001,Personal Care,Personal Care,R10199,2026-03-28,flipkart,2,Terrible experience.,v2.6,UI,0
+P1002,Home Care,Home Care,R10200,2026-01-30,flipkart,1,"Poor quality, very disappointed.",v1.4,General,0
+P1002,Home Care,Home Care,R10201,2026-01-26,amazon,1,Avoid this product.,v2.7,General,0
+P1002,Home Care,Home Care,R10202,2026-03-07,flipkart,1,"Love it, will buy again.",v3.2,Power,0
+P1002,Home Care,Home Care,R10203,2026-01-28,amazon,5,Exceeded my expectations.,v1.7,UI,0
+P1002,Home Care,Home Care,R10204,2026-02-03,direct,3,"Amazing product, works like a charm!",v1.7,General,0
+P1002,Home Care,Home Care,R10205,2026-02-16,flipkart,1,Very good quality.,v1.3,General,0
+P1002,Home Care,Home Care,R10206,2026-03-27,flipkart,2,"Love it, will buy again.",v1.8,Power,0
+P1002,Home Care,Home Care,R10207,2026-02-18,direct,3,"Fine, but I've seen better.",v3.6,Packaging,0
+P1002,Home Care,Home Care,R10208,2026-01-02,amazon,4,Very good quality.,v2.7,Packaging,0
+P1002,Home Care,Home Care,R10209,2026-02-28,direct,3,"Not bad, not great.",v5.6,Packaging,0
+P1002,Home Care,Home Care,R10210,2026-02-06,direct,4,"Fine, but I've seen better.",v1.5,Packaging,0
+P1002,Home Care,Home Care,R10211,2026-02-26,amazon,3,"Delivery late thi, lekin product sahi hai.",v3.0,General,0
+P1002,Home Care,Home Care,R10212,2026-02-09,flipkart,2,"It's okay, does the job.",v4.6,Packaging,0
+P1002,Home Care,Home Care,R10213,2026-01-02,direct,4,Very good quality.,v1.1,Power,0
+P1002,Home Care,Home Care,R10214,2026-01-10,flipkart,1,"Amazing product, works like a charm!",v2.8,General,0
+P1002,Home Care,Home Care,R10215,2026-03-16,flipkart,1,"Amazing product, works like a charm!",v4.2,Packaging,0
+P1002,Home Care,Home Care,R10216,2026-02-23,flipkart,4,"Poor quality, very disappointed.",v5.5,Packaging,0
+P1002,Home Care,Home Care,R10217,2026-02-27,flipkart,2,Very good quality.,v2.2,UI,0
+P1002,Home Care,Home Care,R10218,2026-03-26,amazon,1,Duplicate review text for testing.,v4.8,UI,0
+P1002,Home Care,Home Care,R10219,2026-03-11,amazon,4,"Love it, will buy again.",v3.6,Packaging,0
+P1002,Home Care,Home Care,R10220,2026-03-10,amazon,1,Very good quality.,v4.9,UI,0
+P1002,Home Care,Home Care,R10221,2026-02-24,flipkart,1,Waste of money.,v3.6,UI,0
+P1002,Home Care,Home Care,R10222,2026-04-10,amazon,1,Very good quality.,v4.7,Power,0
+P1002,Home Care,Home Care,R10223,2026-01-15,direct,3,"Not bad, not great.",v2.3,UI,0
+P1002,Home Care,Home Care,R10224,2026-04-03,flipkart,3,Waste of money.,v4.1,Packaging,0
+P1002,Home Care,Home Care,R10225,2026-03-13,direct,3,Waste of money.,v4.3,Power,0
+P1002,Home Care,Home Care,R10226,2026-02-15,amazon,5,Best purchase this year!,v3.5,General,0
+P1002,Home Care,Home Care,R10227,2026-01-23,amazon,4,Best purchase this year!,v5.7,General,0
+P1002,Home Care,Home Care,R10228,2026-02-01,amazon,1,"Amazing product, works like a charm!",v4.6,Power,0
+P1002,Home Care,Home Care,R10229,2026-01-27,flipkart,5,"Love it, will buy again.",v2.6,Power,0
+P1002,Home Care,Home Care,R10230,2026-01-17,amazon,5,Kam paise me badiya cheez hai.,v4.8,UI,0
+P1002,Home Care,Home Care,R10231,2026-01-23,flipkart,1,Avoid this product.,v2.2,Packaging,0
+P1002,Home Care,Home Care,R10232,2026-01-18,flipkart,2,Terrible experience.,v2.1,General,0
+P1002,Home Care,Home Care,R10233,2026-02-19,amazon,4,Decent for the price.,v3.8,Power,0
+P1002,Home Care,Home Care,R10234,2026-02-05,flipkart,1,Waste of money.,v2.0,Power,0
+P1002,Home Care,Home Care,R10235,2026-02-21,flipkart,5,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v4.9,Power,1
+P1002,Home Care,Home Care,R10236,2026-01-07,flipkart,3,Terrible experience.,v4.0,UI,0
+P1002,Home Care,Home Care,R10237,2026-02-01,amazon,5,Avoid this product.,v3.4,UI,0
+P1002,Home Care,Home Care,R10238,2026-02-27,direct,4,"Poor quality, very disappointed.",v1.4,UI,0
+P1002,Home Care,Home Care,R10239,2026-02-28,direct,2,"Quality thodi weak hai, better ho sakti thi.",v2.0,UI,0
+P1002,Home Care,Home Care,R10240,2026-02-17,direct,2,"Amazing product, works like a charm!",v4.7,General,0
+P1002,Home Care,Home Care,R10241,2026-01-31,amazon,4,Doesn't work as advertised.,v4.7,General,0
+P1002,Home Care,Home Care,R10242,2026-01-01,direct,1,Very good quality.,v2.8,Packaging,0
+P1002,Home Care,Home Care,R10243,2026-03-16,amazon,5,"Amazing product, works like a charm!",v3.9,UI,0
+P1002,Home Care,Home Care,R10244,2026-02-04,direct,1,Terrible experience.,v1.5,General,0
+P1002,Home Care,Home Care,R10245,2026-03-14,amazon,2,Exceeded my expectations.,v1.3,Power,0
+P1002,Home Care,Home Care,R10246,2026-02-11,direct,4,"Fine, but I've seen better.",v1.9,General,0
+P1002,Home Care,Home Care,R10247,2026-01-15,direct,5,"Boht accha product hai, maza aa gaya.",v3.1,General,0
+P1002,Home Care,Home Care,R10248,2026-03-04,flipkart,2,"Love it, will buy again.",v5.3,Power,0
+P1002,Home Care,Home Care,R10249,2026-02-03,amazon,5,Avoid this product.,v4.7,UI,0
+P1002,Home Care,Home Care,R10250,2026-01-03,flipkart,2,Avoid this product.,v5.9,Packaging,0
+P1002,Home Care,Home Care,R10251,2026-02-15,direct,2,Waste of money.,v2.3,Packaging,0
+P1002,Home Care,Home Care,R10252,2026-04-10,amazon,2,"Fine, but I've seen better.",v3.2,Packaging,0
+P1002,Home Care,Home Care,R10253,2026-02-09,amazon,2,Avoid this product.,v2.8,Packaging,0
+P1002,Home Care,Home Care,R10254,2026-01-26,flipkart,5,Avoid this product.,v3.6,Power,0
+P1002,Home Care,Home Care,R10255,2026-03-18,direct,4,Decent for the price.,v5.5,UI,0
+P1002,Home Care,Home Care,R10256,2026-02-26,flipkart,1,"Love it, will buy again.",v5.9,Packaging,0
+P1002,Home Care,Home Care,R10257,2026-01-29,flipkart,1,"Love it, will buy again.",v2.0,UI,0
+P1002,Home Care,Home Care,R10258,2026-04-02,amazon,4,Buy now limited offer click here http://spam.example,v2.2,Power,0
+P1002,Home Care,Home Care,R10259,2026-02-25,flipkart,3,Exceeded my expectations.,v5.9,Packaging,0
+P1002,Home Care,Home Care,R10260,2026-01-15,amazon,5,"Amazing product, works like a charm!",v5.3,Power,0
+P1002,Home Care,Home Care,R10261,2026-03-09,amazon,1,Avoid this product.,v4.9,Packaging,0
+P1002,Home Care,Home Care,R10262,2026-01-14,flipkart,2,Decent for the price.,v1.7,Packaging,0
+P1002,Home Care,Home Care,R10263,2026-02-28,amazon,5,Waste of money.,v2.2,Packaging,0
+P1002,Home Care,Home Care,R10264,2026-02-10,flipkart,4,"Boht accha product hai, maza aa gaya.",v4.2,UI,0
+P1002,Home Care,Home Care,R10265,2026-01-31,flipkart,2,Waste of money.,v4.4,General,0
+P1002,Home Care,Home Care,R10266,2026-01-01,amazon,1,Very good quality.,v2.7,Power,0
+P1002,Home Care,Home Care,R10267,2026-01-08,direct,2,"Amazing product, works like a charm!",v1.5,Packaging,0
+P1002,Home Care,Home Care,R10268,2026-01-24,flipkart,3,Exceeded my expectations.,v1.1,General,0
+P1002,Home Care,Home Care,R10269,2026-03-26,direct,5,Very good quality.,v4.8,Power,0
+P1002,Home Care,Home Care,R10270,2026-01-09,amazon,2,Exceeded my expectations.,v3.1,Packaging,0
+P1002,Home Care,Home Care,R10271,2026-02-27,amazon,2,"Bilkul bakwas hai, mat lena.",v3.6,UI,0
+P1002,Home Care,Home Care,R10272,2026-04-06,flipkart,1,"Amazing product, works like a charm!",v4.7,UI,0
+P1002,Home Care,Home Care,R10273,2026-04-11,flipkart,3,Best purchase this year!,v2.3,General,0
+P1002,Home Care,Home Care,R10274,2026-03-08,amazon,5,Duplicate review text for testing.,v2.0,General,0
+P1002,Home Care,Home Care,R10275,2026-01-07,direct,3,"Boht accha product hai, maza aa gaya.",v2.2,Packaging,0
+P1002,Home Care,Home Care,R10276,2026-01-01,direct,1,Best purchase this year!,v3.7,Packaging,0
+P1002,Home Care,Home Care,R10277,2026-01-20,flipkart,3,"It's okay, does the job.",v4.5,UI,0
+P1002,Home Care,Home Care,R10278,2026-03-26,direct,3,"Amazing product, works like a charm!",v3.9,UI,0
+P1002,Home Care,Home Care,R10279,2026-02-16,direct,1,Kam paise me badiya cheez hai.,v4.7,General,0
+P1002,Home Care,Home Care,R10280,2026-04-03,direct,3,"Amazing product, works like a charm!",v3.8,General,0
+P1002,Home Care,Home Care,R10281,2026-01-04,amazon,1,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v1.8,UI,1
+P1002,Home Care,Home Care,R10282,2026-02-24,flipkart,3,Waste of money.,v3.5,Packaging,0
+P1002,Home Care,Home Care,R10283,2026-01-21,amazon,1,"Love it, will buy again.",v1.7,General,0
+P1002,Home Care,Home Care,R10284,2026-02-08,direct,5,"Delivery late thi, lekin product sahi hai.",v2.9,Packaging,0
+P1002,Home Care,Home Care,R10285,2026-03-19,amazon,2,Kam paise me badiya cheez hai.,v5.0,Packaging,0
+P1002,Home Care,Home Care,R10286,2026-04-02,flipkart,1,"Love it, will buy again.",v1.0,Packaging,0
+P1002,Home Care,Home Care,R10287,2026-01-31,amazon,1,"Amazing product, works like a charm!",v2.3,UI,0
+P1002,Home Care,Home Care,R10288,2026-01-26,direct,2,"Love it, will buy again.",v4.2,Power,0
+P1002,Home Care,Home Care,R10289,2026-03-09,flipkart,3,Terrible experience.,v2.5,Packaging,0
+P1002,Home Care,Home Care,R10290,2026-03-11,amazon,4,Very good quality.,v1.5,Packaging,0
+P1002,Home Care,Home Care,R10291,2026-03-31,flipkart,2,"Quality thodi weak hai, better ho sakti thi.",v3.0,General,0
+P1002,Home Care,Home Care,R10292,2026-03-02,direct,4,Best purchase this year!,v1.7,General,0
+P1002,Home Care,Home Care,R10293,2026-02-04,direct,5,Terrible experience.,v2.3,Packaging,0
+P1002,Home Care,Home Care,R10294,2026-01-31,flipkart,3,Avoid this product.,v2.1,Packaging,0
+P1002,Home Care,Home Care,R10295,2026-03-19,amazon,4,Decent for the price.,v2.2,General,0
+P1002,Home Care,Home Care,R10296,2026-03-18,direct,3,Very good quality.,v3.7,Packaging,0
+P1002,Home Care,Home Care,R10297,2026-02-27,flipkart,5,"Amazing product, works like a charm!",v3.9,Packaging,0
+P1002,Home Care,Home Care,R10298,2026-02-15,direct,5,Avoid this product.,v1.2,General,0
+P1002,Home Care,Home Care,R10299,2026-02-05,direct,2,"Average quality, nothing special.",v3.1,Packaging,0
+P1002,Home Care,Home Care,R10300,2026-02-22,amazon,1,"Amazing product, works like a charm!",v1.8,Power,0
+P1002,Home Care,Home Care,R10301,2026-02-07,direct,5,Best purchase this year!,v1.3,Packaging,0
+P1002,Home Care,Home Care,R10302,2026-02-09,direct,2,Best purchase this year!,v2.5,UI,0
+P1002,Home Care,Home Care,R10303,2026-01-14,flipkart,1,"Fine, but I've seen better.",v4.3,UI,0
+P1002,Home Care,Home Care,R10304,2026-03-30,direct,1,Waste of money.,v1.2,UI,0
+P1002,Home Care,Home Care,R10305,2026-01-13,flipkart,1,Waste of money.,v3.6,UI,0
+P1002,Home Care,Home Care,R10306,2026-01-10,flipkart,5,Exceeded my expectations.,v3.3,General,0
+P1002,Home Care,Home Care,R10307,2026-02-02,direct,3,"Poor quality, very disappointed.",v4.1,General,0
+P1002,Home Care,Home Care,R10308,2026-02-03,amazon,5,Exceeded my expectations.,v3.4,Power,0
+P1002,Home Care,Home Care,R10309,2026-01-14,direct,4,Waste of money.,v2.5,Power,0
+P1002,Home Care,Home Care,R10310,2026-04-08,amazon,2,"Amazing product, works like a charm!",v2.9,UI,0
+P1002,Home Care,Home Care,R10311,2026-01-15,direct,1,"Average quality, nothing special.",v2.7,UI,0
+P1002,Home Care,Home Care,R10312,2026-03-05,direct,4,"Amazing product, works like a charm!",v3.0,UI,0
+P1002,Home Care,Home Care,R10313,2026-03-11,direct,1,Waste of money.,v1.1,General,0
+P1002,Home Care,Home Care,R10314,2026-01-29,flipkart,2,Doesn't work as advertised.,v3.4,General,0
+P1002,Home Care,Home Care,R10315,2026-02-21,amazon,5,Best purchase this year!,v5.6,Packaging,0
+P1002,Home Care,Home Care,R10316,2026-03-23,direct,3,Avoid this product.,v4.8,Packaging,0
+P1002,Home Care,Home Care,R10317,2026-02-25,amazon,5,"Poor quality, very disappointed.",v5.6,Power,0
+P1002,Home Care,Home Care,R10318,2026-02-09,direct,1,Very good quality.,v1.5,Packaging,0
+P1002,Home Care,Home Care,R10319,2026-03-08,direct,3,Very good quality.,v4.3,UI,0
+P1002,Home Care,Home Care,R10320,2026-01-22,amazon,3,"Quality thodi weak hai, better ho sakti thi.",v1.0,Packaging,0
+P1002,Home Care,Home Care,R10321,2026-03-10,flipkart,4,"Poor quality, very disappointed.",v4.9,General,0
+P1002,Home Care,Home Care,R10322,2026-03-06,direct,1,"Poor quality, very disappointed.",v3.1,Power,0
+P1002,Home Care,Home Care,R10323,2026-03-02,direct,2,Very good quality.,v5.2,General,0
+P1002,Home Care,Home Care,R10324,2026-02-02,flipkart,2,Best purchase this year!,v4.2,General,0
+P1002,Home Care,Home Care,R10325,2026-01-23,flipkart,4,"Amazing product, works like a charm!",v2.3,Power,0
+P1002,Home Care,Home Care,R10326,2026-01-26,direct,4,"Bilkul bakwas hai, mat lena.",v4.6,UI,0
+P1002,Home Care,Home Care,R10327,2026-03-29,direct,4,Exceeded my expectations.,v4.8,General,0
+P1002,Home Care,Home Care,R10328,2026-01-11,amazon,3,"It's okay, does the job.",v2.7,Packaging,0
+P1002,Home Care,Home Care,R10329,2026-03-18,flipkart,1,"Amazing product, works like a charm!",v4.2,General,0
+P1002,Home Care,Home Care,R10330,2026-01-29,direct,4,Best purchase this year!,v5.2,General,0
+P1002,Home Care,Home Care,R10331,2026-01-03,amazon,1,Avoid this product.,v2.7,UI,0
+P1002,Home Care,Home Care,R10332,2026-01-31,direct,4,Exceeded my expectations.,v1.0,UI,0
+P1002,Home Care,Home Care,R10333,2026-02-04,amazon,5,"Not bad, not great.",v1.2,General,0
+P1002,Home Care,Home Care,R10334,2026-01-17,flipkart,4,Best purchase this year!,v3.2,Packaging,0
+P1002,Home Care,Home Care,R10335,2026-03-24,amazon,1,"Bilkul bakwas hai, mat lena.",v2.4,Packaging,0
+P1002,Home Care,Home Care,R10336,2026-03-31,direct,3,Waste of money.,v1.1,Packaging,0
+P1002,Home Care,Home Care,R10337,2026-02-03,flipkart,4,"It's okay, does the job.",v1.0,General,0
+P1002,Home Care,Home Care,R10338,2026-02-21,flipkart,2,Exceeded my expectations.,v3.0,UI,0
+P1002,Home Care,Home Care,R10339,2026-03-15,flipkart,5,"Amazing product, works like a charm!",v1.2,General,0
+P1002,Home Care,Home Care,R10340,2026-03-22,flipkart,5,Avoid this product.,v2.1,UI,0
+P1002,Home Care,Home Care,R10341,2026-01-05,amazon,1,Best purchase this year!,v4.9,General,0
+P1002,Home Care,Home Care,R10342,2026-01-13,amazon,5,Best purchase this year!,v3.0,Power,0
+P1002,Home Care,Home Care,R10343,2026-01-17,amazon,1,Very good quality.,v5.4,Packaging,0
+P1002,Home Care,Home Care,R10344,2026-02-04,amazon,3,Exceeded my expectations.,v1.1,UI,0
+P1002,Home Care,Home Care,R10345,2026-02-09,direct,4,"Amazing product, works like a charm!",v4.0,UI,0
+P1002,Home Care,Home Care,R10346,2026-02-07,amazon,2,Very good quality.,v5.3,General,0
+P1002,Home Care,Home Care,R10347,2026-01-07,amazon,2,Best purchase this year!,v2.5,General,0
+P1002,Home Care,Home Care,R10348,2026-02-25,amazon,2,"Delivery late thi, lekin product sahi hai.",v1.1,UI,0
+P1002,Home Care,Home Care,R10349,2026-01-21,direct,1,Very good quality.,v2.2,General,0
+P1002,Home Care,Home Care,R10350,2026-02-07,flipkart,2,Avoid this product.,v4.0,UI,0
+P1002,Home Care,Home Care,R10351,2026-03-16,flipkart,5,Best purchase this year!,v4.8,Packaging,0
+P1002,Home Care,Home Care,R10352,2026-01-01,flipkart,2,"Average quality, nothing special.",v2.3,UI,0
+P1002,Home Care,Home Care,R10353,2026-03-08,amazon,3,"Amazing product, works like a charm!",v5.8,General,0
+P1002,Home Care,Home Care,R10354,2026-03-02,amazon,5,Avoid this product.,v5.5,UI,0
+P1002,Home Care,Home Care,R10355,2026-01-06,direct,4,"Average quality, nothing special.",v3.5,Power,0
+P1002,Home Care,Home Care,R10356,2026-03-25,flipkart,4,Very good quality.,v5.1,Power,0
+P1002,Home Care,Home Care,R10357,2026-01-15,flipkart,4,"Bilkul bakwas hai, mat lena.",v4.4,Power,0
+P1002,Home Care,Home Care,R10358,2026-03-02,amazon,3,"Love it, will buy again.",v1.5,Power,0
+P1002,Home Care,Home Care,R10359,2026-03-04,amazon,5,Exceeded my expectations.,v4.0,General,0
+P1002,Home Care,Home Care,R10360,2026-01-25,flipkart,2,Exceeded my expectations.,v2.3,Power,0
+P1002,Home Care,Home Care,R10361,2026-02-12,direct,2,Avoid this product.,v3.5,Packaging,0
+P1002,Home Care,Home Care,R10362,2026-03-19,amazon,4,Best purchase this year!,v3.4,Power,0
+P1002,Home Care,Home Care,R10363,2026-01-20,flipkart,5,Great product!!! 😂🔥💯,v4.5,Packaging,0
+P1002,Home Care,Home Care,R10364,2026-03-22,amazon,5,Waste of money.,v1.5,General,0
+P1002,Home Care,Home Care,R10365,2026-01-05,flipkart,2,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v2.6,Power,1
+P1002,Home Care,Home Care,R10366,2026-02-06,amazon,5,"Amazing product, works like a charm!",v3.2,UI,0
+P1002,Home Care,Home Care,R10367,2026-04-04,flipkart,3,"Amazing product, works like a charm!",v4.7,Packaging,0
+P1002,Home Care,Home Care,R10368,2026-03-31,amazon,2,"Love it, will buy again.",v3.1,UI,0
+P1002,Home Care,Home Care,R10369,2026-02-22,amazon,3,Waste of money.,v4.3,Packaging,0
+P1002,Home Care,Home Care,R10370,2026-01-19,flipkart,5,Doesn't work as advertised.,v2.5,General,0
+P1002,Home Care,Home Care,R10371,2026-03-05,flipkart,5,Buy now limited offer click here http://spam.example,v1.5,Power,0
+P1002,Home Care,Home Care,R10372,2026-02-03,amazon,4,"Quality thodi weak hai, better ho sakti thi.",v5.6,UI,0
+P1002,Home Care,Home Care,R10373,2026-04-08,direct,5,Avoid this product.,v2.0,UI,0
+P1002,Home Care,Home Care,R10374,2026-03-04,flipkart,3,"Poor quality, very disappointed.",v1.1,Power,0
+P1002,Home Care,Home Care,R10375,2026-04-11,amazon,5,"Love it, will buy again.",v2.1,Power,0
+P1002,Home Care,Home Care,R10376,2026-04-05,amazon,4,Avoid this product.,v1.7,Power,0
+P1002,Home Care,Home Care,R10377,2026-04-01,direct,5,Duplicate review text for testing.,v1.0,Power,0
+P1002,Home Care,Home Care,R10378,2026-02-26,direct,2,"Boht accha product hai, maza aa gaya.",v3.9,General,0
+P1002,Home Care,Home Care,R10379,2026-03-27,amazon,1,"Poor quality, very disappointed.",v2.0,UI,0
+P1002,Home Care,Home Care,R10380,2026-02-22,amazon,3,"Boht accha product hai, maza aa gaya.",v5.9,Packaging,0
+P1002,Home Care,Home Care,R10381,2026-03-19,flipkart,4,"Fine, but I've seen better.",v1.4,General,0
+P1002,Home Care,Home Care,R10382,2026-03-21,amazon,5,Terrible experience.,v3.9,Packaging,0
+P1002,Home Care,Home Care,R10383,2026-01-27,direct,2,Exceeded my expectations.,v1.9,General,0
+P1002,Home Care,Home Care,R10384,2026-01-05,direct,2,"Quality thodi weak hai, better ho sakti thi.",v4.6,UI,0
+P1002,Home Care,Home Care,R10385,2026-03-28,flipkart,5,Waste of money.,v1.0,General,0
+P1002,Home Care,Home Care,R10386,2026-01-23,direct,4,Doesn't work as advertised.,v5.0,UI,0
+P1002,Home Care,Home Care,R10387,2026-01-24,flipkart,4,"Love it, will buy again.",v4.5,Power,0
+P1002,Home Care,Home Care,R10388,2026-02-28,flipkart,5,Terrible experience.,v4.6,Packaging,0
+P1002,Home Care,Home Care,R10389,2026-03-18,flipkart,4,Terrible experience.,v1.4,UI,0
+P1002,Home Care,Home Care,R10390,2026-03-23,flipkart,4,"Amazing product, works like a charm!",v4.1,Packaging,0
+P1002,Home Care,Home Care,R10391,2026-01-17,direct,1,"Bilkul bakwas hai, mat lena.",v3.2,Packaging,0
+P1002,Home Care,Home Care,R10392,2026-03-28,flipkart,3,Best purchase this year!,v2.9,UI,0
+P1002,Home Care,Home Care,R10393,2026-02-05,flipkart,1,"Love it, will buy again.",v1.5,Power,0
+P1002,Home Care,Home Care,R10394,2026-03-08,amazon,3,"Love it, will buy again.",v1.8,Packaging,0
+P1002,Home Care,Home Care,R10395,2026-01-22,amazon,4,Best purchase this year!,v4.7,General,0
+P1002,Home Care,Home Care,R10396,2026-01-31,direct,4,Terrible experience.,v3.9,UI,0
+P1002,Home Care,Home Care,R10397,2026-02-14,direct,3,Best purchase this year!,v4.6,Packaging,0
+P1002,Home Care,Home Care,R10398,2026-03-18,flipkart,1,Duplicate review text for testing.,v4.9,Packaging,0
+P1002,Home Care,Home Care,R10399,2026-01-19,flipkart,2,Waste of money.,v5.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10400,2026-01-12,direct,3,"Amazing product, works like a charm!",v3.6,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10401,2026-01-17,flipkart,4,Terrible experience.,v3.1,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10402,2026-02-14,direct,4,"Amazing product, works like a charm!",v5.2,General,0
+P1003,Food & Beverage,Food & Beverage,R10403,2026-04-07,amazon,2,"Boht accha product hai, maza aa gaya.",v1.7,Power,0
+P1003,Food & Beverage,Food & Beverage,R10404,2026-02-20,direct,2,Terrible experience.,v2.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10405,2026-01-05,amazon,4,"Amazing product, works like a charm!",v1.3,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10406,2026-04-09,flipkart,2,"Amazing product, works like a charm!",v1.1,General,0
+P1003,Food & Beverage,Food & Beverage,R10407,2026-01-16,direct,5,Doesn't work as advertised.,v3.0,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10408,2026-02-14,direct,2,"Love it, will buy again.",v2.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10409,2026-01-25,amazon,3,"Love it, will buy again.",v5.8,General,0
+P1003,Food & Beverage,Food & Beverage,R10410,2026-02-03,amazon,4,"Amazing product, works like a charm!",v1.9,UI,0
+P1003,Food & Beverage,Food & Beverage,R10411,2026-03-26,amazon,3,Waste of money.,v4.1,Power,0
+P1003,Food & Beverage,Food & Beverage,R10412,2026-03-04,flipkart,2,Doesn't work as advertised.,v3.6,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10413,2026-02-24,flipkart,5,"Boht accha product hai, maza aa gaya.",v3.3,UI,0
+P1003,Food & Beverage,Food & Beverage,R10414,2026-03-01,direct,3,Kam paise me badiya cheez hai.,v2.8,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10415,2026-02-27,direct,4,Best purchase this year!,v2.9,Power,0
+P1003,Food & Beverage,Food & Beverage,R10416,2026-01-03,direct,3,Doesn't work as advertised.,v5.9,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10417,2026-03-15,direct,1,Decent for the price.,v4.7,General,0
+P1003,Food & Beverage,Food & Beverage,R10418,2026-01-27,amazon,4,"Poor quality, very disappointed.",v2.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10419,2026-03-25,amazon,5,"Poor quality, very disappointed.",v2.5,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10420,2026-02-19,direct,4,Exceeded my expectations.,v2.9,Power,0
+P1003,Food & Beverage,Food & Beverage,R10421,2026-02-04,amazon,1,"Fine, but I've seen better.",v5.3,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10422,2026-02-18,flipkart,4,"Love it, will buy again.",v1.9,Power,0
+P1003,Food & Beverage,Food & Beverage,R10423,2026-03-06,direct,2,Terrible experience.,v1.5,UI,0
+P1003,Food & Beverage,Food & Beverage,R10424,2026-01-26,direct,3,Doesn't work as advertised.,v2.9,General,0
+P1003,Food & Beverage,Food & Beverage,R10425,2026-02-27,amazon,3,"Average quality, nothing special.",v5.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10426,2026-03-15,amazon,4,"Amazing product, works like a charm!",v1.9,UI,0
+P1003,Food & Beverage,Food & Beverage,R10427,2026-02-22,direct,1,Very good quality.,v1.1,UI,0
+P1003,Food & Beverage,Food & Beverage,R10428,2026-01-22,direct,2,"Amazing product, works like a charm!",v5.4,UI,0
+P1003,Food & Beverage,Food & Beverage,R10429,2026-03-02,direct,1,"Amazing product, works like a charm!",v2.5,Power,0
+P1003,Food & Beverage,Food & Beverage,R10430,2026-03-21,direct,4,Terrible experience.,v5.1,UI,0
+P1003,Food & Beverage,Food & Beverage,R10431,2026-04-10,amazon,4,Doesn't work as advertised.,v1.8,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10432,2026-01-28,flipkart,1,Best purchase this year!,v3.5,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10433,2026-02-16,direct,1,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v2.3,Packaging,1
+P1003,Food & Beverage,Food & Beverage,R10434,2026-04-08,direct,5,"Boht accha product hai, maza aa gaya.",v5.8,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10435,2026-02-04,flipkart,3,"Poor quality, very disappointed.",v2.5,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10436,2026-03-07,direct,1,Exceeded my expectations.,v5.5,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10437,2026-01-22,direct,5,"Amazing product, works like a charm!",v2.1,General,0
+P1003,Food & Beverage,Food & Beverage,R10438,2026-01-10,flipkart,5,"It's okay, does the job.",v1.5,General,0
+P1003,Food & Beverage,Food & Beverage,R10439,2026-03-27,amazon,5,"Average quality, nothing special.",v1.0,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10440,2026-03-27,amazon,4,Avoid this product.,v4.5,General,0
+P1003,Food & Beverage,Food & Beverage,R10441,2026-03-19,flipkart,5,"Poor quality, very disappointed.",v5.0,Power,0
+P1003,Food & Beverage,Food & Beverage,R10442,2026-03-26,amazon,5,"Love it, will buy again.",v1.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10443,2026-03-11,amazon,5,"Average quality, nothing special.",v5.6,UI,0
+P1003,Food & Beverage,Food & Beverage,R10444,2026-02-16,amazon,2,Very good quality.,v4.1,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10445,2026-01-09,flipkart,4,Decent for the price.,v4.5,Power,0
+P1003,Food & Beverage,Food & Beverage,R10446,2026-04-07,direct,5,"It's okay, does the job.",v5.7,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10447,2026-02-12,amazon,2,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v5.8,General,1
+P1003,Food & Beverage,Food & Beverage,R10448,2026-03-20,direct,3,Kam paise me badiya cheez hai.,v3.3,UI,0
+P1003,Food & Beverage,Food & Beverage,R10449,2026-02-19,flipkart,4,Very good quality.,v3.6,General,0
+P1003,Food & Beverage,Food & Beverage,R10450,2026-01-31,flipkart,2,"Love it, will buy again.",v2.1,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10451,2026-02-19,direct,1,"Poor quality, very disappointed.",v1.7,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10452,2026-03-09,direct,1,"Delivery late thi, lekin product sahi hai.",v2.5,Power,0
+P1003,Food & Beverage,Food & Beverage,R10453,2026-03-20,amazon,2,"Amazing product, works like a charm!",v3.1,General,0
+P1003,Food & Beverage,Food & Beverage,R10454,2026-04-04,flipkart,4,"Love it, will buy again.",v3.1,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10455,2026-01-31,amazon,2,Waste of money.,v2.7,General,0
+P1003,Food & Beverage,Food & Beverage,R10456,2026-04-07,flipkart,1,Terrible experience.,v4.2,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10457,2026-01-28,flipkart,4,"Poor quality, very disappointed.",v4.0,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10458,2026-04-10,direct,4,Avoid this product.,v4.9,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10459,2026-04-05,amazon,1,"Fine, but I've seen better.",v2.9,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10460,2026-04-07,direct,2,"Love it, will buy again.",v1.2,Power,0
+P1003,Food & Beverage,Food & Beverage,R10461,2026-04-10,amazon,5,"Amazing product, works like a charm!",v1.7,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10462,2026-02-13,amazon,3,Best purchase this year!,v1.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10463,2026-02-12,flipkart,3,Avoid this product.,v3.9,General,0
+P1003,Food & Beverage,Food & Beverage,R10464,2026-03-26,direct,5,"Average quality, nothing special.",v1.6,Power,0
+P1003,Food & Beverage,Food & Beverage,R10465,2026-02-09,flipkart,5,Best purchase this year!,v2.9,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10466,2026-02-15,amazon,5,"Love it, will buy again.",v2.0,Power,0
+P1003,Food & Beverage,Food & Beverage,R10467,2026-01-09,direct,2,"Delivery late thi, lekin product sahi hai.",v3.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10468,2026-02-27,amazon,1,Exceeded my expectations.,v4.2,UI,0
+P1003,Food & Beverage,Food & Beverage,R10469,2026-02-18,direct,5,Best purchase this year!,v5.3,UI,0
+P1003,Food & Beverage,Food & Beverage,R10470,2026-03-12,amazon,1,Buy now limited offer click here http://spam.example,v3.6,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10471,2026-01-05,flipkart,4,"Average quality, nothing special.",v2.6,General,0
+P1003,Food & Beverage,Food & Beverage,R10472,2026-02-17,direct,5,Terrible experience.,v3.0,UI,0
+P1003,Food & Beverage,Food & Beverage,R10473,2026-03-04,direct,4,Buy now limited offer click here http://spam.example,v5.5,UI,0
+P1003,Food & Beverage,Food & Beverage,R10474,2026-03-31,flipkart,1,Doesn't work as advertised.,v3.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10475,2026-01-06,amazon,1,Very good quality.,v2.8,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10476,2026-01-29,amazon,5,Exceeded my expectations.,v1.7,Power,0
+P1003,Food & Beverage,Food & Beverage,R10477,2026-03-19,direct,5,"Bilkul bakwas hai, mat lena.",v1.1,UI,0
+P1003,Food & Beverage,Food & Beverage,R10478,2026-04-11,direct,4,Avoid this product.,v3.0,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10479,2026-01-28,flipkart,3,"Love it, will buy again.",v3.8,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10480,2026-04-03,flipkart,1,Avoid this product.,v1.6,Power,0
+P1003,Food & Beverage,Food & Beverage,R10481,2026-04-06,amazon,1,"Amazing product, works like a charm!",v5.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10482,2026-03-01,flipkart,1,Waste of money.,v1.8,General,0
+P1003,Food & Beverage,Food & Beverage,R10483,2026-01-11,direct,4,"Poor quality, very disappointed.",v3.7,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10484,2026-01-08,amazon,1,Exceeded my expectations.,v5.6,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10485,2026-04-08,amazon,1,"Amazing product, works like a charm!",v4.6,Power,0
+P1003,Food & Beverage,Food & Beverage,R10486,2026-03-18,flipkart,2,Doesn't work as advertised.,v4.6,General,0
+P1003,Food & Beverage,Food & Beverage,R10487,2026-01-01,amazon,3,"Boht accha product hai, maza aa gaya.",v2.0,UI,0
+P1003,Food & Beverage,Food & Beverage,R10488,2026-04-01,direct,1,Very good quality.,v3.9,General,0
+P1003,Food & Beverage,Food & Beverage,R10489,2026-01-10,amazon,3,Doesn't work as advertised.,v4.3,Power,0
+P1003,Food & Beverage,Food & Beverage,R10490,2026-02-27,amazon,3,Avoid this product.,v1.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10491,2026-04-01,amazon,3,"Quality thodi weak hai, better ho sakti thi.",v5.9,UI,0
+P1003,Food & Beverage,Food & Beverage,R10492,2026-04-02,flipkart,5,Doesn't work as advertised.,v4.5,UI,0
+P1003,Food & Beverage,Food & Beverage,R10493,2026-03-23,direct,5,Decent for the price.,v5.6,UI,0
+P1003,Food & Beverage,Food & Beverage,R10494,2026-02-26,amazon,3,Avoid this product.,v1.4,Power,0
+P1003,Food & Beverage,Food & Beverage,R10495,2026-02-20,amazon,3,"Love it, will buy again.",v4.6,General,0
+P1003,Food & Beverage,Food & Beverage,R10496,2026-02-01,flipkart,5,"Fine, but I've seen better.",v1.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10497,2026-02-08,direct,3,"Love it, will buy again.",v4.8,Power,0
+P1003,Food & Beverage,Food & Beverage,R10498,2026-03-11,direct,3,Very good quality.,v1.1,UI,0
+P1003,Food & Beverage,Food & Beverage,R10499,2026-04-04,flipkart,5,Doesn't work as advertised.,v5.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10500,2026-03-04,direct,2,Best purchase this year!,v3.4,UI,0
+P1003,Food & Beverage,Food & Beverage,R10501,2026-02-09,flipkart,2,Very good quality.,v3.6,UI,0
+P1003,Food & Beverage,Food & Beverage,R10502,2026-03-20,direct,2,"Fine, but I've seen better.",v2.1,Power,0
+P1003,Food & Beverage,Food & Beverage,R10503,2026-03-29,direct,5,"Amazing product, works like a charm!",v2.0,UI,0
+P1003,Food & Beverage,Food & Beverage,R10504,2026-02-12,flipkart,3,"Quality thodi weak hai, better ho sakti thi.",v2.5,UI,0
+P1003,Food & Beverage,Food & Beverage,R10505,2026-03-04,direct,2,"Amazing product, works like a charm!",v2.4,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10506,2026-02-14,flipkart,5,"Bilkul bakwas hai, mat lena.",v3.6,Power,0
+P1003,Food & Beverage,Food & Beverage,R10507,2026-02-08,flipkart,5,Exceeded my expectations.,v1.0,UI,0
+P1003,Food & Beverage,Food & Beverage,R10508,2026-01-30,flipkart,5,"Poor quality, very disappointed.",v2.9,General,0
+P1003,Food & Beverage,Food & Beverage,R10509,2026-02-21,direct,3,Terrible experience.,v2.9,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10510,2026-02-05,flipkart,3,"Love it, will buy again.",v1.1,UI,0
+P1003,Food & Beverage,Food & Beverage,R10511,2026-01-30,direct,5,Terrible experience.,v5.2,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10512,2026-01-09,flipkart,2,"Fine, but I've seen better.",v2.8,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10513,2026-03-14,flipkart,3,"Fine, but I've seen better.",v1.4,Power,0
+P1003,Food & Beverage,Food & Beverage,R10514,2026-03-16,amazon,3,"Love it, will buy again.",v4.6,UI,0
+P1003,Food & Beverage,Food & Beverage,R10515,2026-01-26,amazon,3,Great product!!! 😂🔥💯,v3.6,UI,0
+P1003,Food & Beverage,Food & Beverage,R10516,2026-03-27,direct,3,Very good quality.,v3.0,UI,0
+P1003,Food & Beverage,Food & Beverage,R10517,2026-03-07,flipkart,4,Terrible experience.,v1.3,UI,0
+P1003,Food & Beverage,Food & Beverage,R10518,2026-02-12,amazon,3,Terrible experience.,v3.2,General,0
+P1003,Food & Beverage,Food & Beverage,R10519,2026-03-22,direct,1,Best purchase this year!,v3.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10520,2026-02-21,flipkart,3,"Amazing product, works like a charm!",v3.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10521,2026-03-14,amazon,4,"Poor quality, very disappointed.",v3.2,UI,0
+P1003,Food & Beverage,Food & Beverage,R10522,2026-01-09,flipkart,2,Doesn't work as advertised.,v4.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10523,2026-03-07,direct,4,Doesn't work as advertised.,v1.1,UI,0
+P1003,Food & Beverage,Food & Beverage,R10524,2026-01-13,amazon,1,Exceeded my expectations.,v1.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10525,2026-01-16,direct,4,"Average quality, nothing special.",v2.2,Power,0
+P1003,Food & Beverage,Food & Beverage,R10526,2026-01-14,direct,1,"Quality thodi weak hai, better ho sakti thi.",v3.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10527,2026-01-09,amazon,2,Best purchase this year!,v5.3,UI,0
+P1003,Food & Beverage,Food & Beverage,R10528,2026-03-28,flipkart,3,Best purchase this year!,v5.6,UI,0
+P1003,Food & Beverage,Food & Beverage,R10529,2026-01-11,flipkart,5,Exceeded my expectations.,v5.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10530,2026-01-20,flipkart,4,Avoid this product.,v1.9,Power,0
+P1003,Food & Beverage,Food & Beverage,R10531,2026-03-07,amazon,5,Very good quality.,v5.1,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10532,2026-04-05,amazon,3,Avoid this product.,v3.9,Power,0
+P1003,Food & Beverage,Food & Beverage,R10533,2026-03-19,amazon,4,Terrible experience.,v5.6,General,0
+P1003,Food & Beverage,Food & Beverage,R10534,2026-03-30,amazon,4,"Love it, will buy again.",v3.3,General,0
+P1003,Food & Beverage,Food & Beverage,R10535,2026-01-19,amazon,3,"Love it, will buy again.",v1.2,Power,0
+P1003,Food & Beverage,Food & Beverage,R10536,2026-01-01,flipkart,1,"Poor quality, very disappointed.",v4.4,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10537,2026-03-02,flipkart,2,"Quality thodi weak hai, better ho sakti thi.",v5.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10538,2026-01-13,amazon,3,"Amazing product, works like a charm!",v1.5,Power,0
+P1003,Food & Beverage,Food & Beverage,R10539,2026-02-12,amazon,5,Avoid this product.,v1.8,General,0
+P1003,Food & Beverage,Food & Beverage,R10540,2026-01-10,flipkart,3,Exceeded my expectations.,v3.9,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10541,2026-02-03,amazon,2,Best purchase this year!,v2.5,General,0
+P1003,Food & Beverage,Food & Beverage,R10542,2026-01-18,direct,5,Decent for the price.,v1.0,Power,0
+P1003,Food & Beverage,Food & Beverage,R10543,2026-02-15,amazon,1,Avoid this product.,v1.1,General,0
+P1003,Food & Beverage,Food & Beverage,R10544,2026-03-12,direct,3,Exceeded my expectations.,v4.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10545,2026-03-06,direct,4,"Delivery late thi, lekin product sahi hai.",v3.1,General,0
+P1003,Food & Beverage,Food & Beverage,R10546,2026-01-02,amazon,2,"It's okay, does the job.",v1.5,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10547,2026-01-11,flipkart,5,Decent for the price.,v4.1,Power,0
+P1003,Food & Beverage,Food & Beverage,R10548,2026-02-05,amazon,3,"Poor quality, very disappointed.",v4.3,UI,0
+P1003,Food & Beverage,Food & Beverage,R10549,2026-01-13,amazon,3,Doesn't work as advertised.,v3.3,Power,0
+P1003,Food & Beverage,Food & Beverage,R10550,2026-01-13,amazon,3,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v4.7,General,1
+P1003,Food & Beverage,Food & Beverage,R10551,2026-01-21,direct,2,Best purchase this year!,v1.0,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10552,2026-03-22,flipkart,1,Waste of money.,v4.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10553,2026-02-27,flipkart,4,"Delivery late thi, lekin product sahi hai.",v5.5,Power,0
+P1003,Food & Beverage,Food & Beverage,R10554,2026-01-24,flipkart,1,"Amazing product, works like a charm!",v4.9,Power,0
+P1003,Food & Beverage,Food & Beverage,R10555,2026-03-27,amazon,5,Avoid this product.,v4.9,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10556,2026-02-09,direct,3,Avoid this product.,v1.7,General,0
+P1003,Food & Beverage,Food & Beverage,R10557,2026-03-11,amazon,3,"Love it, will buy again.",v2.3,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10558,2026-01-22,direct,2,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v2.0,General,1
+P1003,Food & Beverage,Food & Beverage,R10559,2026-04-10,amazon,5,Best purchase this year!,v4.1,Power,0
+P1003,Food & Beverage,Food & Beverage,R10560,2026-03-07,flipkart,1,"Poor quality, very disappointed.",v3.5,UI,0
+P1003,Food & Beverage,Food & Beverage,R10561,2026-01-21,flipkart,2,Best purchase this year!,v1.8,General,0
+P1003,Food & Beverage,Food & Beverage,R10562,2026-03-30,amazon,4,Kam paise me badiya cheez hai.,v4.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10563,2026-01-05,amazon,2,Very good quality.,v5.0,General,0
+P1003,Food & Beverage,Food & Beverage,R10564,2026-01-21,flipkart,5,Very good quality.,v2.6,Power,0
+P1003,Food & Beverage,Food & Beverage,R10565,2026-02-02,direct,4,Waste of money.,v4.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10566,2026-01-10,amazon,3,Exceeded my expectations.,v2.3,UI,0
+P1003,Food & Beverage,Food & Beverage,R10567,2026-02-08,amazon,1,"Poor quality, very disappointed.",v1.8,General,0
+P1003,Food & Beverage,Food & Beverage,R10568,2026-03-17,flipkart,5,Decent for the price.,v3.4,General,0
+P1003,Food & Beverage,Food & Beverage,R10569,2026-02-06,amazon,1,"Not bad, not great.",v3.8,Power,0
+P1003,Food & Beverage,Food & Beverage,R10570,2026-02-11,amazon,1,Very good quality.,v2.7,General,0
+P1003,Food & Beverage,Food & Beverage,R10571,2026-04-08,direct,1,Very good quality.,v5.5,UI,0
+P1003,Food & Beverage,Food & Beverage,R10572,2026-03-27,direct,2,"Love it, will buy again.",v4.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10573,2026-03-03,flipkart,4,Avoid this product.,v2.6,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10574,2026-01-17,amazon,5,"It's okay, does the job.",v5.6,Power,0
+P1003,Food & Beverage,Food & Beverage,R10575,2026-01-04,direct,3,Best purchase this year!,v3.1,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10576,2026-03-03,amazon,5,"Quality thodi weak hai, better ho sakti thi.",v1.8,General,0
+P1003,Food & Beverage,Food & Beverage,R10577,2026-02-05,amazon,4,Waste of money.,v3.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10578,2026-03-23,amazon,2,Waste of money.,v2.9,UI,0
+P1003,Food & Beverage,Food & Beverage,R10579,2026-03-28,direct,4,"Amazing product, works like a charm!",v5.8,Power,0
+P1003,Food & Beverage,Food & Beverage,R10580,2026-03-03,amazon,1,"It's okay, does the job.",v3.0,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10581,2026-02-03,direct,3,"It's okay, does the job.",v2.9,UI,0
+P1003,Food & Beverage,Food & Beverage,R10582,2026-01-25,direct,4,Best purchase this year!,v4.1,General,0
+P1003,Food & Beverage,Food & Beverage,R10583,2026-01-28,amazon,4,"Bilkul bakwas hai, mat lena.",v1.4,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10584,2026-03-29,flipkart,2,"Poor quality, very disappointed.",v4.7,UI,0
+P1003,Food & Beverage,Food & Beverage,R10585,2026-02-27,direct,4,"It's okay, does the job.",v3.7,Power,0
+P1003,Food & Beverage,Food & Beverage,R10586,2026-01-24,direct,2,"Not bad, not great.",v5.7,Power,0
+P1003,Food & Beverage,Food & Beverage,R10587,2026-02-05,direct,1,Great product!!! 😂🔥💯,v2.2,Power,0
+P1003,Food & Beverage,Food & Beverage,R10588,2026-03-05,amazon,1,Terrible experience.,v1.5,General,0
+P1003,Food & Beverage,Food & Beverage,R10589,2026-03-02,flipkart,2,Exceeded my expectations.,v5.0,Power,0
+P1003,Food & Beverage,Food & Beverage,R10590,2026-04-07,amazon,1,Doesn't work as advertised.,v5.1,Power,0
+P1003,Food & Beverage,Food & Beverage,R10591,2026-03-04,flipkart,2,Decent for the price.,v5.0,UI,0
+P1003,Food & Beverage,Food & Beverage,R10592,2026-03-14,amazon,5,Doesn't work as advertised.,v2.8,UI,0
+P1003,Food & Beverage,Food & Beverage,R10593,2026-01-05,amazon,5,Very good quality.,v5.1,Power,0
+P1003,Food & Beverage,Food & Beverage,R10594,2026-02-08,direct,4,Kam paise me badiya cheez hai.,v3.0,UI,0
+P1003,Food & Beverage,Food & Beverage,R10595,2026-02-25,flipkart,3,"Average quality, nothing special.",v2.7,UI,0
+P1003,Food & Beverage,Food & Beverage,R10596,2026-03-06,flipkart,1,Duplicate review text for testing.,v3.0,General,0
+P1003,Food & Beverage,Food & Beverage,R10597,2026-02-08,amazon,4,Best purchase this year!,v4.2,Packaging,0
+P1003,Food & Beverage,Food & Beverage,R10598,2026-03-17,flipkart,1,Very good quality.,v5.7,Power,0
+P1003,Food & Beverage,Food & Beverage,R10599,2026-02-13,flipkart,4,Decent for the price.,v4.3,General,0
+P1004,Electronics,Food & Beverage,R10600,2026-02-04,flipkart,5,"Amazing product, works like a charm!",v4.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10601,2026-01-22,amazon,4,Best purchase this year!,v1.4,UI,0
+P1004,Electronics,Food & Beverage,R10602,2026-03-16,direct,1,Doesn't work as advertised.,v1.1,General,0
+P1004,Electronics,Food & Beverage,R10603,2026-01-01,amazon,2,"Bilkul bakwas hai, mat lena.",v3.2,Power,0
+P1004,Electronics,Food & Beverage,R10604,2026-02-17,amazon,1,Very good quality.,v1.1,UI,0
+P1004,Electronics,Food & Beverage,R10605,2026-02-21,flipkart,3,"Average quality, nothing special.",v2.7,Power,0
+P1004,Electronics,Food & Beverage,R10606,2026-01-04,direct,3,Very good quality.,v4.1,Power,0
+P1004,Electronics,Food & Beverage,R10607,2026-03-27,amazon,4,Decent for the price.,v1.0,UI,0
+P1004,Electronics,Food & Beverage,R10608,2026-02-21,direct,2,Exceeded my expectations.,v3.6,UI,0
+P1004,Electronics,Food & Beverage,R10609,2026-04-03,amazon,4,Terrible experience.,v3.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10610,2026-01-31,amazon,5,"Poor quality, very disappointed.",v4.1,UI,0
+P1004,Electronics,Food & Beverage,R10611,2026-02-13,direct,2,"Poor quality, very disappointed.",v2.6,General,0
+P1004,Electronics,Food & Beverage,R10612,2026-04-08,flipkart,4,"Boht accha product hai, maza aa gaya.",v4.1,Power,0
+P1004,Electronics,Food & Beverage,R10613,2026-04-08,direct,5,Best purchase this year!,v2.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10614,2026-01-31,flipkart,1,"Love it, will buy again.",v2.3,Power,0
+P1004,Electronics,Food & Beverage,R10615,2026-03-17,amazon,4,Best purchase this year!,v5.1,Power,0
+P1004,Electronics,Food & Beverage,R10616,2026-01-06,direct,1,"Amazing product, works like a charm!",v2.6,Power,0
+P1004,Electronics,Food & Beverage,R10617,2026-03-22,direct,3,Very good quality.,v2.5,General,0
+P1004,Electronics,Food & Beverage,R10618,2026-01-10,amazon,2,Best purchase this year!,v1.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10619,2026-02-03,amazon,5,Kam paise me badiya cheez hai.,v5.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10620,2026-03-29,amazon,3,"Amazing product, works like a charm!",v1.9,General,0
+P1004,Electronics,Food & Beverage,R10621,2026-03-21,direct,1,"Love it, will buy again.",v5.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10622,2026-02-15,amazon,2,"Love it, will buy again.",v3.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10623,2026-02-28,direct,2,"Love it, will buy again.",v3.6,Packaging,0
+P1004,Electronics,Food & Beverage,R10624,2026-02-15,direct,2,Very good quality.,v2.2,Packaging,0
+P1004,Electronics,Food & Beverage,R10625,2026-03-24,direct,5,"Not bad, not great.",v4.4,Power,0
+P1004,Electronics,Food & Beverage,R10626,2026-03-26,flipkart,4,"It's okay, does the job.",v1.2,UI,0
+P1004,Electronics,Food & Beverage,R10627,2026-03-09,amazon,5,Best purchase this year!,v5.7,Power,0
+P1004,Electronics,Food & Beverage,R10628,2026-01-24,amazon,5,"Love it, will buy again.",v5.2,Packaging,0
+P1004,Electronics,Food & Beverage,R10629,2026-01-19,flipkart,1,Waste of money.,v5.5,Power,0
+P1004,Electronics,Food & Beverage,R10630,2026-04-09,direct,3,Best purchase this year!,v5.3,UI,0
+P1004,Electronics,Food & Beverage,R10631,2026-02-10,amazon,3,"Love it, will buy again.",v4.8,UI,0
+P1004,Electronics,Food & Beverage,R10632,2026-01-22,flipkart,1,Best purchase this year!,v4.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10633,2026-01-30,flipkart,4,Exceeded my expectations.,v3.1,Power,0
+P1004,Electronics,Food & Beverage,R10634,2026-02-11,amazon,4,Doesn't work as advertised.,v5.1,UI,0
+P1004,Electronics,Food & Beverage,R10635,2026-03-26,flipkart,5,Terrible experience.,v2.5,UI,0
+P1004,Electronics,Food & Beverage,R10636,2026-03-29,amazon,1,"Amazing product, works like a charm!",v5.4,Power,0
+P1004,Electronics,Food & Beverage,R10637,2026-03-23,direct,5,"Amazing product, works like a charm!",v1.2,General,0
+P1004,Electronics,Food & Beverage,R10638,2026-01-17,flipkart,4,"Fine, but I've seen better.",v4.5,Packaging,0
+P1004,Electronics,Food & Beverage,R10639,2026-01-28,amazon,4,Avoid this product.,v2.3,UI,0
+P1004,Electronics,Food & Beverage,R10640,2026-03-24,amazon,2,Buy now limited offer click here http://spam.example,v2.3,General,0
+P1004,Electronics,Food & Beverage,R10641,2026-03-17,direct,5,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v4.6,General,1
+P1004,Electronics,Food & Beverage,R10642,2026-01-08,direct,2,Best purchase this year!,v4.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10643,2026-01-06,amazon,4,"Quality thodi weak hai, better ho sakti thi.",v1.0,Power,0
+P1004,Electronics,Food & Beverage,R10644,2026-04-06,direct,4,Very good quality.,v3.5,General,0
+P1004,Electronics,Food & Beverage,R10645,2026-03-21,amazon,5,"Amazing product, works like a charm!",v5.0,General,0
+P1004,Electronics,Food & Beverage,R10646,2026-01-15,flipkart,3,Terrible experience.,v4.7,Power,0
+P1004,Electronics,Food & Beverage,R10647,2026-02-25,direct,4,Avoid this product.,v3.3,General,0
+P1004,Electronics,Food & Beverage,R10648,2026-01-09,flipkart,5,Avoid this product.,v4.5,Power,0
+P1004,Electronics,Food & Beverage,R10649,2026-04-08,amazon,5,"Love it, will buy again.",v1.6,Power,0
+P1004,Electronics,Food & Beverage,R10650,2026-01-04,flipkart,3,"It's okay, does the job.",v1.1,UI,0
+P1004,Electronics,Food & Beverage,R10651,2026-02-18,direct,5,Very good quality.,v3.0,General,0
+P1004,Electronics,Food & Beverage,R10652,2026-02-02,flipkart,3,Doesn't work as advertised.,v3.3,Packaging,0
+P1004,Electronics,Food & Beverage,R10653,2026-03-26,amazon,3,Avoid this product.,v1.7,General,0
+P1004,Electronics,Food & Beverage,R10654,2026-01-06,flipkart,4,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v4.4,UI,1
+P1004,Electronics,Food & Beverage,R10655,2026-01-25,direct,3,Very good quality.,v4.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10656,2026-04-06,flipkart,5,"Poor quality, very disappointed.",v3.8,General,0
+P1004,Electronics,Food & Beverage,R10657,2026-03-15,flipkart,2,Exceeded my expectations.,v3.5,Packaging,0
+P1004,Electronics,Food & Beverage,R10658,2026-01-14,flipkart,1,"Love it, will buy again.",v4.7,General,0
+P1004,Electronics,Food & Beverage,R10659,2026-02-12,flipkart,1,Kam paise me badiya cheez hai.,v2.0,UI,0
+P1004,Electronics,Food & Beverage,R10660,2026-03-04,amazon,4,Doesn't work as advertised.,v3.1,UI,0
+P1004,Electronics,Food & Beverage,R10661,2026-02-11,direct,4,Doesn't work as advertised.,v3.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10662,2026-02-18,amazon,3,"Amazing product, works like a charm!",v4.4,Power,0
+P1004,Electronics,Food & Beverage,R10663,2026-01-21,amazon,2,Kam paise me badiya cheez hai.,v4.0,UI,0
+P1004,Electronics,Food & Beverage,R10664,2026-04-02,flipkart,1,"Amazing product, works like a charm!",v3.7,UI,0
+P1004,Electronics,Food & Beverage,R10665,2026-01-24,direct,1,"Amazing product, works like a charm!",v1.1,Packaging,0
+P1004,Electronics,Food & Beverage,R10666,2026-01-04,flipkart,1,"It's okay, does the job.",v5.0,Power,0
+P1004,Electronics,Food & Beverage,R10667,2026-02-03,direct,4,Waste of money.,v3.3,Power,0
+P1004,Electronics,Food & Beverage,R10668,2026-01-15,direct,1,Avoid this product.,v5.8,Power,0
+P1004,Electronics,Food & Beverage,R10669,2026-02-10,direct,3,"Poor quality, very disappointed.",v3.1,General,0
+P1004,Electronics,Food & Beverage,R10670,2026-04-09,flipkart,4,"Love it, will buy again.",v2.5,Packaging,0
+P1004,Electronics,Food & Beverage,R10671,2026-01-13,flipkart,1,"Not bad, not great.",v4.3,Power,0
+P1004,Electronics,Food & Beverage,R10672,2026-01-04,flipkart,1,Exceeded my expectations.,v3.7,UI,0
+P1004,Electronics,Food & Beverage,R10673,2026-01-08,amazon,5,Doesn't work as advertised.,v2.7,Power,0
+P1004,Electronics,Food & Beverage,R10674,2026-02-09,flipkart,2,Very good quality.,v4.6,General,0
+P1004,Electronics,Food & Beverage,R10675,2026-03-13,amazon,3,Very good quality.,v4.0,UI,0
+P1004,Electronics,Food & Beverage,R10676,2026-03-07,amazon,4,"Love it, will buy again.",v5.1,UI,0
+P1004,Electronics,Food & Beverage,R10677,2026-03-13,amazon,4,"Quality thodi weak hai, better ho sakti thi.",v1.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10678,2026-03-11,amazon,2,Great product!!! 😂🔥💯,v5.5,General,0
+P1004,Electronics,Food & Beverage,R10679,2026-02-03,amazon,1,Buy now limited offer click here http://spam.example,v3.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10680,2026-01-18,flipkart,5,Avoid this product.,v2.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10681,2026-02-02,direct,4,Best purchase this year!,v5.7,Power,0
+P1004,Electronics,Food & Beverage,R10682,2026-03-31,amazon,2,Buy now limited offer click here http://spam.example,v4.6,General,0
+P1004,Electronics,Food & Beverage,R10683,2026-01-07,amazon,5,Very good quality.,v5.4,General,0
+P1004,Electronics,Food & Beverage,R10684,2026-01-19,amazon,2,Waste of money.,v3.0,Power,0
+P1004,Electronics,Food & Beverage,R10685,2026-01-10,flipkart,2,Doesn't work as advertised.,v3.7,General,0
+P1004,Electronics,Food & Beverage,R10686,2026-03-05,amazon,2,Kam paise me badiya cheez hai.,v1.1,Packaging,0
+P1004,Electronics,Food & Beverage,R10687,2026-01-02,amazon,5,"Poor quality, very disappointed.",v4.7,General,0
+P1004,Electronics,Food & Beverage,R10688,2026-03-26,amazon,4,Very good quality.,v5.5,Packaging,0
+P1004,Electronics,Food & Beverage,R10689,2026-02-04,amazon,2,Waste of money.,v2.2,General,0
+P1004,Electronics,Food & Beverage,R10690,2026-01-30,amazon,5,Waste of money.,v2.5,Power,0
+P1004,Electronics,Food & Beverage,R10691,2026-02-07,flipkart,3,"It's okay, does the job.",v3.7,Power,0
+P1004,Electronics,Food & Beverage,R10692,2026-02-18,flipkart,3,Waste of money.,v3.1,Packaging,0
+P1004,Electronics,Food & Beverage,R10693,2026-02-02,amazon,5,Very good quality.,v5.1,General,0
+P1004,Electronics,Food & Beverage,R10694,2026-02-16,direct,4,"Love it, will buy again.",v2.2,Packaging,0
+P1004,Electronics,Food & Beverage,R10695,2026-03-18,flipkart,2,"Delivery late thi, lekin product sahi hai.",v4.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10696,2026-03-24,amazon,1,Decent for the price.,v3.8,Power,0
+P1004,Electronics,Food & Beverage,R10697,2026-01-09,flipkart,5,"Poor quality, very disappointed.",v4.9,Power,0
+P1004,Electronics,Food & Beverage,R10698,2026-03-02,flipkart,3,"Boht accha product hai, maza aa gaya.",v5.2,UI,0
+P1004,Electronics,Food & Beverage,R10699,2026-01-10,direct,3,Avoid this product.,v4.9,Power,0
+P1004,Electronics,Food & Beverage,R10700,2026-02-01,amazon,5,Best purchase this year!,v2.9,UI,0
+P1004,Electronics,Food & Beverage,R10701,2026-01-05,direct,3,"It's okay, does the job.",v5.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10702,2026-02-02,amazon,4,Best purchase this year!,v4.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10703,2026-02-25,flipkart,2,"Amazing product, works like a charm!",v1.5,General,0
+P1004,Electronics,Food & Beverage,R10704,2026-02-17,amazon,5,Terrible experience.,v1.4,Packaging,0
+P1004,Electronics,Food & Beverage,R10705,2026-04-09,amazon,4,"Not bad, not great.",v4.2,Packaging,0
+P1004,Electronics,Food & Beverage,R10706,2026-03-20,flipkart,1,Exceeded my expectations.,v1.4,General,0
+P1004,Electronics,Food & Beverage,R10707,2026-03-09,flipkart,5,Doesn't work as advertised.,v1.5,Power,0
+P1004,Electronics,Food & Beverage,R10708,2026-02-27,flipkart,4,"It's okay, does the job.",v1.3,Power,0
+P1004,Electronics,Food & Beverage,R10709,2026-01-07,amazon,2,Exceeded my expectations.,v1.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10710,2026-01-28,direct,1,Best purchase this year!,v4.5,Packaging,0
+P1004,Electronics,Food & Beverage,R10711,2026-03-03,direct,4,Duplicate review text for testing.,v2.8,General,0
+P1004,Electronics,Food & Beverage,R10712,2026-04-09,direct,3,Very good quality.,v5.1,General,0
+P1004,Electronics,Food & Beverage,R10713,2026-01-23,amazon,1,"Amazing product, works like a charm!",v1.3,UI,0
+P1004,Electronics,Food & Beverage,R10714,2026-01-07,flipkart,5,Very good quality.,v1.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10715,2026-03-07,amazon,2,Very good quality.,v3.6,General,0
+P1004,Electronics,Food & Beverage,R10716,2026-02-11,direct,4,Very good quality.,v2.6,General,0
+P1004,Electronics,Food & Beverage,R10717,2026-02-07,flipkart,2,Avoid this product.,v3.1,UI,0
+P1004,Electronics,Food & Beverage,R10718,2026-04-07,direct,4,Exceeded my expectations.,v3.0,UI,0
+P1004,Electronics,Food & Beverage,R10719,2026-03-14,direct,4,"Delivery late thi, lekin product sahi hai.",v2.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10720,2026-01-28,direct,1,"Poor quality, very disappointed.",v5.9,UI,0
+P1004,Electronics,Food & Beverage,R10721,2026-02-20,direct,3,"It's okay, does the job.",v4.5,UI,0
+P1004,Electronics,Food & Beverage,R10722,2026-03-07,flipkart,1,Waste of money.,v1.2,Packaging,0
+P1004,Electronics,Food & Beverage,R10723,2026-01-09,amazon,2,"Quality thodi weak hai, better ho sakti thi.",v1.5,Power,0
+P1004,Electronics,Food & Beverage,R10724,2026-01-07,direct,4,Very good quality.,v3.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10725,2026-02-07,direct,5,"Love it, will buy again.",v3.5,UI,0
+P1004,Electronics,Food & Beverage,R10726,2026-02-12,flipkart,1,Waste of money.,v1.5,General,0
+P1004,Electronics,Food & Beverage,R10727,2026-02-26,flipkart,5,"Amazing product, works like a charm!",v3.9,Power,0
+P1004,Electronics,Food & Beverage,R10728,2026-03-09,flipkart,1,Exceeded my expectations.,v3.4,Power,0
+P1004,Electronics,Food & Beverage,R10729,2026-02-02,amazon,1,Best purchase this year!,v4.2,General,0
+P1004,Electronics,Food & Beverage,R10730,2026-03-30,flipkart,5,Avoid this product.,v1.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10731,2026-02-09,direct,3,Exceeded my expectations.,v5.2,Power,0
+P1004,Electronics,Food & Beverage,R10732,2026-03-28,direct,1,Avoid this product.,v4.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10733,2026-03-18,flipkart,5,"Fine, but I've seen better.",v5.2,General,0
+P1004,Electronics,Food & Beverage,R10734,2026-04-05,direct,5,"It's okay, does the job.",v1.5,General,0
+P1004,Electronics,Food & Beverage,R10735,2026-02-05,flipkart,5,"Not bad, not great.",v5.5,Power,0
+P1004,Electronics,Food & Beverage,R10736,2026-04-01,amazon,4,"Average quality, nothing special.",v5.8,UI,0
+P1004,Electronics,Food & Beverage,R10737,2026-04-11,amazon,5,Very good quality.,v1.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10738,2026-03-24,direct,2,Kam paise me badiya cheez hai.,v5.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10739,2026-02-08,flipkart,4,Best purchase this year!,v5.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10740,2026-02-17,direct,4,"Bilkul bakwas hai, mat lena.",v4.8,Power,0
+P1004,Electronics,Food & Beverage,R10741,2026-03-08,direct,4,Exceeded my expectations.,v5.6,General,0
+P1004,Electronics,Food & Beverage,R10742,2026-04-05,flipkart,1,Very good quality.,v4.3,UI,0
+P1004,Electronics,Food & Beverage,R10743,2026-02-26,flipkart,5,Exceeded my expectations.,v5.3,UI,0
+P1004,Electronics,Food & Beverage,R10744,2026-03-26,flipkart,1,"It's okay, does the job.",v3.2,UI,0
+P1004,Electronics,Food & Beverage,R10745,2026-02-19,direct,1,Best purchase this year!,v4.2,Power,0
+P1004,Electronics,Food & Beverage,R10746,2026-02-10,flipkart,4,Decent for the price.,v5.4,UI,0
+P1004,Electronics,Food & Beverage,R10747,2026-03-13,amazon,4,Waste of money.,v4.6,Packaging,0
+P1004,Electronics,Food & Beverage,R10748,2026-03-16,direct,3,Exceeded my expectations.,v4.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10749,2026-02-09,amazon,1,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v3.6,UI,1
+P1004,Electronics,Food & Beverage,R10750,2026-03-25,direct,1,"Love it, will buy again.",v2.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10751,2026-01-08,amazon,5,"Fine, but I've seen better.",v3.6,UI,0
+P1004,Electronics,Food & Beverage,R10752,2026-02-10,flipkart,2,Terrible experience.,v1.6,General,0
+P1004,Electronics,Food & Beverage,R10753,2026-04-11,flipkart,2,"Love it, will buy again.",v4.9,UI,0
+P1004,Electronics,Food & Beverage,R10754,2026-03-11,amazon,3,Doesn't work as advertised.,v4.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10755,2026-01-16,direct,2,Doesn't work as advertised.,v1.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10756,2026-03-17,direct,5,Best purchase this year!,v2.0,UI,0
+P1004,Electronics,Food & Beverage,R10757,2026-02-28,direct,3,Terrible experience.,v3.0,Power,0
+P1004,Electronics,Food & Beverage,R10758,2026-02-11,amazon,3,"Poor quality, very disappointed.",v5.9,UI,0
+P1004,Electronics,Food & Beverage,R10759,2026-01-07,flipkart,4,"Average quality, nothing special.",v2.0,Power,0
+P1004,Electronics,Food & Beverage,R10760,2026-02-13,amazon,1,Doesn't work as advertised.,v5.4,General,0
+P1004,Electronics,Food & Beverage,R10761,2026-03-17,amazon,2,"Bilkul bakwas hai, mat lena.",v4.1,UI,0
+P1004,Electronics,Food & Beverage,R10762,2026-04-05,amazon,2,"Poor quality, very disappointed.",v3.2,UI,0
+P1004,Electronics,Food & Beverage,R10763,2026-03-16,flipkart,2,Very good quality.,v3.3,Packaging,0
+P1004,Electronics,Food & Beverage,R10764,2026-01-18,flipkart,4,"Amazing product, works like a charm!",v5.8,Power,0
+P1004,Electronics,Food & Beverage,R10765,2026-03-05,direct,1,Doesn't work as advertised.,v5.3,UI,0
+P1004,Electronics,Food & Beverage,R10766,2026-03-13,flipkart,3,Duplicate review text for testing.,v5.8,General,0
+P1004,Electronics,Food & Beverage,R10767,2026-01-03,direct,5,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v1.3,UI,1
+P1004,Electronics,Food & Beverage,R10768,2026-02-20,amazon,1,Doesn't work as advertised.,v1.1,UI,0
+P1004,Electronics,Food & Beverage,R10769,2026-04-11,direct,5,"Fine, but I've seen better.",v1.2,Packaging,0
+P1004,Electronics,Food & Beverage,R10770,2026-01-10,amazon,3,"Love it, will buy again.",v5.0,UI,0
+P1004,Electronics,Food & Beverage,R10771,2026-01-24,amazon,4,Very good quality.,v1.4,Packaging,0
+P1004,Electronics,Food & Beverage,R10772,2026-01-13,direct,4,Doesn't work as advertised.,v3.4,Packaging,0
+P1004,Electronics,Food & Beverage,R10773,2026-02-18,direct,5,Buy now limited offer click here http://spam.example,v5.4,Power,0
+P1004,Electronics,Food & Beverage,R10774,2026-01-01,flipkart,1,Best purchase this year!,v4.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10775,2026-01-08,direct,5,"Love it, will buy again.",v3.6,General,0
+P1004,Electronics,Food & Beverage,R10776,2026-02-14,amazon,1,Kam paise me badiya cheez hai.,v5.3,Packaging,0
+P1004,Electronics,Food & Beverage,R10777,2026-03-29,direct,1,Great product!!! 😂🔥💯,v1.4,General,0
+P1004,Electronics,Food & Beverage,R10778,2026-01-08,amazon,4,"Fine, but I've seen better.",v5.4,UI,0
+P1004,Electronics,Food & Beverage,R10779,2026-03-08,direct,3,Waste of money.,v2.8,Packaging,0
+P1004,Electronics,Food & Beverage,R10780,2026-02-13,direct,5,Great product!!! 😂🔥💯,v1.0,General,0
+P1004,Electronics,Food & Beverage,R10781,2026-02-04,flipkart,1,Great product!!! 😂🔥💯,v5.1,Power,0
+P1004,Electronics,Food & Beverage,R10782,2026-02-21,flipkart,2,"Fine, but I've seen better.",v2.7,Packaging,0
+P1004,Electronics,Food & Beverage,R10783,2026-03-18,flipkart,1,Doesn't work as advertised.,v2.9,Power,0
+P1004,Electronics,Food & Beverage,R10784,2026-02-02,direct,1,"Boht accha product hai, maza aa gaya.",v3.2,UI,0
+P1004,Electronics,Food & Beverage,R10785,2026-02-03,flipkart,1,Avoid this product.,v1.1,Power,0
+P1004,Electronics,Food & Beverage,R10786,2026-02-13,amazon,4,"Boht accha product hai, maza aa gaya.",v5.9,General,0
+P1004,Electronics,Food & Beverage,R10787,2026-03-18,flipkart,5,Waste of money.,v4.1,General,0
+P1004,Electronics,Food & Beverage,R10788,2026-02-17,amazon,1,"Boht accha product hai, maza aa gaya.",v1.0,Packaging,0
+P1004,Electronics,Food & Beverage,R10789,2026-04-06,amazon,1,Very good quality.,v3.8,UI,0
+P1004,Electronics,Food & Beverage,R10790,2026-03-24,direct,5,"Poor quality, very disappointed.",v4.0,General,0
+P1004,Electronics,Food & Beverage,R10791,2026-03-24,flipkart,3,"Amazing product, works like a charm!",v5.1,Packaging,0
+P1004,Electronics,Food & Beverage,R10792,2026-01-17,direct,5,Very good quality.,v2.9,Packaging,0
+P1004,Electronics,Food & Beverage,R10793,2026-02-11,direct,1,Terrible experience.,v3.8,Power,0
+P1004,Electronics,Food & Beverage,R10794,2026-01-18,flipkart,4,"Average quality, nothing special.",v1.3,UI,0
+P1004,Electronics,Food & Beverage,R10795,2026-02-06,flipkart,5,"Not bad, not great.",v5.9,Power,0
+P1004,Electronics,Food & Beverage,R10796,2026-03-10,flipkart,5,"Poor quality, very disappointed.",v1.6,UI,0
+P1004,Electronics,Food & Beverage,R10797,2026-02-05,flipkart,4,"Amazing product, works like a charm!",v2.5,Power,0
+P1004,Electronics,Food & Beverage,R10798,2026-03-06,direct,3,Doesn't work as advertised.,v5.2,UI,0
+P1004,Electronics,Food & Beverage,R10799,2026-03-25,amazon,3,"Quality thodi weak hai, better ho sakti thi.",v2.6,General,0
+P1005,Software Services,Personal Care,R10800,2026-01-03,amazon,5,Best purchase this year!,v4.6,General,0
+P1005,Software Services,Personal Care,R10801,2026-01-25,flipkart,4,Duplicate review text for testing.,v2.4,Power,0
+P1005,Software Services,Personal Care,R10802,2026-03-04,flipkart,2,"Poor quality, very disappointed.",v2.7,Power,0
+P1005,Software Services,Personal Care,R10803,2026-02-23,amazon,5,"Love it, will buy again.",v1.2,General,0
+P1005,Software Services,Personal Care,R10804,2026-03-26,direct,2,Exceeded my expectations.,v2.9,Power,0
+P1005,Software Services,Personal Care,R10805,2026-02-07,flipkart,4,Best purchase this year!,v2.7,Packaging,0
+P1005,Software Services,Personal Care,R10806,2026-01-22,flipkart,5,Exceeded my expectations.,v1.4,UI,0
+P1005,Software Services,Personal Care,R10807,2026-01-14,flipkart,2,"Love it, will buy again.",v2.3,Packaging,0
+P1005,Software Services,Personal Care,R10808,2026-02-17,amazon,3,Doesn't work as advertised.,v1.4,General,0
+P1005,Software Services,Personal Care,R10809,2026-02-08,direct,4,"It's okay, does the job.",v3.4,Power,0
+P1005,Software Services,Personal Care,R10810,2026-03-24,amazon,2,Very good quality.,v2.8,Packaging,0
+P1005,Software Services,Personal Care,R10811,2026-04-04,direct,1,Very good quality.,v2.3,Power,0
+P1005,Software Services,Personal Care,R10812,2026-02-08,amazon,5,Very good quality.,v5.7,Packaging,0
+P1005,Software Services,Personal Care,R10813,2026-03-05,direct,1,Exceeded my expectations.,v4.1,UI,0
+P1005,Software Services,Personal Care,R10814,2026-01-03,amazon,2,"Amazing product, works like a charm!",v1.2,UI,0
+P1005,Software Services,Personal Care,R10815,2026-03-09,flipkart,3,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v3.7,Packaging,1
+P1005,Software Services,Personal Care,R10816,2026-02-15,direct,5,"Love it, will buy again.",v3.8,Packaging,0
+P1005,Software Services,Personal Care,R10817,2026-01-13,amazon,4,Avoid this product.,v4.1,Power,0
+P1005,Software Services,Personal Care,R10818,2026-01-10,flipkart,5,"Poor quality, very disappointed.",v4.2,General,0
+P1005,Software Services,Personal Care,R10819,2026-01-24,direct,2,"Not bad, not great.",v4.9,General,0
+P1005,Software Services,Personal Care,R10820,2026-03-11,amazon,5,Terrible experience.,v4.3,General,0
+P1005,Software Services,Personal Care,R10821,2026-04-07,amazon,1,Exceeded my expectations.,v5.9,UI,0
+P1005,Software Services,Personal Care,R10822,2026-01-31,amazon,5,"Fine, but I've seen better.",v5.2,Power,0
+P1005,Software Services,Personal Care,R10823,2026-01-19,amazon,5,"Amazing product, works like a charm!",v2.6,Packaging,0
+P1005,Software Services,Personal Care,R10824,2026-01-16,flipkart,4,"Love it, will buy again.",v1.0,Power,0
+P1005,Software Services,Personal Care,R10825,2026-02-20,direct,4,"Poor quality, very disappointed.",v2.4,General,0
+P1005,Software Services,Personal Care,R10826,2026-03-24,flipkart,5,Very good quality.,v1.6,Power,0
+P1005,Software Services,Personal Care,R10827,2026-01-19,amazon,2,Very good quality.,v3.8,UI,0
+P1005,Software Services,Personal Care,R10828,2026-02-02,flipkart,1,Very good quality.,v3.9,General,0
+P1005,Software Services,Personal Care,R10829,2026-01-18,direct,1,Best purchase this year!,v2.9,Power,0
+P1005,Software Services,Personal Care,R10830,2026-03-28,amazon,2,"Amazing product, works like a charm!",v4.1,Packaging,0
+P1005,Software Services,Personal Care,R10831,2026-04-06,direct,3,Very good quality.,v2.6,General,0
+P1005,Software Services,Personal Care,R10832,2026-02-05,flipkart,2,Kam paise me badiya cheez hai.,v3.9,Power,0
+P1005,Software Services,Personal Care,R10833,2026-01-03,flipkart,2,Waste of money.,v1.9,Power,0
+P1005,Software Services,Personal Care,R10834,2026-03-25,amazon,5,"Boht accha product hai, maza aa gaya.",v5.6,General,0
+P1005,Software Services,Personal Care,R10835,2026-02-26,flipkart,5,Decent for the price.,v5.9,General,0
+P1005,Software Services,Personal Care,R10836,2026-01-04,amazon,3,"Amazing product, works like a charm!",v5.7,Power,0
+P1005,Software Services,Personal Care,R10837,2026-04-09,flipkart,2,Kam paise me badiya cheez hai.,v2.2,General,0
+P1005,Software Services,Personal Care,R10838,2026-02-27,flipkart,3,"Love it, will buy again.",v3.3,Power,0
+P1005,Software Services,Personal Care,R10839,2026-01-04,direct,5,Exceeded my expectations.,v4.5,Power,0
+P1005,Software Services,Personal Care,R10840,2026-03-25,direct,3,Very good quality.,v4.4,General,0
+P1005,Software Services,Personal Care,R10841,2026-01-30,flipkart,4,Doesn't work as advertised.,v1.4,Packaging,0
+P1005,Software Services,Personal Care,R10842,2026-03-17,amazon,2,Doesn't work as advertised.,v5.0,Packaging,0
+P1005,Software Services,Personal Care,R10843,2026-01-08,direct,2,Exceeded my expectations.,v4.1,General,0
+P1005,Software Services,Personal Care,R10844,2026-01-20,direct,4,Best purchase this year!,v3.3,UI,0
+P1005,Software Services,Personal Care,R10845,2026-02-02,amazon,5,Kam paise me badiya cheez hai.,v2.0,Power,0
+P1005,Software Services,Personal Care,R10846,2026-02-18,direct,4,Exceeded my expectations.,v4.8,Packaging,0
+P1005,Software Services,Personal Care,R10847,2026-02-27,direct,4,Best purchase this year!,v2.7,UI,0
+P1005,Software Services,Personal Care,R10848,2026-03-21,flipkart,2,"Not bad, not great.",v2.2,General,0
+P1005,Software Services,Personal Care,R10849,2026-01-25,flipkart,4,Waste of money.,v4.9,Power,0
+P1005,Software Services,Personal Care,R10850,2026-02-22,flipkart,3,Very good quality.,v2.6,UI,0
+P1005,Software Services,Personal Care,R10851,2026-03-16,flipkart,3,"It's okay, does the job.",v2.3,General,0
+P1005,Software Services,Personal Care,R10852,2026-02-16,flipkart,3,Best purchase this year!,v2.2,General,0
+P1005,Software Services,Personal Care,R10853,2026-03-30,flipkart,3,Very good quality.,v5.7,UI,0
+P1005,Software Services,Personal Care,R10854,2026-02-13,flipkart,4,"Poor quality, very disappointed.",v3.1,Packaging,0
+P1005,Software Services,Personal Care,R10855,2026-03-07,flipkart,4,"Delivery late thi, lekin product sahi hai.",v1.0,Power,0
+P1005,Software Services,Personal Care,R10856,2026-01-24,amazon,2,Waste of money.,v2.6,General,0
+P1005,Software Services,Personal Care,R10857,2026-01-03,direct,5,"Boht accha product hai, maza aa gaya.",v3.8,Packaging,0
+P1005,Software Services,Personal Care,R10858,2026-02-16,direct,1,Best purchase this year!,v4.9,UI,0
+P1005,Software Services,Personal Care,R10859,2026-01-11,flipkart,3,"Quality thodi weak hai, better ho sakti thi.",v2.6,UI,0
+P1005,Software Services,Personal Care,R10860,2026-04-08,amazon,3,Doesn't work as advertised.,v5.6,Packaging,0
+P1005,Software Services,Personal Care,R10861,2026-02-12,flipkart,2,"Quality thodi weak hai, better ho sakti thi.",v5.3,General,0
+P1005,Software Services,Personal Care,R10862,2026-01-11,flipkart,1,Very good quality.,v5.6,General,0
+P1005,Software Services,Personal Care,R10863,2026-02-04,flipkart,4,Terrible experience.,v1.5,General,0
+P1005,Software Services,Personal Care,R10864,2026-02-03,direct,2,"Bilkul bakwas hai, mat lena.",v3.0,Power,0
+P1005,Software Services,Personal Care,R10865,2026-04-06,flipkart,4,Best purchase this year!,v3.2,UI,0
+P1005,Software Services,Personal Care,R10866,2026-02-09,amazon,1,Exceeded my expectations.,v4.8,UI,0
+P1005,Software Services,Personal Care,R10867,2026-01-27,direct,3,"Fine, but I've seen better.",v4.3,Packaging,0
+P1005,Software Services,Personal Care,R10868,2026-01-01,amazon,1,Terrible experience.,v1.4,Power,0
+P1005,Software Services,Personal Care,R10869,2026-02-19,flipkart,2,"Boht accha product hai, maza aa gaya.",v3.3,Packaging,0
+P1005,Software Services,Personal Care,R10870,2026-01-15,amazon,2,"Fine, but I've seen better.",v2.3,Packaging,0
+P1005,Software Services,Personal Care,R10871,2026-03-18,direct,2,Very good quality.,v2.1,Packaging,0
+P1005,Software Services,Personal Care,R10872,2026-03-22,direct,4,"It's okay, does the job.",v1.5,General,0
+P1005,Software Services,Personal Care,R10873,2026-03-19,direct,3,Terrible experience.,v5.9,Packaging,0
+P1005,Software Services,Personal Care,R10874,2026-01-15,amazon,5,Terrible experience.,v5.2,General,0
+P1005,Software Services,Personal Care,R10875,2026-01-23,flipkart,4,Best purchase this year!,v4.1,Packaging,0
+P1005,Software Services,Personal Care,R10876,2026-01-04,direct,5,"Love it, will buy again.",v4.6,Packaging,0
+P1005,Software Services,Personal Care,R10877,2026-02-02,amazon,2,Best purchase this year!,v4.7,Power,0
+P1005,Software Services,Personal Care,R10878,2026-01-26,flipkart,1,"Poor quality, very disappointed.",v4.8,Packaging,0
+P1005,Software Services,Personal Care,R10879,2026-03-04,flipkart,3,Exceeded my expectations.,v5.8,General,0
+P1005,Software Services,Personal Care,R10880,2026-02-21,direct,3,Exceeded my expectations.,v5.2,UI,0
+P1005,Software Services,Personal Care,R10881,2026-03-05,amazon,4,Best purchase this year!,v4.8,Packaging,0
+P1005,Software Services,Personal Care,R10882,2026-02-20,direct,3,Terrible experience.,v1.2,General,0
+P1005,Software Services,Personal Care,R10883,2026-02-24,amazon,5,Avoid this product.,v5.9,Packaging,0
+P1005,Software Services,Personal Care,R10884,2026-03-11,flipkart,3,Doesn't work as advertised.,v3.6,UI,0
+P1005,Software Services,Personal Care,R10885,2026-01-14,flipkart,5,Decent for the price.,v4.1,UI,0
+P1005,Software Services,Personal Care,R10886,2026-04-06,amazon,2,"Not bad, not great.",v4.2,UI,0
+P1005,Software Services,Personal Care,R10887,2026-01-19,flipkart,3,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v3.8,UI,1
+P1005,Software Services,Personal Care,R10888,2026-03-10,amazon,4,Best purchase this year!,v4.7,General,0
+P1005,Software Services,Personal Care,R10889,2026-02-27,direct,3,"Boht accha product hai, maza aa gaya.",v1.8,UI,0
+P1005,Software Services,Personal Care,R10890,2026-02-14,amazon,4,"Average quality, nothing special.",v5.1,Power,0
+P1005,Software Services,Personal Care,R10891,2026-03-11,amazon,5,Exceeded my expectations.,v2.1,Packaging,0
+P1005,Software Services,Personal Care,R10892,2026-02-04,flipkart,2,Very good quality.,v4.4,Packaging,0
+P1005,Software Services,Personal Care,R10893,2026-02-09,amazon,1,"Bilkul bakwas hai, mat lena.",v5.1,General,0
+P1005,Software Services,Personal Care,R10894,2026-01-10,direct,2,Best purchase this year!,v4.3,Packaging,0
+P1005,Software Services,Personal Care,R10895,2026-02-08,direct,1,Very good quality.,v3.0,General,0
+P1005,Software Services,Personal Care,R10896,2026-03-11,direct,3,"Quality thodi weak hai, better ho sakti thi.",v3.5,UI,0
+P1005,Software Services,Personal Care,R10897,2026-02-28,flipkart,4,Exceeded my expectations.,v4.4,Power,0
+P1005,Software Services,Personal Care,R10898,2026-03-13,amazon,2,"Not bad, not great.",v5.9,Packaging,0
+P1005,Software Services,Personal Care,R10899,2026-02-28,amazon,1,"Fine, but I've seen better.",v3.7,General,0
+P1005,Software Services,Personal Care,R10900,2026-02-24,flipkart,2,"Quality thodi weak hai, better ho sakti thi.",v1.0,Packaging,0
+P1005,Software Services,Personal Care,R10901,2026-01-19,direct,1,Doesn't work as advertised.,v2.4,UI,0
+P1005,Software Services,Personal Care,R10902,2026-03-21,amazon,3,Waste of money.,v4.3,Packaging,0
+P1005,Software Services,Personal Care,R10903,2026-02-09,direct,4,Decent for the price.,v3.9,Power,0
+P1005,Software Services,Personal Care,R10904,2026-03-20,amazon,5,"Not bad, not great.",v1.2,UI,0
+P1005,Software Services,Personal Care,R10905,2026-02-20,direct,3,Best purchase this year!,v4.3,UI,0
+P1005,Software Services,Personal Care,R10906,2026-01-29,flipkart,1,"Poor quality, very disappointed.",v3.6,Packaging,0
+P1005,Software Services,Personal Care,R10907,2026-03-08,flipkart,3,Very good quality.,v3.7,Packaging,0
+P1005,Software Services,Personal Care,R10908,2026-01-30,amazon,1,Best purchase this year!,v3.0,Packaging,0
+P1005,Software Services,Personal Care,R10909,2026-03-27,direct,5,Exceeded my expectations.,v5.8,General,0
+P1005,Software Services,Personal Care,R10910,2026-03-12,amazon,1,Exceeded my expectations.,v1.1,General,0
+P1005,Software Services,Personal Care,R10911,2026-01-28,amazon,3,Avoid this product.,v3.2,UI,0
+P1005,Software Services,Personal Care,R10912,2026-02-08,amazon,4,Waste of money.,v4.7,Power,0
+P1005,Software Services,Personal Care,R10913,2026-02-11,flipkart,3,Exceeded my expectations.,v1.0,UI,0
+P1005,Software Services,Personal Care,R10914,2026-04-11,flipkart,3,"Love it, will buy again.",v3.5,General,0
+P1005,Software Services,Personal Care,R10915,2026-03-24,amazon,3,Terrible experience.,v5.2,Power,0
+P1005,Software Services,Personal Care,R10916,2026-01-24,flipkart,3,Waste of money.,v5.3,General,0
+P1005,Software Services,Personal Care,R10917,2026-02-17,direct,5,Avoid this product.,v5.8,UI,0
+P1005,Software Services,Personal Care,R10918,2026-04-07,flipkart,2,"Poor quality, very disappointed.",v3.3,Power,0
+P1005,Software Services,Personal Care,R10919,2026-02-19,direct,3,Very good quality.,v5.6,Packaging,0
+P1005,Software Services,Personal Care,R10920,2026-04-05,flipkart,4,Buy now limited offer click here http://spam.example,v4.9,UI,0
+P1005,Software Services,Personal Care,R10921,2026-01-14,flipkart,1,Buy now limited offer click here http://spam.example,v1.3,UI,0
+P1005,Software Services,Personal Care,R10922,2026-03-22,direct,1,Very good quality.,v3.4,General,0
+P1005,Software Services,Personal Care,R10923,2026-03-26,flipkart,5,"Fine, but I've seen better.",v5.5,General,0
+P1005,Software Services,Personal Care,R10924,2026-01-09,flipkart,4,"Fine, but I've seen better.",v5.0,UI,0
+P1005,Software Services,Personal Care,R10925,2026-01-19,amazon,2,"Amazing product, works like a charm!",v1.1,Power,0
+P1005,Software Services,Personal Care,R10926,2026-03-08,direct,4,Very good quality.,v4.8,General,0
+P1005,Software Services,Personal Care,R10927,2026-04-11,flipkart,3,Exceeded my expectations.,v1.4,UI,0
+P1005,Software Services,Personal Care,R10928,2026-03-03,flipkart,4,Kam paise me badiya cheez hai.,v2.3,UI,0
+P1005,Software Services,Personal Care,R10929,2026-03-14,flipkart,5,"Amazing product, works like a charm!",v3.1,Packaging,0
+P1005,Software Services,Personal Care,R10930,2026-03-13,amazon,1,"Amazing product, works like a charm!",v1.2,Power,0
+P1005,Software Services,Personal Care,R10931,2026-01-22,amazon,2,Waste of money.,v4.2,Packaging,0
+P1005,Software Services,Personal Care,R10932,2026-01-30,flipkart,3,Avoid this product.,v2.2,UI,0
+P1005,Software Services,Personal Care,R10933,2026-01-16,direct,5,"Love it, will buy again.",v3.2,UI,0
+P1005,Software Services,Personal Care,R10934,2026-03-22,direct,3,Terrible experience.,v2.5,UI,0
+P1005,Software Services,Personal Care,R10935,2026-02-14,flipkart,1,"Average quality, nothing special.",v3.3,UI,0
+P1005,Software Services,Personal Care,R10936,2026-03-19,direct,1,"Boht accha product hai, maza aa gaya.",v1.4,UI,0
+P1005,Software Services,Personal Care,R10937,2026-04-05,amazon,1,Buy now limited offer click here http://spam.example,v2.5,UI,0
+P1005,Software Services,Personal Care,R10938,2026-01-17,direct,4,Exceeded my expectations.,v2.6,General,0
+P1005,Software Services,Personal Care,R10939,2026-01-25,direct,3,"Quality thodi weak hai, better ho sakti thi.",v3.1,Power,0
+P1005,Software Services,Personal Care,R10940,2026-04-04,direct,1,"Love it, will buy again.",v5.9,Packaging,0
+P1005,Software Services,Personal Care,R10941,2026-01-28,flipkart,3,"Amazing product, works like a charm!",v2.4,UI,0
+P1005,Software Services,Personal Care,R10942,2026-03-12,direct,3,Very good quality.,v2.0,Power,0
+P1005,Software Services,Personal Care,R10943,2026-02-27,direct,2,Best purchase this year!,v2.4,Power,0
+P1005,Software Services,Personal Care,R10944,2026-03-20,flipkart,3,"Poor quality, very disappointed.",v5.4,Power,0
+P1005,Software Services,Personal Care,R10945,2026-03-26,amazon,4,"Love it, will buy again.",v4.4,Power,0
+P1005,Software Services,Personal Care,R10946,2026-03-09,flipkart,5,Exceeded my expectations.,v2.7,Power,0
+P1005,Software Services,Personal Care,R10947,2026-03-03,flipkart,5,"Quality thodi weak hai, better ho sakti thi.",v2.9,General,0
+P1005,Software Services,Personal Care,R10948,2026-02-23,direct,4,Doesn't work as advertised.,v1.6,Power,0
+P1005,Software Services,Personal Care,R10949,2026-02-24,amazon,2,Best purchase this year!,v4.1,Power,0
+P1005,Software Services,Personal Care,R10950,2026-01-07,direct,5,Exceeded my expectations.,v2.2,UI,0
+P1005,Software Services,Personal Care,R10951,2026-04-03,flipkart,4,"Poor quality, very disappointed.",v1.7,General,0
+P1005,Software Services,Personal Care,R10952,2026-01-18,amazon,1,Decent for the price.,v2.9,General,0
+P1005,Software Services,Personal Care,R10953,2026-02-14,amazon,4,Buy now limited offer click here http://spam.example,v1.6,UI,0
+P1005,Software Services,Personal Care,R10954,2026-03-12,amazon,5,"Poor quality, very disappointed.",v2.4,UI,0
+P1005,Software Services,Personal Care,R10955,2026-03-28,amazon,2,Doesn't work as advertised.,v4.0,General,0
+P1005,Software Services,Personal Care,R10956,2026-03-03,flipkart,4,Doesn't work as advertised.,v3.3,General,0
+P1005,Software Services,Personal Care,R10957,2026-02-14,amazon,4,Doesn't work as advertised.,v4.6,Power,0
+P1005,Software Services,Personal Care,R10958,2026-03-12,amazon,1,Decent for the price.,v4.9,UI,0
+P1005,Software Services,Personal Care,R10959,2026-02-18,amazon,2,Exceeded my expectations.,v1.3,Power,0
+P1005,Software Services,Personal Care,R10960,2026-02-19,flipkart,3,Waste of money.,v3.0,General,0
+P1005,Software Services,Personal Care,R10961,2026-01-20,amazon,3,Terrible experience.,v2.9,Power,0
+P1005,Software Services,Personal Care,R10962,2026-03-18,amazon,1,Decent for the price.,v4.3,Power,0
+P1005,Software Services,Personal Care,R10963,2026-02-05,amazon,4,"It's okay, does the job.",v4.0,Packaging,0
+P1005,Software Services,Personal Care,R10964,2026-02-02,flipkart,4,Exceeded my expectations.,v4.8,General,0
+P1005,Software Services,Personal Care,R10965,2026-01-26,flipkart,4,Best purchase this year!,v3.1,UI,0
+P1005,Software Services,Personal Care,R10966,2026-03-30,direct,5,Decent for the price.,v2.8,Packaging,0
+P1005,Software Services,Personal Care,R10967,2026-01-01,amazon,3,Avoid this product.,v1.2,Power,0
+P1005,Software Services,Personal Care,R10968,2026-02-13,flipkart,2,Exceeded my expectations.,v1.5,General,0
+P1005,Software Services,Personal Care,R10969,2026-02-20,amazon,1,Best purchase this year!,v3.4,Power,0
+P1005,Software Services,Personal Care,R10970,2026-03-28,direct,5,"Average quality, nothing special.",v4.9,UI,0
+P1005,Software Services,Personal Care,R10971,2026-02-15,direct,5,Waste of money.,v4.6,General,0
+P1005,Software Services,Personal Care,R10972,2026-01-22,flipkart,5,Avoid this product.,v2.0,General,0
+P1005,Software Services,Personal Care,R10973,2026-01-15,flipkart,3,Very good quality.,v5.3,General,0
+P1005,Software Services,Personal Care,R10974,2026-02-02,amazon,5,Very good quality.,v3.7,Power,0
+P1005,Software Services,Personal Care,R10975,2026-03-30,amazon,3,Avoid this product.,v5.4,Packaging,0
+P1005,Software Services,Personal Care,R10976,2026-04-06,direct,3,Terrible experience.,v5.4,General,0
+P1005,Software Services,Personal Care,R10977,2026-03-14,direct,1,"Average quality, nothing special.",v1.3,UI,0
+P1005,Software Services,Personal Care,R10978,2026-02-25,direct,4,Waste of money.,v1.4,Power,0
+P1005,Software Services,Personal Care,R10979,2026-03-20,direct,5,"Quality thodi weak hai, better ho sakti thi.",v4.9,UI,0
+P1005,Software Services,Personal Care,R10980,2026-02-05,flipkart,2,Terrible experience.,v1.3,Power,0
+P1005,Software Services,Personal Care,R10981,2026-02-02,flipkart,4,Exceeded my expectations.,v1.8,UI,0
+P1005,Software Services,Personal Care,R10982,2026-03-28,amazon,1,"Delivery late thi, lekin product sahi hai.",v4.3,UI,0
+P1005,Software Services,Personal Care,R10983,2026-03-27,flipkart,5,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v5.6,General,1
+P1005,Software Services,Personal Care,R10984,2026-03-25,direct,1,"Poor quality, very disappointed.",v2.5,Packaging,0
+P1005,Software Services,Personal Care,R10985,2026-01-24,amazon,3,Best purchase this year!,v2.3,UI,0
+P1005,Software Services,Personal Care,R10986,2026-03-17,flipkart,1,"Amazing product, works like a charm!",v2.6,Power,0
+P1005,Software Services,Personal Care,R10987,2026-04-05,direct,5,"It's okay, does the job.",v5.6,General,0
+P1005,Software Services,Personal Care,R10988,2026-01-04,amazon,5,Avoid this product.,v2.8,UI,0
+P1005,Software Services,Personal Care,R10989,2026-01-17,direct,5,Waste of money.,v5.8,Packaging,0
+P1005,Software Services,Personal Care,R10990,2026-04-09,flipkart,1,Buy now limited offer click here http://spam.example,v2.2,UI,0
+P1005,Software Services,Personal Care,R10991,2026-03-12,amazon,4,Terrible experience.,v5.4,General,0
+P1005,Software Services,Personal Care,R10992,2026-01-22,amazon,3,"Love it, will buy again.",v2.5,Packaging,0
+P1005,Software Services,Personal Care,R10993,2026-03-17,direct,3,"Not bad, not great.",v3.7,UI,0
+P1005,Software Services,Personal Care,R10994,2026-03-12,amazon,5,"Love it, will buy again.",v4.3,Power,0
+P1005,Software Services,Personal Care,R10995,2026-03-01,direct,3,Waste of money.,v5.3,UI,0
+P1005,Software Services,Personal Care,R10996,2026-03-18,flipkart,3,Waste of money.,v2.2,Power,0
+P1005,Software Services,Personal Care,R10997,2026-01-28,direct,1,"Fine, but I've seen better.",v4.9,UI,0
+P1005,Software Services,Personal Care,R10998,2026-01-21,amazon,3,Avoid this product.,v1.3,General,0
+P1005,Software Services,Personal Care,R10999,2026-01-09,direct,1,"Poor quality, very disappointed.",v4.8,Power,0
+T2001,Personal Care,Electronics,R11000,2026-01-08,amazon,2,"Amazing product, works like a charm!",v1.0,UI,0
+T2001,Personal Care,Electronics,R11001,2026-03-05,direct,1,"Average quality, nothing special.",v3.2,General,0
+T2001,Personal Care,Electronics,R11002,2026-02-24,direct,3,Terrible experience.,v3.1,Power,0
+T2001,Personal Care,Electronics,R11003,2026-02-15,amazon,4,Buy now limited offer click here http://spam.example,v1.3,Power,0
+T2001,Personal Care,Electronics,R11004,2026-03-08,flipkart,3,"Love it, will buy again.",v1.3,General,0
+T2001,Personal Care,Electronics,R11005,2026-01-20,amazon,2,Avoid this product.,v2.4,UI,0
+T2001,Personal Care,Electronics,R11006,2026-03-12,amazon,2,Avoid this product.,v4.6,Power,0
+T2001,Personal Care,Electronics,R11007,2026-04-11,flipkart,1,Exceeded my expectations.,v4.8,Packaging,0
+T2001,Personal Care,Electronics,R11008,2026-01-31,direct,3,Exceeded my expectations.,v4.2,General,0
+T2001,Personal Care,Electronics,R11009,2026-02-08,direct,3,"Quality thodi weak hai, better ho sakti thi.",v1.0,Packaging,0
+T2001,Personal Care,Electronics,R11010,2026-02-06,flipkart,3,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v2.1,UI,1
+T2001,Personal Care,Electronics,R11011,2026-04-10,direct,2,"Amazing product, works like a charm!",v3.2,UI,0
+T2001,Personal Care,Electronics,R11012,2026-01-09,flipkart,3,Best purchase this year!,v1.8,UI,0
+T2001,Personal Care,Electronics,R11013,2026-03-07,amazon,2,Decent for the price.,v2.5,General,0
+T2001,Personal Care,Electronics,R11014,2026-04-08,flipkart,4,"Amazing product, works like a charm!",v5.6,General,0
+T2001,Personal Care,Electronics,R11015,2026-03-10,amazon,1,"Love it, will buy again.",v3.3,UI,0
+T2001,Personal Care,Electronics,R11016,2026-02-01,direct,3,Buy now limited offer click here http://spam.example,v4.7,Packaging,0
+T2001,Personal Care,Electronics,R11017,2026-01-13,amazon,3,Exceeded my expectations.,v4.4,UI,0
+T2001,Personal Care,Electronics,R11018,2026-02-07,direct,2,"Not bad, not great.",v1.6,UI,0
+T2001,Personal Care,Electronics,R11019,2026-02-09,flipkart,4,Best purchase this year!,v2.3,General,0
+T2001,Personal Care,Electronics,R11020,2026-03-06,flipkart,3,Very good quality.,v1.9,Power,0
+T2001,Personal Care,Electronics,R11021,2026-03-16,direct,1,"Love it, will buy again.",v3.7,General,0
+T2001,Personal Care,Electronics,R11022,2026-01-12,amazon,2,"Fine, but I've seen better.",v3.6,UI,0
+T2001,Personal Care,Electronics,R11023,2026-01-02,flipkart,1,"Amazing product, works like a charm!",v1.4,General,0
+T2001,Personal Care,Electronics,R11024,2026-02-03,direct,3,Decent for the price.,v5.1,Packaging,0
+T2001,Personal Care,Electronics,R11025,2026-01-12,amazon,2,"Not bad, not great.",v2.1,General,0
+T2001,Personal Care,Electronics,R11026,2026-02-10,amazon,5,"Love it, will buy again.",v3.8,Packaging,0
+T2001,Personal Care,Electronics,R11027,2026-04-05,flipkart,3,Avoid this product.,v2.0,UI,0
+T2001,Personal Care,Electronics,R11028,2026-04-01,flipkart,4,"Quality thodi weak hai, better ho sakti thi.",v2.2,Packaging,0
+T2001,Personal Care,Electronics,R11029,2026-01-14,amazon,2,Exceeded my expectations.,v5.7,Packaging,0
+T2001,Personal Care,Electronics,R11030,2026-03-11,direct,5,Terrible experience.,v1.5,Power,0
+T2001,Personal Care,Electronics,R11031,2026-03-15,direct,3,Avoid this product.,v2.2,Packaging,0
+T2001,Personal Care,Electronics,R11032,2026-02-20,direct,1,"Not bad, not great.",v2.1,Packaging,0
+T2001,Personal Care,Electronics,R11033,2026-01-10,flipkart,3,Great product!!! 😂🔥💯,v5.4,Power,0
+T2001,Personal Care,Electronics,R11034,2026-04-09,flipkart,4,Best purchase this year!,v2.9,General,0
+T2001,Personal Care,Electronics,R11035,2026-03-25,flipkart,5,Buy now limited offer click here http://spam.example,v1.1,General,0
+T2001,Personal Care,Electronics,R11036,2026-03-27,direct,1,Waste of money.,v5.7,UI,0
+T2001,Personal Care,Electronics,R11037,2026-01-16,amazon,3,Best purchase this year!,v2.6,Packaging,0
+T2001,Personal Care,Electronics,R11038,2026-01-19,amazon,1,Waste of money.,v1.0,Packaging,0
+T2001,Personal Care,Electronics,R11039,2026-02-27,amazon,4,"Boht accha product hai, maza aa gaya.",v5.9,UI,0
+T2001,Personal Care,Electronics,R11040,2026-01-10,amazon,2,Best purchase this year!,v4.7,UI,0
+T2001,Personal Care,Electronics,R11041,2026-03-31,flipkart,2,Best purchase this year!,v1.3,UI,0
+T2001,Personal Care,Electronics,R11042,2026-01-13,direct,5,"It's okay, does the job.",v1.0,Power,0
+T2001,Personal Care,Electronics,R11043,2026-01-28,direct,4,"Love it, will buy again.",v2.6,General,0
+T2001,Personal Care,Electronics,R11044,2026-01-08,direct,1,"Love it, will buy again.",v4.9,Packaging,0
+T2001,Personal Care,Electronics,R11045,2026-01-16,direct,2,Waste of money.,v4.1,Power,0
+T2001,Personal Care,Electronics,R11046,2026-02-04,amazon,4,Best purchase this year!,v3.1,Packaging,0
+T2001,Personal Care,Electronics,R11047,2026-01-04,direct,3,"Amazing product, works like a charm!",v1.5,Power,0
+T2001,Personal Care,Electronics,R11048,2026-01-28,flipkart,1,"Poor quality, very disappointed.",v1.7,Packaging,0
+T2001,Personal Care,Electronics,R11049,2026-02-21,amazon,1,Best purchase this year!,v5.0,General,0
+T2001,Personal Care,Electronics,R11050,2026-03-06,direct,5,"Bilkul bakwas hai, mat lena.",v5.5,General,0
+T2001,Personal Care,Electronics,R11051,2026-01-11,flipkart,1,Decent for the price.,v2.9,UI,0
+T2001,Personal Care,Electronics,R11052,2026-01-09,direct,5,"Fine, but I've seen better.",v3.5,General,0
+T2001,Personal Care,Electronics,R11053,2026-03-07,amazon,1,Waste of money.,v4.9,UI,0
+T2001,Personal Care,Electronics,R11054,2026-03-12,direct,2,"Quality thodi weak hai, better ho sakti thi.",v5.8,Packaging,0
+T2001,Personal Care,Electronics,R11055,2026-01-03,direct,2,"Boht accha product hai, maza aa gaya.",v2.8,General,0
+T2001,Personal Care,Electronics,R11056,2026-03-06,flipkart,5,Kam paise me badiya cheez hai.,v3.0,Packaging,0
+T2001,Personal Care,Electronics,R11057,2026-03-28,amazon,1,Terrible experience.,v1.6,Packaging,0
+T2001,Personal Care,Electronics,R11058,2026-01-25,direct,3,Doesn't work as advertised.,v4.3,General,0
+T2001,Personal Care,Electronics,R11059,2026-01-15,direct,5,"Love it, will buy again.",v1.0,UI,0
+T2001,Personal Care,Electronics,R11060,2026-04-05,amazon,2,Exceeded my expectations.,v1.6,UI,0
+T2001,Personal Care,Electronics,R11061,2026-02-15,flipkart,3,"Boht accha product hai, maza aa gaya.",v4.3,General,0
+T2001,Personal Care,Electronics,R11062,2026-01-14,direct,1,Waste of money.,v1.2,Packaging,0
+T2001,Personal Care,Electronics,R11063,2026-02-15,amazon,2,Doesn't work as advertised.,v3.9,Power,0
+T2001,Personal Care,Electronics,R11064,2026-02-28,flipkart,3,"Amazing product, works like a charm!",v1.9,General,0
+T2001,Personal Care,Electronics,R11065,2026-02-20,flipkart,4,Exceeded my expectations.,v1.7,General,0
+T2001,Personal Care,Electronics,R11066,2026-02-22,direct,4,Best purchase this year!,v2.9,Power,0
+T2001,Personal Care,Electronics,R11067,2026-01-22,direct,1,Terrible experience.,v3.5,UI,0
+T2001,Personal Care,Electronics,R11068,2026-01-02,amazon,4,Exceeded my expectations.,v2.0,General,0
+T2001,Personal Care,Electronics,R11069,2026-04-06,direct,1,Doesn't work as advertised.,v3.5,General,0
+T2001,Personal Care,Electronics,R11070,2026-03-21,amazon,1,"Bilkul bakwas hai, mat lena.",v3.9,Packaging,0
+T2001,Personal Care,Electronics,R11071,2026-02-22,flipkart,5,Avoid this product.,v4.2,UI,0
+T2001,Personal Care,Electronics,R11072,2026-01-06,amazon,4,Very good quality.,v1.9,Packaging,0
+T2001,Personal Care,Electronics,R11073,2026-01-02,flipkart,5,"Love it, will buy again.",v2.8,General,0
+T2001,Personal Care,Electronics,R11074,2026-04-11,flipkart,4,"Poor quality, very disappointed.",v3.0,Packaging,0
+T2001,Personal Care,Electronics,R11075,2026-01-11,amazon,3,"Not bad, not great.",v2.6,General,0
+T2001,Personal Care,Electronics,R11076,2026-02-22,direct,2,"Bilkul bakwas hai, mat lena.",v4.0,Power,0
+T2001,Personal Care,Electronics,R11077,2026-01-13,direct,5,"Poor quality, very disappointed.",v4.2,General,0
+T2001,Personal Care,Electronics,R11078,2026-01-09,direct,1,"Poor quality, very disappointed.",v5.8,Power,0
+T2001,Personal Care,Electronics,R11079,2026-02-14,amazon,3,"Boht accha product hai, maza aa gaya.",v1.9,UI,0
+T2001,Personal Care,Electronics,R11080,2026-02-01,amazon,5,Waste of money.,v2.7,General,0
+T2001,Personal Care,Electronics,R11081,2026-01-06,flipkart,2,Doesn't work as advertised.,v1.7,UI,0
+T2001,Personal Care,Electronics,R11082,2026-02-09,amazon,2,Avoid this product.,v3.2,Power,0
+T2001,Personal Care,Electronics,R11083,2026-03-16,amazon,2,"It's okay, does the job.",v2.6,Packaging,0
+T2001,Personal Care,Electronics,R11084,2026-04-01,direct,1,Kam paise me badiya cheez hai.,v4.1,Power,0
+T2001,Personal Care,Electronics,R11085,2026-01-23,amazon,4,Best purchase this year!,v2.4,UI,0
+T2001,Personal Care,Electronics,R11086,2026-02-27,amazon,5,Great product!!! 😂🔥💯,v4.7,Power,0
+T2001,Personal Care,Electronics,R11087,2026-02-11,direct,4,Waste of money.,v1.0,General,0
+T2001,Personal Care,Electronics,R11088,2026-03-14,flipkart,4,Waste of money.,v4.7,UI,0
+T2001,Personal Care,Electronics,R11089,2026-03-25,amazon,4,Very good quality.,v2.2,Power,0
+T2001,Personal Care,Electronics,R11090,2026-02-25,amazon,3,"It's okay, does the job.",v3.6,Power,0
+T2001,Personal Care,Electronics,R11091,2026-03-01,direct,1,Terrible experience.,v4.6,Power,0
+T2001,Personal Care,Electronics,R11092,2026-01-07,flipkart,3,Kam paise me badiya cheez hai.,v4.7,UI,0
+T2001,Personal Care,Electronics,R11093,2026-03-22,flipkart,3,Exceeded my expectations.,v5.4,General,0
+T2001,Personal Care,Electronics,R11094,2026-03-05,direct,4,Best purchase this year!,v5.8,UI,0
+T2001,Personal Care,Electronics,R11095,2026-03-18,flipkart,3,Exceeded my expectations.,v5.7,Packaging,0
+T2001,Personal Care,Electronics,R11096,2026-01-11,direct,5,"Love it, will buy again.",v2.8,Packaging,0
+T2001,Personal Care,Electronics,R11097,2026-01-27,direct,1,"It's okay, does the job.",v2.9,General,0
+T2001,Personal Care,Electronics,R11098,2026-01-19,amazon,4,"Love it, will buy again.",v2.6,UI,0
+T2001,Personal Care,Electronics,R11099,2026-01-17,direct,3,Avoid this product.,v3.1,UI,0
+T2001,Personal Care,Electronics,R11100,2026-04-01,flipkart,3,Doesn't work as advertised.,v3.8,General,0
+T2001,Personal Care,Electronics,R11101,2026-01-18,flipkart,3,"Love it, will buy again.",v3.4,UI,0
+T2001,Personal Care,Electronics,R11102,2026-02-26,flipkart,1,"Quality thodi weak hai, better ho sakti thi.",v5.7,UI,0
+T2001,Personal Care,Electronics,R11103,2026-02-14,direct,1,Avoid this product.,v1.4,Power,0
+T2001,Personal Care,Electronics,R11104,2026-02-16,amazon,5,Best purchase this year!,v4.0,Power,0
+T2001,Personal Care,Electronics,R11105,2026-01-05,amazon,1,"Poor quality, very disappointed.",v4.6,General,0
+T2001,Personal Care,Electronics,R11106,2026-01-08,amazon,3,Kam paise me badiya cheez hai.,v2.5,General,0
+T2001,Personal Care,Electronics,R11107,2026-01-31,flipkart,1,"Love it, will buy again.",v2.9,UI,0
+T2001,Personal Care,Electronics,R11108,2026-01-09,flipkart,2,Kam paise me badiya cheez hai.,v4.2,Power,0
+T2001,Personal Care,Electronics,R11109,2026-03-11,direct,5,"Delivery late thi, lekin product sahi hai.",v5.5,General,0
+T2001,Personal Care,Electronics,R11110,2026-03-01,flipkart,3,Terrible experience.,v1.3,Power,0
+T2001,Personal Care,Electronics,R11111,2026-01-12,flipkart,1,Exceeded my expectations.,v3.7,Packaging,0
+T2001,Personal Care,Electronics,R11112,2026-01-04,flipkart,3,"Bilkul bakwas hai, mat lena.",v1.0,UI,0
+T2001,Personal Care,Electronics,R11113,2026-01-18,flipkart,2,"Love it, will buy again.",v4.5,General,0
+T2001,Personal Care,Electronics,R11114,2026-02-14,amazon,2,Avoid this product.,v5.9,Power,0
+T2001,Personal Care,Electronics,R11115,2026-01-23,direct,2,Very good quality.,v1.5,UI,0
+T2001,Personal Care,Electronics,R11116,2026-04-02,direct,4,"Quality thodi weak hai, better ho sakti thi.",v5.3,UI,0
+T2001,Personal Care,Electronics,R11117,2026-03-15,direct,2,"Love it, will buy again.",v1.0,General,0
+T2001,Personal Care,Electronics,R11118,2026-01-05,direct,2,Best purchase this year!,v2.7,Power,0
+T2001,Personal Care,Electronics,R11119,2026-03-06,amazon,3,"Poor quality, very disappointed.",v1.0,Packaging,0
+T2001,Personal Care,Electronics,R11120,2026-02-10,direct,4,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v1.9,General,1
+T2001,Personal Care,Electronics,R11121,2026-02-19,direct,3,"Poor quality, very disappointed.",v1.4,UI,0
+T2001,Personal Care,Electronics,R11122,2026-03-30,flipkart,3,Avoid this product.,v4.0,UI,0
+T2001,Personal Care,Electronics,R11123,2026-01-19,flipkart,1,"Amazing product, works like a charm!",v4.8,Packaging,0
+T2001,Personal Care,Electronics,R11124,2026-02-26,direct,1,Exceeded my expectations.,v4.1,UI,0
+T2001,Personal Care,Electronics,R11125,2026-03-24,direct,1,Buy now limited offer click here http://spam.example,v1.5,General,0
+T2001,Personal Care,Electronics,R11126,2026-03-08,amazon,3,"Amazing product, works like a charm!",v2.1,General,0
+T2001,Personal Care,Electronics,R11127,2026-01-03,flipkart,5,"Love it, will buy again.",v4.3,Power,0
+T2001,Personal Care,Electronics,R11128,2026-01-26,amazon,5,Best purchase this year!,v1.1,General,0
+T2001,Personal Care,Electronics,R11129,2026-02-08,flipkart,1,"Poor quality, very disappointed.",v4.1,UI,0
+T2001,Personal Care,Electronics,R11130,2026-03-14,direct,1,Terrible experience.,v3.2,UI,0
+T2001,Personal Care,Electronics,R11131,2026-03-04,amazon,4,Very good quality.,v2.3,Power,0
+T2001,Personal Care,Electronics,R11132,2026-01-25,amazon,3,Waste of money.,v3.5,UI,0
+T2001,Personal Care,Electronics,R11133,2026-01-27,flipkart,1,"Delivery late thi, lekin product sahi hai.",v4.4,Power,0
+T2001,Personal Care,Electronics,R11134,2026-02-24,amazon,5,Terrible experience.,v5.8,Power,0
+T2001,Personal Care,Electronics,R11135,2026-04-01,amazon,4,Very good quality.,v3.5,Packaging,0
+T2001,Personal Care,Electronics,R11136,2026-02-17,direct,5,"Amazing product, works like a charm!",v2.8,General,0
+T2001,Personal Care,Electronics,R11137,2026-02-14,flipkart,2,Terrible experience.,v3.8,UI,0
+T2001,Personal Care,Electronics,R11138,2026-02-02,direct,4,Kam paise me badiya cheez hai.,v1.0,Packaging,0
+T2001,Personal Care,Electronics,R11139,2026-02-26,amazon,2,"Love it, will buy again.",v5.8,Power,0
+T2001,Personal Care,Electronics,R11140,2026-01-08,flipkart,4,Avoid this product.,v3.1,Packaging,0
+T2001,Personal Care,Electronics,R11141,2026-03-29,flipkart,3,Waste of money.,v2.5,UI,0
+T2001,Personal Care,Electronics,R11142,2026-02-12,flipkart,4,Avoid this product.,v1.5,General,0
+T2001,Personal Care,Electronics,R11143,2026-02-07,amazon,4,"Amazing product, works like a charm!",v4.2,Packaging,0
+T2001,Personal Care,Electronics,R11144,2026-03-05,amazon,2,Decent for the price.,v1.7,UI,0
+T2001,Personal Care,Electronics,R11145,2026-03-25,amazon,2,"Love it, will buy again.",v4.9,UI,0
+T2001,Personal Care,Electronics,R11146,2026-02-22,direct,2,Kam paise me badiya cheez hai.,v4.5,Power,0
+T2001,Personal Care,Electronics,R11147,2026-03-09,amazon,5,"It's okay, does the job.",v2.0,Power,0
+T2001,Personal Care,Electronics,R11148,2026-04-05,amazon,4,"Amazing product, works like a charm!",v1.4,UI,0
+T2001,Personal Care,Electronics,R11149,2026-03-29,amazon,1,"Delivery late thi, lekin product sahi hai.",v5.3,Packaging,0
+T2001,Personal Care,Electronics,R11150,2026-03-23,amazon,1,Buy now limited offer click here http://spam.example,v4.9,Power,0
+T2001,Personal Care,Electronics,R11151,2026-01-01,flipkart,4,Very good quality.,v3.3,Power,0
+T2001,Personal Care,Electronics,R11152,2026-04-02,flipkart,1,"Bilkul bakwas hai, mat lena.",v1.9,General,0
+T2001,Personal Care,Electronics,R11153,2026-01-25,amazon,4,"Love it, will buy again.",v2.1,Power,0
+T2001,Personal Care,Electronics,R11154,2026-02-18,flipkart,2,Kam paise me badiya cheez hai.,v4.4,UI,0
+T2001,Personal Care,Electronics,R11155,2026-02-26,direct,4,Doesn't work as advertised.,v1.8,General,0
+T2001,Personal Care,Electronics,R11156,2026-01-17,direct,1,Exceeded my expectations.,v4.3,Power,0
+T2001,Personal Care,Electronics,R11157,2026-02-11,direct,4,Exceeded my expectations.,v3.6,Packaging,0
+T2001,Personal Care,Electronics,R11158,2026-01-19,direct,2,"Average quality, nothing special.",v4.9,Packaging,0
+T2001,Personal Care,Electronics,R11159,2026-03-19,amazon,1,Terrible experience.,v5.1,General,0
+T2001,Personal Care,Electronics,R11160,2026-04-06,direct,5,"Amazing product, works like a charm!",v2.3,Packaging,0
+T2001,Personal Care,Electronics,R11161,2026-03-10,amazon,3,Best purchase this year!,v4.9,Power,0
+T2001,Personal Care,Electronics,R11162,2026-02-23,amazon,5,Best purchase this year!,v2.7,Power,0
+T2001,Personal Care,Electronics,R11163,2026-03-26,flipkart,4,Duplicate review text for testing.,v1.5,General,0
+T2001,Personal Care,Electronics,R11164,2026-02-24,direct,2,"Amazing product, works like a charm!",v1.1,Packaging,0
+T2001,Personal Care,Electronics,R11165,2026-02-17,flipkart,4,Exceeded my expectations.,v3.5,General,0
+T2001,Personal Care,Electronics,R11166,2026-03-21,amazon,2,"Poor quality, very disappointed.",v1.9,Packaging,0
+T2001,Personal Care,Electronics,R11167,2026-03-12,flipkart,5,"Fine, but I've seen better.",v1.9,Packaging,0
+T2001,Personal Care,Electronics,R11168,2026-02-03,amazon,2,Doesn't work as advertised.,v5.0,Packaging,0
+T2001,Personal Care,Electronics,R11169,2026-03-19,flipkart,5,Terrible experience.,v1.1,Power,0
+T2001,Personal Care,Electronics,R11170,2026-01-03,direct,3,"Boht accha product hai, maza aa gaya.",v2.1,Power,0
+T2001,Personal Care,Electronics,R11171,2026-01-08,flipkart,3,"Not bad, not great.",v2.0,Packaging,0
+T2001,Personal Care,Electronics,R11172,2026-03-09,flipkart,4,Best purchase this year!,v4.8,Power,0
+T2001,Personal Care,Electronics,R11173,2026-01-23,amazon,1,"It's okay, does the job.",v4.6,Power,0
+T2001,Personal Care,Electronics,R11174,2026-02-13,amazon,2,"Poor quality, very disappointed.",v3.0,Power,0
+T2001,Personal Care,Electronics,R11175,2026-01-08,flipkart,3,Doesn't work as advertised.,v5.8,UI,0
+T2001,Personal Care,Electronics,R11176,2026-03-09,amazon,3,"Amazing product, works like a charm!",v1.7,Packaging,0
+T2001,Personal Care,Electronics,R11177,2026-01-22,direct,2,Very good quality.,v4.9,Power,0
+T2001,Personal Care,Electronics,R11178,2026-03-28,direct,1,"Love it, will buy again.",v3.8,UI,0
+T2001,Personal Care,Electronics,R11179,2026-01-29,amazon,3,Waste of money.,v5.2,UI,0
+T2001,Personal Care,Electronics,R11180,2026-01-13,direct,1,Exceeded my expectations.,v2.6,Power,0
+T2001,Personal Care,Electronics,R11181,2026-02-14,amazon,3,"Quality thodi weak hai, better ho sakti thi.",v4.4,General,0
+T2001,Personal Care,Electronics,R11182,2026-03-30,direct,2,Very good quality.,v4.3,Packaging,0
+T2001,Personal Care,Electronics,R11183,2026-03-14,direct,4,"Quality thodi weak hai, better ho sakti thi.",v5.7,UI,0
+T2001,Personal Care,Electronics,R11184,2026-03-20,flipkart,5,"Love it, will buy again.",v1.5,General,0
+T2001,Personal Care,Electronics,R11185,2026-02-23,direct,3,Exceeded my expectations.,v3.7,Packaging,0
+T2001,Personal Care,Electronics,R11186,2026-01-18,flipkart,1,Decent for the price.,v2.7,Power,0
+T2001,Personal Care,Electronics,R11187,2026-03-15,amazon,4,"Average quality, nothing special.",v5.6,UI,0
+T2001,Personal Care,Electronics,R11188,2026-01-11,amazon,4,"Quality thodi weak hai, better ho sakti thi.",v5.3,Power,0
+T2001,Personal Care,Electronics,R11189,2026-03-24,direct,5,Doesn't work as advertised.,v4.1,UI,0
+T2001,Personal Care,Electronics,R11190,2026-01-28,flipkart,3,Avoid this product.,v1.1,Power,0
+T2001,Personal Care,Electronics,R11191,2026-02-25,amazon,1,"Amazing product, works like a charm!",v1.1,Packaging,0
+T2001,Personal Care,Electronics,R11192,2026-01-24,flipkart,4,Doesn't work as advertised.,v4.4,General,0
+T2001,Personal Care,Electronics,R11193,2026-03-14,direct,4,Waste of money.,v4.9,Packaging,0
+T2001,Personal Care,Electronics,R11194,2026-03-29,direct,3,Kam paise me badiya cheez hai.,v4.9,General,0
+T2001,Personal Care,Electronics,R11195,2026-01-12,flipkart,3,Kam paise me badiya cheez hai.,v2.4,Packaging,0
+T2001,Personal Care,Electronics,R11196,2026-03-07,flipkart,2,Best purchase this year!,v5.0,Packaging,0
+T2001,Personal Care,Electronics,R11197,2026-02-07,amazon,4,Terrible experience.,v3.9,Packaging,0
+T2001,Personal Care,Electronics,R11198,2026-03-25,direct,2,Terrible experience.,v2.9,UI,0
+T2001,Personal Care,Electronics,R11199,2026-01-19,flipkart,2,Doesn't work as advertised.,v2.8,General,0
+T2002,Home Care,Electronics,R11200,2026-03-03,flipkart,2,"Not bad, not great.",v3.4,Power,0
+T2002,Home Care,Electronics,R11201,2026-02-01,amazon,4,"Fine, but I've seen better.",v1.5,General,0
+T2002,Home Care,Electronics,R11202,2026-03-31,direct,3,"Poor quality, very disappointed.",v2.7,UI,0
+T2002,Home Care,Electronics,R11203,2026-04-05,direct,1,Best purchase this year!,v5.0,Packaging,0
+T2002,Home Care,Electronics,R11204,2026-02-05,direct,1,Terrible experience.,v4.1,UI,0
+T2002,Home Care,Electronics,R11205,2026-04-02,flipkart,1,"Delivery late thi, lekin product sahi hai.",v2.2,General,0
+T2002,Home Care,Electronics,R11206,2026-02-05,direct,4,Waste of money.,v3.5,General,0
+T2002,Home Care,Electronics,R11207,2026-03-26,amazon,3,"Amazing product, works like a charm!",v4.7,UI,0
+T2002,Home Care,Electronics,R11208,2026-04-11,amazon,2,"It's okay, does the job.",v5.8,Power,0
+T2002,Home Care,Electronics,R11209,2026-01-22,amazon,5,"Love it, will buy again.",v4.1,General,0
+T2002,Home Care,Electronics,R11210,2026-02-21,amazon,1,Doesn't work as advertised.,v2.6,UI,0
+T2002,Home Care,Electronics,R11211,2026-02-18,direct,2,Kam paise me badiya cheez hai.,v2.5,Power,0
+T2002,Home Care,Electronics,R11212,2026-01-11,direct,1,Avoid this product.,v5.8,UI,0
+T2002,Home Care,Electronics,R11213,2026-01-03,flipkart,3,"It's okay, does the job.",v5.3,Packaging,0
+T2002,Home Care,Electronics,R11214,2026-03-15,direct,4,Best purchase this year!,v4.6,Power,0
+T2002,Home Care,Electronics,R11215,2026-02-16,amazon,5,"Delivery late thi, lekin product sahi hai.",v4.9,UI,0
+T2002,Home Care,Electronics,R11216,2026-02-14,flipkart,1,"Fine, but I've seen better.",v2.8,UI,0
+T2002,Home Care,Electronics,R11217,2026-01-31,amazon,2,"Not bad, not great.",v2.8,General,0
+T2002,Home Care,Electronics,R11218,2026-03-07,flipkart,5,Very good quality.,v5.4,Packaging,0
+T2002,Home Care,Electronics,R11219,2026-04-08,direct,3,"Amazing product, works like a charm!",v3.9,UI,0
+T2002,Home Care,Electronics,R11220,2026-03-26,flipkart,1,Very good quality.,v2.8,UI,0
+T2002,Home Care,Electronics,R11221,2026-01-03,flipkart,1,Very good quality.,v1.3,Packaging,0
+T2002,Home Care,Electronics,R11222,2026-02-07,flipkart,2,"Amazing product, works like a charm!",v1.2,UI,0
+T2002,Home Care,Electronics,R11223,2026-03-19,flipkart,2,"Amazing product, works like a charm!",v2.0,Packaging,0
+T2002,Home Care,Electronics,R11224,2026-03-03,direct,4,"Amazing product, works like a charm!",v5.1,Power,0
+T2002,Home Care,Electronics,R11225,2026-01-21,flipkart,5,Very good quality.,v2.4,Power,0
+T2002,Home Care,Electronics,R11226,2026-03-31,amazon,3,Avoid this product.,v3.1,Packaging,0
+T2002,Home Care,Electronics,R11227,2026-03-30,flipkart,4,Great product!!! 😂🔥💯,v2.7,Packaging,0
+T2002,Home Care,Electronics,R11228,2026-02-05,flipkart,5,"Average quality, nothing special.",v5.9,Packaging,0
+T2002,Home Care,Electronics,R11229,2026-02-15,direct,3,Exceeded my expectations.,v3.8,General,0
+T2002,Home Care,Electronics,R11230,2026-03-23,flipkart,4,"Bilkul bakwas hai, mat lena.",v4.7,Power,0
+T2002,Home Care,Electronics,R11231,2026-03-03,flipkart,5,Avoid this product.,v4.4,Power,0
+T2002,Home Care,Electronics,R11232,2026-02-19,direct,5,"Amazing product, works like a charm!",v2.7,Packaging,0
+T2002,Home Care,Electronics,R11233,2026-01-07,direct,5,Avoid this product.,v3.2,UI,0
+T2002,Home Care,Electronics,R11234,2026-04-07,amazon,1,Best purchase this year!,v2.1,UI,0
+T2002,Home Care,Electronics,R11235,2026-03-09,flipkart,3,"Amazing product, works like a charm!",v4.6,General,0
+T2002,Home Care,Electronics,R11236,2026-03-27,flipkart,5,"Amazing product, works like a charm!",v4.3,Power,0
+T2002,Home Care,Electronics,R11237,2026-04-04,flipkart,5,Waste of money.,v3.6,Packaging,0
+T2002,Home Care,Electronics,R11238,2026-01-02,flipkart,1,Exceeded my expectations.,v2.6,Packaging,0
+T2002,Home Care,Electronics,R11239,2026-01-29,direct,4,Kam paise me badiya cheez hai.,v4.4,General,0
+T2002,Home Care,Electronics,R11240,2026-01-08,flipkart,2,Terrible experience.,v4.2,Packaging,0
+T2002,Home Care,Electronics,R11241,2026-03-31,flipkart,1,"It's okay, does the job.",v5.1,Packaging,0
+T2002,Home Care,Electronics,R11242,2026-03-25,amazon,4,"Not bad, not great.",v5.3,Power,0
+T2002,Home Care,Electronics,R11243,2026-02-23,flipkart,2,"Fine, but I've seen better.",v3.9,Power,0
+T2002,Home Care,Electronics,R11244,2026-01-03,amazon,5,"Not bad, not great.",v5.5,Power,0
+T2002,Home Care,Electronics,R11245,2026-03-26,flipkart,3,Terrible experience.,v5.0,General,0
+T2002,Home Care,Electronics,R11246,2026-02-07,direct,1,Waste of money.,v5.1,General,0
+T2002,Home Care,Electronics,R11247,2026-02-11,amazon,5,Best purchase this year!,v1.2,Power,0
+T2002,Home Care,Electronics,R11248,2026-01-20,amazon,4,"It's okay, does the job.",v3.6,UI,0
+T2002,Home Care,Electronics,R11249,2026-01-09,flipkart,1,"Not bad, not great.",v5.8,Power,0
+T2002,Home Care,Electronics,R11250,2026-01-14,direct,5,"Love it, will buy again.",v3.1,UI,0
+T2002,Home Care,Electronics,R11251,2026-02-09,direct,2,Best purchase this year!,v4.9,Packaging,0
+T2002,Home Care,Electronics,R11252,2026-03-30,flipkart,3,"Poor quality, very disappointed.",v5.9,UI,0
+T2002,Home Care,Electronics,R11253,2026-03-22,direct,4,Exceeded my expectations.,v3.7,General,0
+T2002,Home Care,Electronics,R11254,2026-04-06,flipkart,2,"Delivery late thi, lekin product sahi hai.",v4.0,General,0
+T2002,Home Care,Electronics,R11255,2026-01-23,direct,1,"Love it, will buy again.",v3.3,Packaging,0
+T2002,Home Care,Electronics,R11256,2026-02-16,flipkart,5,Kam paise me badiya cheez hai.,v3.3,UI,0
+T2002,Home Care,Electronics,R11257,2026-03-15,direct,4,Duplicate review text for testing.,v3.9,UI,0
+T2002,Home Care,Electronics,R11258,2026-01-20,flipkart,3,Exceeded my expectations.,v5.2,Power,0
+T2002,Home Care,Electronics,R11259,2026-04-05,flipkart,4,Doesn't work as advertised.,v2.7,Power,0
+T2002,Home Care,Electronics,R11260,2026-01-17,direct,1,"Fine, but I've seen better.",v1.4,General,0
+T2002,Home Care,Electronics,R11261,2026-02-11,amazon,3,"Quality thodi weak hai, better ho sakti thi.",v1.5,Power,0
+T2002,Home Care,Electronics,R11262,2026-03-08,amazon,2,Exceeded my expectations.,v2.9,Power,0
+T2002,Home Care,Electronics,R11263,2026-01-09,flipkart,4,Great product!!! 😂🔥💯,v3.1,General,0
+T2002,Home Care,Electronics,R11264,2026-04-02,direct,2,"Fine, but I've seen better.",v5.8,General,0
+T2002,Home Care,Electronics,R11265,2026-01-20,flipkart,2,Very good quality.,v1.0,General,0
+T2002,Home Care,Electronics,R11266,2026-02-15,amazon,2,Exceeded my expectations.,v2.8,Packaging,0
+T2002,Home Care,Electronics,R11267,2026-03-16,direct,2,Waste of money.,v5.7,Packaging,0
+T2002,Home Care,Electronics,R11268,2026-02-06,direct,4,"Love it, will buy again.",v2.3,Power,0
+T2002,Home Care,Electronics,R11269,2026-01-12,amazon,2,"Average quality, nothing special.",v4.7,General,0
+T2002,Home Care,Electronics,R11270,2026-02-10,amazon,2,Best purchase this year!,v2.4,General,0
+T2002,Home Care,Electronics,R11271,2026-02-06,amazon,5,"Amazing product, works like a charm!",v4.3,Packaging,0
+T2002,Home Care,Electronics,R11272,2026-03-05,flipkart,4,"Amazing product, works like a charm!",v3.4,UI,0
+T2002,Home Care,Electronics,R11273,2026-03-08,amazon,1,Exceeded my expectations.,v4.7,Packaging,0
+T2002,Home Care,Electronics,R11274,2026-03-09,direct,4,Terrible experience.,v3.4,Power,0
+T2002,Home Care,Electronics,R11275,2026-03-22,flipkart,4,"Amazing product, works like a charm!",v4.5,General,0
+T2002,Home Care,Electronics,R11276,2026-01-05,amazon,5,Kam paise me badiya cheez hai.,v2.0,General,0
+T2002,Home Care,Electronics,R11277,2026-02-07,flipkart,4,"Boht accha product hai, maza aa gaya.",v2.0,Packaging,0
+T2002,Home Care,Electronics,R11278,2026-01-27,direct,5,"Amazing product, works like a charm!",v1.5,Packaging,0
+T2002,Home Care,Electronics,R11279,2026-03-03,direct,2,"Not bad, not great.",v3.9,UI,0
+T2002,Home Care,Electronics,R11280,2026-03-02,amazon,4,Avoid this product.,v4.3,Packaging,0
+T2002,Home Care,Electronics,R11281,2026-01-25,flipkart,1,"Amazing product, works like a charm!",v2.4,Power,0
+T2002,Home Care,Electronics,R11282,2026-01-10,direct,4,Exceeded my expectations.,v3.1,UI,0
+T2002,Home Care,Electronics,R11283,2026-03-01,direct,1,"Bilkul bakwas hai, mat lena.",v2.1,Packaging,0
+T2002,Home Care,Electronics,R11284,2026-03-05,direct,4,Doesn't work as advertised.,v2.5,UI,0
+T2002,Home Care,Electronics,R11285,2026-01-08,amazon,1,"It's okay, does the job.",v1.1,Packaging,0
+T2002,Home Care,Electronics,R11286,2026-01-15,amazon,2,Very good quality.,v1.3,General,0
+T2002,Home Care,Electronics,R11287,2026-03-24,direct,1,"Fine, but I've seen better.",v3.1,Power,0
+T2002,Home Care,Electronics,R11288,2026-03-02,flipkart,5,Very good quality.,v5.3,UI,0
+T2002,Home Care,Electronics,R11289,2026-03-17,direct,4,"It's okay, does the job.",v1.3,General,0
+T2002,Home Care,Electronics,R11290,2026-02-16,flipkart,2,Doesn't work as advertised.,v1.9,UI,0
+T2002,Home Care,Electronics,R11291,2026-01-18,direct,4,"Amazing product, works like a charm!",v5.3,Packaging,0
+T2002,Home Care,Electronics,R11292,2026-03-19,flipkart,2,Buy now limited offer click here http://spam.example,v1.3,Packaging,0
+T2002,Home Care,Electronics,R11293,2026-01-19,amazon,5,Doesn't work as advertised.,v4.4,Packaging,0
+T2002,Home Care,Electronics,R11294,2026-02-16,flipkart,5,"Bilkul bakwas hai, mat lena.",v5.6,UI,0
+T2002,Home Care,Electronics,R11295,2026-04-08,amazon,3,"Amazing product, works like a charm!",v3.6,General,0
+T2002,Home Care,Electronics,R11296,2026-02-20,flipkart,2,"Love it, will buy again.",v5.1,Packaging,0
+T2002,Home Care,Electronics,R11297,2026-03-10,flipkart,3,Kam paise me badiya cheez hai.,v1.5,UI,0
+T2002,Home Care,Electronics,R11298,2026-03-12,direct,2,Terrible experience.,v2.4,Power,0
+T2002,Home Care,Electronics,R11299,2026-01-31,flipkart,2,Very good quality.,v5.4,Power,0
+T2002,Home Care,Electronics,R11300,2026-03-24,flipkart,1,"Amazing product, works like a charm!",v1.2,Power,0
+T2002,Home Care,Electronics,R11301,2026-02-18,amazon,2,Doesn't work as advertised.,v4.3,Power,0
+T2002,Home Care,Electronics,R11302,2026-03-09,amazon,1,Best purchase this year!,v4.1,Packaging,0
+T2002,Home Care,Electronics,R11303,2026-01-05,direct,5,Waste of money.,v1.9,General,0
+T2002,Home Care,Electronics,R11304,2026-03-22,amazon,1,"Bilkul bakwas hai, mat lena.",v3.5,Power,0
+T2002,Home Care,Electronics,R11305,2026-03-09,flipkart,5,Kam paise me badiya cheez hai.,v2.2,General,0
+T2002,Home Care,Electronics,R11306,2026-04-07,flipkart,3,Avoid this product.,v5.2,Power,0
+T2002,Home Care,Electronics,R11307,2026-03-20,direct,4,Decent for the price.,v2.6,Power,0
+T2002,Home Care,Electronics,R11308,2026-01-12,amazon,2,Waste of money.,v2.5,Packaging,0
+T2002,Home Care,Electronics,R11309,2026-02-01,flipkart,4,Exceeded my expectations.,v3.3,Packaging,0
+T2002,Home Care,Electronics,R11310,2026-04-01,direct,2,Buy now limited offer click here http://spam.example,v4.7,General,0
+T2002,Home Care,Electronics,R11311,2026-03-06,amazon,5,Best purchase this year!,v2.1,UI,0
+T2002,Home Care,Electronics,R11312,2026-03-06,flipkart,4,Waste of money.,v5.0,UI,0
+T2002,Home Care,Electronics,R11313,2026-01-25,direct,3,"Poor quality, very disappointed.",v5.4,UI,0
+T2002,Home Care,Electronics,R11314,2026-03-09,direct,1,Terrible experience.,v2.5,Packaging,0
+T2002,Home Care,Electronics,R11315,2026-03-11,flipkart,2,Exceeded my expectations.,v5.2,UI,0
+T2002,Home Care,Electronics,R11316,2026-01-22,direct,5,Avoid this product.,v5.0,Packaging,0
+T2002,Home Care,Electronics,R11317,2026-01-04,amazon,4,Very good quality.,v1.5,General,0
+T2002,Home Care,Electronics,R11318,2026-03-03,direct,3,Very good quality.,v1.1,General,0
+T2002,Home Care,Electronics,R11319,2026-03-28,direct,5,"Amazing product, works like a charm!",v5.3,Packaging,0
+T2002,Home Care,Electronics,R11320,2026-03-28,direct,4,Very good quality.,v3.7,Power,0
+T2002,Home Care,Electronics,R11321,2026-04-06,flipkart,3,"Amazing product, works like a charm!",v2.8,Power,0
+T2002,Home Care,Electronics,R11322,2026-04-10,direct,2,"Amazing product, works like a charm!",v5.9,Packaging,0
+T2002,Home Care,Electronics,R11323,2026-02-19,amazon,1,"Fine, but I've seen better.",v2.7,General,0
+T2002,Home Care,Electronics,R11324,2026-02-16,flipkart,2,Best purchase this year!,v5.6,UI,0
+T2002,Home Care,Electronics,R11325,2026-01-30,flipkart,1,"Love it, will buy again.",v2.8,General,0
+T2002,Home Care,Electronics,R11326,2026-02-28,flipkart,2,"Average quality, nothing special.",v4.8,Power,0
+T2002,Home Care,Electronics,R11327,2026-03-15,direct,2,"Love it, will buy again.",v5.8,Power,0
+T2002,Home Care,Electronics,R11328,2026-01-06,direct,4,"Bilkul bakwas hai, mat lena.",v4.9,Power,0
+T2002,Home Care,Electronics,R11329,2026-01-08,flipkart,5,Doesn't work as advertised.,v4.1,Packaging,0
+T2002,Home Care,Electronics,R11330,2026-01-14,flipkart,5,"It's okay, does the job.",v1.6,Power,0
+T2002,Home Care,Electronics,R11331,2026-01-22,direct,3,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v2.6,General,1
+T2002,Home Care,Electronics,R11332,2026-01-29,direct,4,"Delivery late thi, lekin product sahi hai.",v2.4,Packaging,0
+T2002,Home Care,Electronics,R11333,2026-01-21,flipkart,4,"Amazing product, works like a charm!",v2.3,UI,0
+T2002,Home Care,Electronics,R11334,2026-01-07,direct,4,Kam paise me badiya cheez hai.,v5.6,UI,0
+T2002,Home Care,Electronics,R11335,2026-03-20,direct,5,"Bilkul bakwas hai, mat lena.",v3.0,UI,0
+T2002,Home Care,Electronics,R11336,2026-03-29,flipkart,3,Very good quality.,v4.6,Power,0
+T2002,Home Care,Electronics,R11337,2026-04-03,amazon,5,"Poor quality, very disappointed.",v5.9,UI,0
+T2002,Home Care,Electronics,R11338,2026-02-28,amazon,3,"Amazing product, works like a charm!",v4.5,Power,0
+T2002,Home Care,Electronics,R11339,2026-02-09,amazon,3,Decent for the price.,v5.9,UI,0
+T2002,Home Care,Electronics,R11340,2026-01-29,amazon,2,"Love it, will buy again.",v2.0,Power,0
+T2002,Home Care,Electronics,R11341,2026-04-11,direct,5,"Amazing product, works like a charm!",v1.7,Power,0
+T2002,Home Care,Electronics,R11342,2026-01-21,amazon,3,Avoid this product.,v4.9,General,0
+T2002,Home Care,Electronics,R11343,2026-01-25,direct,2,Waste of money.,v5.8,Packaging,0
+T2002,Home Care,Electronics,R11344,2026-03-10,amazon,4,"Not bad, not great.",v2.6,Packaging,0
+T2002,Home Care,Electronics,R11345,2026-03-11,direct,5,Very good quality.,v1.6,General,0
+T2002,Home Care,Electronics,R11346,2026-03-11,flipkart,3,Avoid this product.,v1.9,General,0
+T2002,Home Care,Electronics,R11347,2026-02-12,direct,4,"Love it, will buy again.",v2.1,General,0
+T2002,Home Care,Electronics,R11348,2026-01-04,direct,3,"Bilkul bakwas hai, mat lena.",v3.6,Power,0
+T2002,Home Care,Electronics,R11349,2026-01-24,flipkart,3,"Love it, will buy again.",v2.2,Power,0
+T2002,Home Care,Electronics,R11350,2026-03-27,direct,1,"Amazing product, works like a charm!",v3.8,Packaging,0
+T2002,Home Care,Electronics,R11351,2026-04-10,flipkart,5,Very good quality.,v1.5,Power,0
+T2002,Home Care,Electronics,R11352,2026-02-05,direct,3,Decent for the price.,v1.9,Packaging,0
+T2002,Home Care,Electronics,R11353,2026-01-17,flipkart,3,"Love it, will buy again.",v4.7,UI,0
+T2002,Home Care,Electronics,R11354,2026-02-07,amazon,3,"Love it, will buy again.",v5.2,General,0
+T2002,Home Care,Electronics,R11355,2026-01-24,direct,5,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v1.7,Power,1
+T2002,Home Care,Electronics,R11356,2026-01-13,amazon,1,Best purchase this year!,v5.5,General,0
+T2002,Home Care,Electronics,R11357,2026-03-08,direct,5,"Poor quality, very disappointed.",v1.6,Power,0
+T2002,Home Care,Electronics,R11358,2026-03-02,amazon,1,Exceeded my expectations.,v1.2,Power,0
+T2002,Home Care,Electronics,R11359,2026-01-20,direct,1,"Amazing product, works like a charm!",v3.0,UI,0
+T2002,Home Care,Electronics,R11360,2026-01-04,flipkart,2,"Poor quality, very disappointed.",v4.0,Power,0
+T2002,Home Care,Electronics,R11361,2026-03-16,amazon,5,Terrible experience.,v3.5,Packaging,0
+T2002,Home Care,Electronics,R11362,2026-02-07,direct,2,"Not bad, not great.",v2.6,Power,0
+T2002,Home Care,Electronics,R11363,2026-03-26,amazon,2,"Poor quality, very disappointed.",v5.2,Packaging,0
+T2002,Home Care,Electronics,R11364,2026-02-19,flipkart,1,Doesn't work as advertised.,v2.7,Power,0
+T2002,Home Care,Electronics,R11365,2026-02-19,direct,3,Exceeded my expectations.,v2.2,General,0
+T2002,Home Care,Electronics,R11366,2026-03-13,amazon,5,Best purchase this year!,v4.7,Power,0
+T2002,Home Care,Electronics,R11367,2026-02-19,flipkart,1,Very good quality.,v3.8,General,0
+T2002,Home Care,Electronics,R11368,2026-01-30,direct,2,"It's okay, does the job.",v5.3,Power,0
+T2002,Home Care,Electronics,R11369,2026-02-18,amazon,3,"Not bad, not great.",v1.3,UI,0
+T2002,Home Care,Electronics,R11370,2026-03-27,amazon,4,Doesn't work as advertised.,v5.2,General,0
+T2002,Home Care,Electronics,R11371,2026-01-06,amazon,4,Doesn't work as advertised.,v2.7,General,0
+T2002,Home Care,Electronics,R11372,2026-02-11,flipkart,2,Exceeded my expectations.,v3.7,UI,0
+T2002,Home Care,Electronics,R11373,2026-03-26,amazon,4,Avoid this product.,v3.8,UI,0
+T2002,Home Care,Electronics,R11374,2026-03-15,flipkart,2,Kam paise me badiya cheez hai.,v4.4,UI,0
+T2002,Home Care,Electronics,R11375,2026-03-11,direct,4,"Amazing product, works like a charm!",v3.9,General,0
+T2002,Home Care,Electronics,R11376,2026-02-01,amazon,2,"Boht accha product hai, maza aa gaya.",v5.3,UI,0
+T2002,Home Care,Electronics,R11377,2026-01-22,flipkart,1,Exceeded my expectations.,v5.2,Power,0
+T2002,Home Care,Electronics,R11378,2026-04-02,flipkart,3,"Love it, will buy again.",v3.1,UI,0
+T2002,Home Care,Electronics,R11379,2026-01-29,flipkart,5,Terrible experience.,v2.1,Power,0
+T2002,Home Care,Electronics,R11380,2026-01-07,flipkart,1,Avoid this product.,v5.6,General,0
+T2002,Home Care,Electronics,R11381,2026-03-22,direct,5,"Bilkul bakwas hai, mat lena.",v1.0,Packaging,0
+T2002,Home Care,Electronics,R11382,2026-03-04,direct,2,"Amazing product, works like a charm!",v4.4,Packaging,0
+T2002,Home Care,Electronics,R11383,2026-01-02,direct,2,"Not bad, not great.",v2.2,General,0
+T2002,Home Care,Electronics,R11384,2026-03-23,flipkart,5,"Bilkul bakwas hai, mat lena.",v4.2,UI,0
+T2002,Home Care,Electronics,R11385,2026-04-03,direct,2,Waste of money.,v4.4,Power,0
+T2002,Home Care,Electronics,R11386,2026-01-04,flipkart,3,"Poor quality, very disappointed.",v4.5,General,0
+T2002,Home Care,Electronics,R11387,2026-01-23,direct,4,"Oh, I just LOVE when it breaks down after two days. Fantastic.",v3.2,General,1
+T2002,Home Care,Electronics,R11388,2026-01-01,direct,1,"Quality thodi weak hai, better ho sakti thi.",v2.3,Packaging,0
+T2002,Home Care,Electronics,R11389,2026-01-29,flipkart,3,"Not bad, not great.",v4.9,UI,0
+T2002,Home Care,Electronics,R11390,2026-01-31,direct,2,"Fine, but I've seen better.",v4.1,General,0
+T2002,Home Care,Electronics,R11391,2026-04-09,amazon,2,"Amazing product, works like a charm!",v1.8,UI,0
+T2002,Home Care,Electronics,R11392,2026-01-02,direct,1,"Love it, will buy again.",v4.5,Packaging,0
+T2002,Home Care,Electronics,R11393,2026-03-15,direct,5,"Love it, will buy again.",v1.3,General,0
+T2002,Home Care,Electronics,R11394,2026-03-31,amazon,3,Exceeded my expectations.,v1.7,Power,0
+T2002,Home Care,Electronics,R11395,2026-02-28,amazon,4,Avoid this product.,v1.5,Power,0
+T2002,Home Care,Electronics,R11396,2026-01-15,direct,2,Doesn't work as advertised.,v1.5,Packaging,0
+T2002,Home Care,Electronics,R11397,2026-02-28,direct,1,"Bilkul bakwas hai, mat lena.",v1.7,Power,0
+T2002,Home Care,Electronics,R11398,2026-02-06,flipkart,5,Avoid this product.,v4.5,UI,0
+T2002,Home Care,Electronics,R11399,2026-03-18,direct,4,"Poor quality, very disappointed.",v3.0,UI,0

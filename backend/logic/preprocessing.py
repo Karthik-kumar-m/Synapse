@@ -84,53 +84,15 @@ HINGLISH_MAP: Dict[str, str] = {
     "baje": "bad",
 }
 
-INDIC_SCRIPT_MAP: Dict[str, Dict[str, str]] = {
-    "hi": {
-        "अच्छा": "good",
-        "बढ़िया": "good",
-        "शानदार": "excellent",
-        "खराब": "bad",
-        "बेकार": "useless",
-        "धीमा": "slow",
-        "तेज़": "fast",
-        "महंगा": "expensive",
-        "सस्ता": "cheap",
-        "सेवा": "service",
-    },
-    "ta": {
-        "நல்ல": "good",
-        "சிறப்பு": "excellent",
-        "கெட்ட": "bad",
-        "மோசம்": "bad",
-        "வேகம்": "speed",
-        "மெதுவாக": "slow",
-        "விலை": "price",
-        "சேவை": "service",
-    },
-    "kn": {
-        "ಒಳ್ಳೆಯ": "good",
-        "ಚೆನ್ನಾಗಿದೆ": "good",
-        "ಕೆಟ್ಟ": "bad",
-        "ವೇಗ": "speed",
-        "ನಿಧಾನ": "slow",
-        "ಸೇವೆ": "service",
-        "ಬೆಲೆ": "price",
-    },
-}
-
-INDIC_SENTIMENT_LEXICON: Dict[str, Dict[str, set[str]]] = {
-    "hi": {
-        "positive": {"अच्छा", "बढ़िया", "शानदार", "मस्त", "सही"},
-        "negative": {"खराब", "बेकार", "बुरा", "धीमा", "महंगा"},
-    },
-    "ta": {
-        "positive": {"நல்ல", "சிறப்பு", "அருமை", "சூப்பர்"},
-        "negative": {"கெட்ட", "மோசம்", "பிரச்சனை", "மெதுவாக"},
-    },
-    "kn": {
-        "positive": {"ಒಳ್ಳೆಯ", "ಚೆನ್ನಾಗಿದೆ", "ಉತ್ತಮ"},
-        "negative": {"ಕೆಟ್ಟ", "ಸಮಸ್ಯೆ", "ನಿಧಾನ"},
-    },
+HINGLISH_PHRASE_MAP: Dict[str, str] = {
+    "paisa vasool": "great value",
+    "bilkul bekar": "completely useless",
+    "bahut accha": "very good",
+    "bahut acha": "very good",
+    "bahut kharab": "very bad",
+    "time pe delivery": "on time delivery",
+    "paise ki barbadi": "waste of money",
+    "kaam nahi karta": "does not work",
 }
 
 
@@ -148,14 +110,23 @@ TYPO_MAP: Dict[str, str] = {
 
 def normalize_hinglish(text: str) -> str:
     """Tokenize by whitespace, map tokens via HINGLISH_MAP (case-insensitive)."""
-    tokens = text.split()
+    normalized_text = text
+    for phrase, replacement in HINGLISH_PHRASE_MAP.items():
+        normalized_text = re.sub(rf"\b{re.escape(phrase)}\b", replacement, normalized_text, flags=re.IGNORECASE)
+
+    tokens = normalized_text.split()
     normalized = []
     for token in tokens:
-        lower = token.lower()
-        lower = TYPO_MAP.get(lower, lower)
+        # Preserve punctuation while normalizing token core.
+        leading = re.match(r"^\W*", token).group(0)
+        trailing = re.search(r"\W*$", token).group(0)
+        core = re.sub(r"^\W+|\W+$", "", token.lower())
+
+        core = TYPO_MAP.get(core, core)
         # Reduce over-elongated tokens (e.g., gooood -> good)
-        lower = re.sub(r"(.)\\1{2,}", r"\\1\\1", lower)
-        normalized.append(HINGLISH_MAP.get(lower, lower))
+        core = re.sub(r"(.)\1{2,}", r"\1\1", core)
+        mapped = HINGLISH_MAP.get(core, core)
+        normalized.append(f"{leading}{mapped}{trailing}")
     return " ".join(normalized)
 
 
@@ -192,43 +163,23 @@ _WHITESPACE_PATTERN = re.compile(r"\s+")
 
 
 def detect_script_language(text: str) -> str | None:
-    for char in text:
-        code = ord(char)
-        if 0x0900 <= code <= 0x097F:
-            return "hi"
-        if 0x0B80 <= code <= 0x0BFF:
-            return "ta"
-        if 0x0C80 <= code <= 0x0CFF:
-            return "kn"
     return None
 
 
 def normalize_indic_script(text: str) -> str:
-    normalized = text
-    for language_map in INDIC_SCRIPT_MAP.values():
-        for original, replacement in language_map.items():
-            normalized = normalized.replace(original, replacement)
-    return normalized
+    return text
 
 
 def _compute_indic_sentiment(text: str, language_detected: str | None) -> float:
-    if not language_detected:
-        return 0.0
-    lexicon = INDIC_SENTIMENT_LEXICON.get(language_detected)
-    if not lexicon:
-        return 0.0
+    return 0.0
 
-    tokens = re.findall(r"\w+", text.lower(), flags=re.UNICODE)
+
+def _is_hinglish(raw_text: str) -> bool:
+    tokens = re.findall(r"[a-zA-Z]+", raw_text.lower())
     if not tokens:
-        return 0.0
-
-    positive = sum(1 for token in tokens if token in lexicon["positive"])
-    negative = sum(1 for token in tokens if token in lexicon["negative"])
-    if positive == 0 and negative == 0:
-        return 0.0
-
-    raw = (positive - negative) / max(positive + negative, 1)
-    return max(-1.0, min(1.0, raw))
+        return False
+    match_count = sum(1 for token in tokens if token in HINGLISH_MAP or token in TYPO_MAP)
+    return match_count >= 1
 
 
 def clean_text(text: str) -> str:
@@ -255,28 +206,24 @@ def normalize_review(raw_text: str) -> dict:
         textblob_subjectivity, final_sentiment_score, overall_sentiment
     """
     emoji_sentiment = extract_emoji_sentiment(raw_text)
-    script_language = detect_script_language(raw_text)
-    hinglish_normalized = normalize_hinglish(raw_text)
-    script_normalized = normalize_indic_script(hinglish_normalized)
-    cleaned = clean_text(script_normalized)
+    script_normalized = normalize_indic_script(raw_text)
+    hinglish_normalized = normalize_hinglish(script_normalized)
+    cleaned = clean_text(hinglish_normalized)
 
     try:
-        language_detected = detect(cleaned) if len(cleaned.split()) >= 3 else (script_language or "en")
+        language_detected = detect(cleaned) if len(cleaned.split()) >= 3 else "en"
     except LangDetectException:
-        language_detected = script_language or "en"
+        language_detected = "en"
 
-    if script_language in {"hi", "ta", "kn"}:
-        language_detected = script_language
+    if _is_hinglish(raw_text):
+        language_detected = "hinglish"
+    elif language_detected != "en":
+        language_detected = "other"
 
     blob = TextBlob(cleaned)
     textblob_polarity: float = blob.sentiment.polarity
     textblob_subjectivity: float = blob.sentiment.subjectivity
-    indic_sentiment = _compute_indic_sentiment(raw_text, language_detected)
-
-    if indic_sentiment != 0.0:
-        final_score = round(0.55 * textblob_polarity + 0.25 * emoji_sentiment + 0.2 * indic_sentiment, 4)
-    else:
-        final_score = round(0.7 * textblob_polarity + 0.3 * emoji_sentiment, 4)
+    final_score = round(0.7 * textblob_polarity + 0.3 * emoji_sentiment, 4)
 
     if final_score > 0.1:
         overall_sentiment = "positive"
@@ -287,6 +234,7 @@ def normalize_review(raw_text: str) -> dict:
 
     return {
         "cleaned_text": cleaned,
+        "translated_text": hinglish_normalized,
         "language_detected": language_detected,
         "emoji_sentiment": emoji_sentiment,
         "textblob_polarity": textblob_polarity,
